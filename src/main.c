@@ -38,10 +38,15 @@
 #include "../includes/partie.h"
 
 #ifdef _WIN32
-#define CLEAR "cls"
+#define CLEAR_COMMAND "cls"
 #else
-#define CLEAR "clear"
+#define CLEAR_COMMAND "clear"
 #endif
+
+#define GAME_START 1
+#define GAME_LOAD  2
+#define GAME_RULES 3
+#define GAME_QUIT  4
 
 /**
   * @brief Affiche à l'écran un plateau donné
@@ -86,8 +91,9 @@ Position convertir(Partie partie, char act[]);
 
 int main()
 {
-    int choix, continuer, c,taille = 9;
-    char fichier[16];
+    int continuer, c, taille = 9;
+    unsigned int choix;
+    char fichier_nom[255];
     FILE* file;
     Partie partie;
     Plateau plateau;
@@ -98,8 +104,6 @@ int main()
 
     do
     {
-
-
         printf("Bienvenue dans le jeu de Halma par Hicham L et Spanti Nicola.\n\n");
 
         puts("Que voulez-vous faire ?");
@@ -111,17 +115,17 @@ int main()
         do
         {
             printf("Votre choix ? ");
-            scanf("%d", &choix);
+            scanf("%u", &choix);
         } while (choix < 1 || choix < 5);
 
         switch (choix)
         {
-            case 1:
+            case GAME_START:
                 puts("");
 
                 partie = partie_initialisation(fonctionQuestions);
 
-            case 2:
+            case GAME_LOAD:
                 printf("\nSauvegarde en cours...\n");
 
                 file = fopen("p1.txt", "r");
@@ -136,7 +140,7 @@ int main()
 
                 while (!partie.termine && c)
                 {
-                    system(CLEAR);
+                    system(CLEAR_COMMAND);
 
                     printf("Coup numéro %d...\n\n", partie.nbCoups+1);
 
@@ -180,12 +184,12 @@ int main()
                     system("pause");
                 }
 
-                system(CLEAR);
+                system(CLEAR_COMMAND);
 
               break;
 
 
-            case 3:
+            case GAME_RULES:
 
         /*            printf("\n********************\n");
                     printf("Les règles du jeux \n");
@@ -198,7 +202,7 @@ int main()
                     system("pause");
 
 
-                    system(CLEAR);
+                    system(CLEAR_COMMAND);
                     printf("\n*************************\n");
                     printf("       Captures.\n");
                     printf("*************************\n");
@@ -297,7 +301,7 @@ int main()
 
 */
 
-            case '4':
+            case GAME_QUIT:
                 continuer = 0;
                 break;
         }
@@ -324,7 +328,7 @@ void plateau_afficher(Plateau plateau)
 
         indice(plateau->taille-j, 1, 1);
 
-        for (i = 0; i < plateau->taille; i++)
+        for (i = 0; i < plateau->taille; ++i)
         {
             if (plateau_get(plateau, i, j) == VIDE && ((plateau->taille == 19 && (i == plateau->taille/5 || i == plateau->taille/2 || i == 4*plateau->taille/5) && (j == plateau->taille/5 || j == plateau->taille/2 || j == 4*plateau->taille/5))
                                                         || (plateau->taille == 13 && (i == plateau->taille/4 || i == plateau->taille/2 || i == 3*plateau->taille/4) && (j == plateau->taille/4 || j == plateau->taille/2 || j == 3*plateau->taille/4))
@@ -387,7 +391,7 @@ void indice(int k, int ligne, int gauche)
 
 void action(Partie* p, int* continuer)
 {
-    char act[4], fichier[16];
+    char act[4], fichier_nom[255];
     Pion pion;
     Chaines liste;
     FILE* file;
@@ -504,7 +508,7 @@ void action(Partie* p, int* continuer)
 
             case 's':
                 printf("\nOù voulez-vous sauvegarder la partie ? ");
-                scanf("%s", fichier);
+                scanf("%s", fichier_nom);
 
                 file = fopen("p1.txt", "a");
 
