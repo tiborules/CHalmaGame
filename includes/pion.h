@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file pion.c
   *
   * Fichier d'en-tête du type abstrait Pion
   *
-  * */
+  */
 
 #ifndef PION_H
 #define PION_H
@@ -28,7 +28,7 @@
   * @var La couleur du pion
   * @var La position du pion
   *
-  * */
+  */
 
 typedef struct pion
 {

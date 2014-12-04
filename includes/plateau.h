@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file plateau.c
   *
   * Fichier d'en-tête du type abstrait Plateau
   *
-  * */
+  */
 
 #ifndef PLATEAU_H
 #define PLATEAU_H
@@ -28,7 +28,7 @@
   * @var La taille du plateau
   * @var Un tableau d'une dimension stockant la couleur de chaque case du plateau
   *
-  * */
+  */
 
 typedef struct structure_plateau
 {
@@ -41,7 +41,7 @@ typedef struct structure_plateau
   *
   * Plateau est un pointeur sur structure_plateau
   *
-  * */
+  */
 
 typedef structure_plateau* Plateau;
 
@@ -56,7 +56,7 @@ typedef structure_plateau* Plateau;
   * @param La taille du plateau
   * @return Le plateau correctement initialisé
   *
-  * */
+  */
 
 Plateau plateau_creer(int taille);
 
@@ -65,7 +65,7 @@ Plateau plateau_creer(int taille);
   *
   * @param Le plateau à détruire
   *
-  * */
+  */
 
 void plateau_detruire(Plateau plateau);
 
@@ -77,7 +77,7 @@ void plateau_detruire(Plateau plateau);
   * @param L'ordonnée de la position
   * @return La couleur à la position voulue
   *
-  * */
+  */
 
 Couleur plateau_get(Plateau plateau, int i, int j);
 
@@ -89,7 +89,7 @@ Couleur plateau_get(Plateau plateau, int i, int j);
   * @param L'ordonnée de la position
   * @param La couleur à mettre sur la case
   *
-  * */
+  */
 
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur);
 
@@ -100,7 +100,7 @@ void plateau_set(Plateau plateau, int i, int j, Couleur couleur);
   * @param La position du pion
   * @return La chaine complète
   *
-  * */
+  */
 
 Chaine plateau_determiner_chaine(Plateau plateau, Position pos);
 
@@ -110,7 +110,7 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos);
   * @param Le plateau à modifier
   * @param La chaine à capturer
   *
-  * */
+  */
 
 void plateau_realiser_capture(Plateau plateau, Chaine chaine);
 
@@ -121,7 +121,7 @@ void plateau_realiser_capture(Plateau plateau, Chaine chaine);
   * @param Le second plateau à tester
   * @return 1 si les plateaux sont identiques, 0 sinon
   *
-  * */
+  */
 
 int plateau_est_identique(Plateau plateau1, Plateau plateau2);
 
@@ -132,7 +132,7 @@ int plateau_est_identique(Plateau plateau1, Plateau plateau2);
   * @param Le plateau destination
   * @return 1 si la copie est réussie, 0 sinon
   *
-  * */
+  */
 
 int plateau_copie(Plateau from, Plateau to);
 
@@ -143,7 +143,7 @@ int plateau_copie(Plateau from, Plateau to);
   * @param Le plateau courant
   * @return La liste des chaines entourant le territoire
   *
-  * */
+  */
 
 Chaines plateau_entoure_un_territoire(Territoire territoire, Plateau plateau);
 
@@ -154,7 +154,7 @@ Chaines plateau_entoure_un_territoire(Territoire territoire, Plateau plateau);
   * @param Le fichier où sauvegarder
   * @return 1 si la sauvegarde est réussie, 0 sinon
   *
-  * */
+  */
 
 int plateau_sauvegarde(Plateau plateau, FILE* fichier);
 
@@ -164,7 +164,7 @@ int plateau_sauvegarde(Plateau plateau, FILE* fichier);
   * @param Le fichier à partir duquel charger
   * @return Le plateau chargé
   *
-  * */
+  */
 
 Plateau plateau_chargement(FILE* fichier);
 
@@ -176,7 +176,7 @@ Plateau plateau_chargement(FILE* fichier);
   * @param Un pointeur sur le booléen à mettre à 1 si le coup est valide, 0 sinon
   * @return La liste des chaines capturées
   *
-  * */
+  */
 
 Chaines capture_chaines(Plateau plateau, Pion pion, int* valide);
 

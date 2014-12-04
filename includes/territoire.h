@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file territoire.c
   *
   * Fichier d'en-tête du type abstrait Territoire
   *
-  * */
+  */
 
 #ifndef TERRITOIRE_H
 #define TERRITOIRE_H
@@ -25,7 +25,7 @@
   *
   * Territoire est un pointeur sur ensemble_colore
   *
-  * */
+  */
 
 typedef ensemble_colore* Territoire;
 
@@ -37,7 +37,7 @@ typedef ensemble_colore* Territoire;
   * @param La couleur du territoire
   * @return Le territoire correctement alloué
   *
-  * */
+  */
 
 Territoire territoire_creer(Couleur couleur);
 
@@ -46,7 +46,7 @@ Territoire territoire_creer(Couleur couleur);
   *
   * @param Le territoire à détruire
   *
-  * */
+  */
 
 void territoire_detruire(Territoire liste);
 
@@ -56,7 +56,7 @@ void territoire_detruire(Territoire liste);
   * @param Le territoire à tester
   * @return 1 si le territoire est vide, 0 s'il ne l'est pas
   *
-  * */
+  */
 
 int territoire_vide(Territoire liste);
 
@@ -66,7 +66,7 @@ int territoire_vide(Territoire liste);
   * @param La position à ajouter
   * @param Le territoire auquel on veut ajouter une position
   *
-  * */
+  */
 
 void territoire_ajouter(Position position, Territoire liste);
 
@@ -77,7 +77,7 @@ void territoire_ajouter(Position position, Territoire liste);
   * @param Le territoire à tester
   * @return 1 si la position appartient au territoire, 0 sinon
   *
-  * */
+  */
 
 int territoire_appartient(Position position, Territoire liste);
 
@@ -88,7 +88,7 @@ int territoire_appartient(Position position, Territoire liste);
   * @param Le second territoire à tester
   * @return 1 si les territoires sont identiques, 0 sinon
   *
-  * */
+  */
 
 int territoire_est_identique(Territoire territoire1, Territoire territoire2);
 
@@ -97,7 +97,7 @@ int territoire_est_identique(Territoire territoire1, Territoire territoire2);
   *
   * @param Le territoire à traiter
   *
-  * */
+  */
 
 void territoire_tete(Territoire liste);
 
@@ -107,7 +107,7 @@ void territoire_tete(Territoire liste);
   * @param Le territoire à traiter
   * @return 1 s'il y'a bien un suivant, 0 sinon
   *
-  * */
+  */
 
 int territoire_suivant(Territoire liste);
 
@@ -117,7 +117,7 @@ int territoire_suivant(Territoire liste);
   * @param Le territoire à traiter
   * @return Un pointeur sur l'élément courant du territoire
   *
-  * */
+  */
 
 element_position* territoire_courant(Territoire liste);
 
@@ -128,7 +128,7 @@ element_position* territoire_courant(Territoire liste);
   * @param La position de la case
   * @return Le territoire auquel appartient la position
   *
-  * */
+  */
 
 Territoire determine_territoire(Plateau plateau, Position pos);
 

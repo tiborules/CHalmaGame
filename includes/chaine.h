@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file chaine.c
   *
   * Fichier d'en-tête du type abstrait Chaine
   *
-  * */
+  */
 
 #ifndef CHAINE_H
 #define CHAINE_H
@@ -25,7 +25,7 @@
   *
   * Chaine est un pointeur sur ensemble_colore
   *
-  * */
+  */
 
 typedef ensemble_colore* Chaine;
 
@@ -35,7 +35,7 @@ typedef ensemble_colore* Chaine;
   * @param La couleur de la chaine
   * @return La chaine correctement allouée
   *
-  * */
+  */
 
 Chaine chaine_creer(Couleur couleur);
 
@@ -44,7 +44,7 @@ Chaine chaine_creer(Couleur couleur);
   *
   * @param La chaine à détruire
   *
-  * */
+  */
 
 void chaine_detruire(Chaine liste);
 
@@ -54,7 +54,7 @@ void chaine_detruire(Chaine liste);
   * @param La chaine à tester
   * @return 1 si la chaine est vide, 0 si elle ne l'est pas
   *
-  * */
+  */
 
 int chaine_vide(Chaine liste);
 
@@ -64,7 +64,7 @@ int chaine_vide(Chaine liste);
   * @param La position à ajouter
   * @param La chaine à laquelle on veut ajouter une position
   *
-  * */
+  */
 
 void chaine_ajouter(Position position, Chaine liste);
 
@@ -75,7 +75,7 @@ void chaine_ajouter(Position position, Chaine liste);
   * @param La chaine à tester
   * @return 1 si la position appartient à la chaine, 0 sinon
   *
-  * */
+  */
 
 int chaine_appartient(Position position, Chaine liste);
 
@@ -86,7 +86,7 @@ int chaine_appartient(Position position, Chaine liste);
   * @param La seconde chaine à tester
   * @return 1 si les chaines sont identiques, 0 sinon
   *
-  * */
+  */
 
 int chaine_est_identique(Chaine chaine1, Chaine chaine2);
 
@@ -95,7 +95,7 @@ int chaine_est_identique(Chaine chaine1, Chaine chaine2);
   *
   * @param La chaine à traiter
   *
-  * */
+  */
 
 void chaine_tete(Chaine liste);
 
@@ -105,7 +105,7 @@ void chaine_tete(Chaine liste);
   * @param La chaine à traiter
   * @return 1 s'il y'a bien un suivant, 0 sinon
   *
-  * */
+  */
 
 int chaine_suivant(Chaine liste);
 
@@ -115,7 +115,7 @@ int chaine_suivant(Chaine liste);
   * @param La chaine à traiter
   * @return Un pointeur sur l'élément courant de la chaine
   *
-  * */
+  */
 
 element_position* chaine_courant(Chaine liste);
 

@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file libertes.c
   *
   * Fichier d'en-tête du type abstrait Libertés
   *
-  * */
+  */
 
 #ifndef LIBERTES_H
 #define LIBERTES_H
@@ -25,7 +25,7 @@
   *
   * Libertés est un pointeur sur ensemble_positions
   *
-  * */
+  */
 
 typedef ensemble_positions* Libertes;
 
@@ -37,7 +37,7 @@ typedef ensemble_positions* Libertes;
   *
   * @return L'ensemble de libertés correctement alloué
   *
-  * */
+  */
 
 Libertes libertes_creer();
 
@@ -46,7 +46,7 @@ Libertes libertes_creer();
   *
   * @param L'ensemble de libertés à détruire
   *
-  * */
+  */
 
 void libertes_detruire(Libertes liste);
 
@@ -56,7 +56,7 @@ void libertes_detruire(Libertes liste);
   * @param L'ensemble à tester
   * @return 1 si l'ensemble est vide, 0 si elle ne l'est pas
   *
-  * */
+  */
 
 int libertes_vide(Libertes liste);
 
@@ -66,7 +66,7 @@ int libertes_vide(Libertes liste);
   * @param La position à ajouter
   * @param L'ensemble auquel on veut ajouter une position
   *
-  * */
+  */
 
 void libertes_ajouter(Position position, Libertes liste);
 
@@ -77,7 +77,7 @@ void libertes_ajouter(Position position, Libertes liste);
   * @param L'ensemble à tester
   * @return 1 si la position appartient à l'ensemble, 0 sinon
   *
-  * */
+  */
 
 int libertes_appartient(Position position, Libertes liste);
 
@@ -86,7 +86,7 @@ int libertes_appartient(Position position, Libertes liste);
   *
   * @param L'ensemble à traiter
   *
-  * */
+  */
 
 void libertes_tete(Libertes liste);
 
@@ -96,7 +96,7 @@ void libertes_tete(Libertes liste);
   * @param L'ensemble à traiter
   * @return 1 s'il y'a bien un suivant, 0 sinon
   *
-  * */
+  */
 
 int libertes_suivant(Libertes liste);
 
@@ -106,7 +106,7 @@ int libertes_suivant(Libertes liste);
   * @param L'ensemble à traiter
   * @return Un pointeur sur l'élément courant de l'ensemble
   *
-  * */
+  */
 
 element_position* libertes_courant(Libertes liste);
 
@@ -117,7 +117,7 @@ element_position* libertes_courant(Libertes liste);
   * @param La chaine à traiter
   * @return L'ensemble des libertés de la chaine
   *
-  * */
+  */
 
 Libertes determine_liberte(Plateau plateau, Chaine chaine);
 

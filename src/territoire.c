@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file plateau.c
   *
   * Fonctions utiles à la gestion des territoires
   *
-  * */
+  */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -27,7 +27,7 @@
   * @param Le territoire à déterminer entièrement
   * @param La position de laquelle partir
   *
-  * */
+  */
 
 void territoire_ajouter_pions_adjacents(Plateau plateau, Territoire territoire, int x, int y);
 

@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file position.c
   *
   * Fichier d'en-tête du type abstrait Positions
   *
-  * */
+  */
 
 #ifndef POSITION_H
 #define POSITION_H
@@ -26,7 +26,7 @@
   * @var L'abscisse
   * @var L'ordonnée
   *
-  * */
+  */
 
 typedef struct position
 {
@@ -42,7 +42,7 @@ typedef struct position
   * @var La position
   * @var Un pointeur sur l'élement suivant
   *
-  * */
+  */
 
 typedef struct element_position
 {
@@ -59,7 +59,7 @@ typedef struct element_position
   * @var Un pointeur sur la tête de la liste
   * @var Un pointeur sur l'élément courant de la liste
   *
-  * */
+  */
 
 typedef struct ensemble_positions
 {

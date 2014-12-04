@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file libertes.c
   *
   * Fonctions utiles à la gestion des libertés
   *
-  * */
+  */
 
 #include <stdlib.h>
 #include <stdio.h>

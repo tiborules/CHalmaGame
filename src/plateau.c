@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file plateau.c
   *
   * Fonctions utiles à la gestion du plateau de jeu
   *
-  * */
+  */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -28,7 +28,7 @@
   * @param L'abscisse de la position de laquelle partir
   * @param L'ordonée de la position de laquelle partir
   *
-  * */
+  */
 
 void chaine_ajouter_pions_adjacents(Plateau plateau, Chaine chaine, int x, int y);
 

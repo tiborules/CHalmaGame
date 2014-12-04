@@ -6,7 +6,7 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
 /**
   * @author Hicham Liedri <hicham.liedri@ecole.ensicaen.fr>
@@ -17,7 +17,7 @@
   * @todo Lorsqu'un humain joue contre une IA, le retour en arrière devrait annuler également le coup de l'IA
   * @bug Quelques failles de sécurité lors de la saisie d'informations
   *
-  * */
+  */
 
 /**
   * @file main.c
@@ -25,7 +25,7 @@
   *
   * Contient la boucle principale du jeu en version console, gère tout l'affichage ainsi que le traitement des informations rentrées par l'utilisateur
   *
-  * */
+  */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -48,7 +48,7 @@
   *
   * @param Le plateau à afficher
   *
-  * */
+  */
 
 void plateau_afficher(Plateau plateau);
 
@@ -59,7 +59,7 @@ void plateau_afficher(Plateau plateau);
   * @param 1 si c'est l'indice d'une ligne, 0 si c'est celui d'une colonne
   * @param 1 si c'est c'est un indice affiché à gauche du plateau
   *
-  * */
+  */
 
 void indice(int k, int ligne, int gauche);
 
@@ -69,7 +69,7 @@ void indice(int k, int ligne, int gauche);
   * @param Un pointeur sur la partie en cours
   * @param Un pointeur sur un flag permettant de mettre fin à la partie
   *
-  * */
+  */
 
 void action(Partie* p, int* continuer);
 
@@ -80,7 +80,7 @@ void action(Partie* p, int* continuer);
   * @param La chaine de caractères à convertir
   * @return La position correspondant à la saisie
   *
-  * */
+  */
 
 Position convertir(Partie partie, char act[]);
 

@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file territoires.c
   *
   * Fichier d'en-tête du type abstrait Territoires
   *
-  * */
+  */
 
 #ifndef TERRITOIRES_H
 #define TERRITOIRES_H
@@ -28,7 +28,7 @@
   * @var Un territoire
   * @var Un pointeur sur l'élément suivant
   *
-  * */
+  */
 
 typedef struct element_territoire
 {
@@ -45,7 +45,7 @@ typedef struct element_territoire
   * @var Un pointeur sur la tête de la liste
   * @var Un pointeur sur l'élément courant de la liste
   *
-  * */
+  */
 
 typedef struct ensemble_territoires
 {
@@ -59,7 +59,7 @@ typedef struct ensemble_territoires
   *
   * Territoires est un pointeur sur ensemble_territoires
   *
-  * */
+  */
 
 typedef ensemble_territoires* Territoires;
 
@@ -68,7 +68,7 @@ typedef ensemble_territoires* Territoires;
   *
   * @return La liste correctement allouée
   *
-  * */
+  */
 
 Territoires territoires_creer();
 
@@ -77,7 +77,7 @@ Territoires territoires_creer();
   *
   * @param La liste à détruire
   *
-  * */
+  */
 
 void territoires_detruire(Territoires liste);
 
@@ -87,7 +87,7 @@ void territoires_detruire(Territoires liste);
   * @param La liste à tester
   * @return 1 si la liste est vide, 0 si elle ne l'est pas
   *
-  * */
+  */
 
 int territoires_vide(Territoires liste);
 
@@ -97,7 +97,7 @@ int territoires_vide(Territoires liste);
   * @param Le territoires à ajouter
   * @param La liste à laquelle on veut ajouter un territoire
   *
-  * */
+  */
 
 void territoires_ajouter(Territoire territoire, Territoires liste);
 
@@ -108,7 +108,7 @@ void territoires_ajouter(Territoire territoire, Territoires liste);
   * @param La liste à tester
   * @return 1 si le territoire appartient à la liste, 0 sinon
   *
-  * */
+  */
 
 int territoires_appartient(Territoire territoire, Territoires liste);
 
@@ -117,7 +117,7 @@ int territoires_appartient(Territoire territoire, Territoires liste);
   *
   * @param La liste à traiter
   *
-  * */
+  */
 
 void territoires_tete(Territoires liste);
 
@@ -127,7 +127,7 @@ void territoires_tete(Territoires liste);
   * @param La liste à traiter
   * @return 1 s'il y'a bien un suivant, 0 sinon
   *
-  * */
+  */
 
 int territoires_suivant(Territoires liste);
 
@@ -137,7 +137,7 @@ int territoires_suivant(Territoires liste);
   * @param La liste à traiter
   * @return Un pointeur sur l'élément courant de la liste
   *
-  * */
+  */
 
 element_territoire* territoires_courant(Territoires liste);
 

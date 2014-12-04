@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file partie.c
   *
   * Fichier d'en-tête du type abstrait Partie
   *
-  * */
+  */
 
 #ifndef PARTIE_H
 #define PARTIE_H
@@ -29,7 +29,7 @@
   * @var 1 s'il est humain, 0 si c'est une IA
   * @var Son score (conservé au fil de la partie)
   *
-  * */
+  */
 
 typedef struct joueur
 {
@@ -52,7 +52,7 @@ typedef struct joueur
   * @var Un tableau contenant les deux joueurs
   * @var Le komi défini pour la partie
   *
-  * */
+  */
 
 typedef struct partie
 {
@@ -71,7 +71,7 @@ typedef struct partie
   *
   * Pointeur sur une fonction récupérant le paramétrage d'une partie par l'utilisateur
   *
-  * */
+  */
 
 typedef void (*FonctionQuestions)(int numeroQuestion, Partie* p);
 
@@ -81,7 +81,7 @@ typedef void (*FonctionQuestions)(int numeroQuestion, Partie* p);
   * @param Un pointeur sur la fonction communiquant avec l'utilisateur
   * @return La partie correctement intialisée
   *
-  * */
+  */
 
 Partie partie_initialisation(FonctionQuestions fonctionQuestions);
 
@@ -91,7 +91,7 @@ Partie partie_initialisation(FonctionQuestions fonctionQuestions);
   * @param Le numéro de la question
   * @param Un pointeur sur la partie à initialiser
   *
-  * */
+  */
 
 void fonctionQuestions(int numeroQuestion, Partie* p);
 
@@ -102,7 +102,7 @@ void fonctionQuestions(int numeroQuestion, Partie* p);
   * @param Le fichier où sauvegarder
   * @return 1 si la sauvegarde a été réussie, 0 sinon
   *
-  * */
+  */
 
 int partie_sauvegarde(Partie partie, FILE* fichier);
 
@@ -112,7 +112,7 @@ int partie_sauvegarde(Partie partie, FILE* fichier);
   * @param Le fichier à partir duquel charger
   * @return La partie chargée
   *
-  * */
+  */
 
 Partie partie_chargement(FILE* fichier);
 
@@ -121,7 +121,7 @@ Partie partie_chargement(FILE* fichier);
   *
   * @param La partie à traiter
   *
-  * */
+  */
 
 void partie_score_joueurs(Partie* p);
 

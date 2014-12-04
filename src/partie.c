@@ -6,14 +6,14 @@
   * This file is owned by ENSICAEN students
   * No portion of this document may be reproduced, copied or revised without written permission of the authors
   *
-  * */
+  */
 
   /**
   * @file partie.c
   *
   * Fonctions utiles à la gestion de parties
   *
-  * */
+  */
 
 #include <stdlib.h>
 #include <stdio.h>
