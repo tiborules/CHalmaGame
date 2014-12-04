@@ -37,10 +37,7 @@ void pions_detruire(Pions liste)
 
 int pions_vide(Pions liste)
 {
-    if (liste->tete == NULL)
-        return 1;
-
-    return 0;
+    return liste->tete == NULL;
 }
 
 void pions_ajouter(Pion pion, Pions liste)
@@ -57,7 +54,8 @@ void pions_ajouter(Pion pion, Pions liste)
     }
     else
     {
-        while (pions_suivant(liste)) {}
+        while (pions_suivant(liste))
+        {}
 
         pions_courant(liste)->suivant = element;
     }
@@ -74,10 +72,7 @@ int pions_appartient(Pion pion, Pions liste)
 
     while (!(pions_courant(liste)->pion.position.x == pion.position.x && pions_courant(liste)->pion.position.y == pion.position.y && pions_courant(liste)->pion.couleur == pion.couleur) && pions_suivant(liste)) {}
 
-    if (pions_courant(liste)->pion.position.x == pion.position.x && pions_courant(liste)->pion.position.y == pion.position.y && pions_courant(liste)->pion.couleur == pion.couleur)
-        return 1;
-
-    return 0;
+    return pions_courant(liste)->pion.position.x == pion.position.x && pions_courant(liste)->pion.position.y == pion.position.y && pions_courant(liste)->pion.couleur == pion.couleur;
 }
 
 void pions_tete(Pions liste)
@@ -94,7 +89,6 @@ int pions_suivant(Pions liste)
     if (pions_courant(liste)->suivant != NULL)
     {
         liste->courant = pions_courant(liste)->suivant;
-
         return 1;
     }
 

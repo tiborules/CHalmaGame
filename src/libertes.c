@@ -54,10 +54,7 @@ void libertes_detruire(Libertes liste)
 
 int libertes_vide(Libertes liste)
 {
-    if (liste->tete == NULL)
-        return 1;
-
-    return 0;
+    return liste->tete == NULL;
 }
 
 void libertes_ajouter(Position position, Libertes liste)
@@ -74,12 +71,13 @@ void libertes_ajouter(Position position, Libertes liste)
     }
     else
     {
-        while (libertes_suivant(liste)) {}
+        while (libertes_suivant(liste))
+        {}
 
         libertes_courant(liste)->suivant = element;
     }
 
-    liste->taille++;
+    ++liste->taille;
 }
 
 int libertes_appartient(Position position, Libertes liste)
@@ -89,12 +87,10 @@ int libertes_appartient(Position position, Libertes liste)
 
     libertes_tete(liste);
 
-    while (!(libertes_courant(liste)->position.x == position.x && libertes_courant(liste)->position.y == position.y) && libertes_suivant(liste)) {}
+    while (!(libertes_courant(liste)->position.x == position.x && libertes_courant(liste)->position.y == position.y) && libertes_suivant(liste))
+    {}
 
-    if (libertes_courant(liste)->position.x == position.x && libertes_courant(liste)->position.y == position.y)
-        return 1;
-
-    return 0;
+    return libertes_courant(liste)->position.x == position.x && libertes_courant(liste)->position.y == position.y;
 }
 
 void libertes_tete(Libertes liste)
@@ -120,10 +116,7 @@ int libertes_suivant(Libertes liste)
 
 element_position* libertes_courant(Libertes liste)
 {
-    if (!libertes_vide(liste))
-        return liste->courant;
-    else
-        return NULL;
+    return libertes_vide(liste)) ? NULL : liste->courant;
 }
 
 Libertes determine_liberte(Plateau plateau, Chaine chaine)
@@ -137,8 +130,8 @@ Libertes determine_liberte(Plateau plateau, Chaine chaine)
 
     do
     {
-        for (j = chaine_courant(chaine)->position.y-1; j <= chaine_courant(chaine)->position.y+1; j++)
-            for (i = chaine_courant(chaine)->position.x-1; i <= chaine_courant(chaine)->position.x+1; i++)
+        for (j = chaine_courant(chaine)->position.y-1; j <= chaine_courant(chaine)->position.y+1; ++j)
+            for (i = chaine_courant(chaine)->position.x-1; i <= chaine_courant(chaine)->position.x+1; ++i)
                 if (i >= 0 && j >= 0 && i < plateau->taille && j < plateau->taille && (i+j == chaine_courant(chaine)->position.x+chaine_courant(chaine)->position.y+1 || i+j == chaine_courant(chaine)->position.x+chaine_courant(chaine)->position.y-1))
                     if (plateau_get(plateau, i, j) == VIDE)
                     {

@@ -100,39 +100,37 @@ int main()
     {
 
 
-        printf("Bienvenue dans le jeu de Halma par Hicham L.\n\n");
+        printf("Bienvenue dans le jeu de Halma par Hicham L et Spanti Nicola.\n\n");
 
-        printf("Que voulez-vous faire ?\n");
-        printf(" 1. Commencer une nouvelle partie\n");
-        printf(" 2. Charger une partie existante\n");
-        printf(" 3. Découvrir les règles du jeu\n");
-        printf(" 4. Quitter le jeu\n");
+        puts("Que voulez-vous faire ?");
+        puts(" 1. Commencer une nouvelle partie");
+        puts(" 2. Charger une partie existante");
+        puts(" 3. Découvrir les règles du jeu");
+        puts(" 4. Quitter le jeu");
 
         do
         {
             printf("Votre choix ? ");
             scanf("%d", &choix);
-        } while (!(choix >= 1 && choix <= 4));
+        } while (choix < 1 || choix < 5);
 
         switch (choix)
         {
             case 1:
-                printf("\n");
+                puts("");
 
                 partie = partie_initialisation(fonctionQuestions);
 
             case 2:
-                if (choix == 2)
+                printf("\nSauvegarde en cours...\n");
+
+                file = fopen("p1.txt", "r");
+
+                if (file != NULL)
                 {
-                    printf("\nSauvegarde en cours...\n");
-
-                    file = fopen("p1.txt", "r");
-
-                    if (file != NULL)
-                    {
                         partie = partie_chargement(file);
-                    }
                 }
+                
 
                 c = 1;
 
@@ -150,15 +148,15 @@ int main()
                     {
                         printf("Dernier coup : %s ", partie.dernier[partie.nbCoups]);
 
-                        if (partie.nbCoups%2)
+                        if (partie.nbCoups % 2)
                             printf("(O)\n\n");
                         else
                             printf("(X)\n\n");
                     }
 
-                    printf("Au tour de ");
-
-                    if (partie.nbCoups%2)
+                    fputs("Au tour de ", stdout);
+					
+                    if (partie.nbCoups % 2)
                         printf("%s (O)", partie.joueur[1].nom);
                     else
                         printf("%s (X)", partie.joueur[0].nom);
@@ -312,16 +310,16 @@ void plateau_afficher(Plateau plateau)
 {
     int i, j;
 
-    for (j = 0; j < plateau->taille; j++)
+    for (j = 0; j < plateau->taille; ++j)
     {
         if (j == 0)
         {
-            printf("    ");
+            fputs("    ", stdout);
 
-            for (i = 0; i < plateau->taille; i++)
+            for (i = 0; i < plateau->taille; ++i)
                 indice(i, 0, 0);
 
-            printf("\n");
+            puts("");
         }
 
         indice(plateau->taille-j, 1, 1);
@@ -351,7 +349,7 @@ void plateau_afficher(Plateau plateau)
         {
             printf("    ");
 
-            for (i = 0; i < plateau->taille; i++)
+            for (i = 0; i < plateau->taille; ++i)
                 indice(i, 0, 0);
 
             printf("\n\n");
@@ -477,7 +475,7 @@ void action(Partie* p, int* continuer)
             case 'p':
                 p->nbCoups++;
 
-                for (i = 0; i < 2; i++)
+                for (i = 0; i < 2; ++i)
                 {
                     p->joueur[i].score = realloc(p->joueur[i].score, (p->nbCoups+1)*sizeof(float));
 
@@ -539,9 +537,9 @@ void action(Partie* p, int* continuer)
             {
                 k = 0;
 
-                for (i = 0; i < p->nbCoups; i++)
+                for (i = 0; i < p->nbCoups; ++i)
                     if (plateau_est_identique(p->plateau[i], p->plateau[i+1]))
-                        k++;
+                        ++k;
 
                 if (k == p->nbPasse)
                 {
@@ -554,7 +552,7 @@ void action(Partie* p, int* continuer)
                     if (p->passe)
                         p->passe = 0;
 
-                    for (i = 0; i < 2; i++)
+                    for (i = 0; i < 2; ++i)
                     {
                         p->joueur[i].score = realloc(p->joueur[i].score, (p->nbCoups+1)*sizeof(float));
 
@@ -605,11 +603,10 @@ void action(Partie* p, int* continuer)
 Position convertir(Partie partie, char act[])
 {
     Position pos;
-
-    if ((int)act[0] <= (int)'H')
-        pos.x = (int)act[0]-65;
-    else
-        pos.x = (int)act[0]-66;
+	
+	pos.x = (int) act[0] - 65;
+    if (act[0] > 'H')
+        pos.x -= 1;
 
     if (strlen(act) == 2)
         pos.y = partie.plateau[0]->taille-((int)act[1]-48);

@@ -54,10 +54,7 @@ void positions_detruire(Positions liste)
 
 int positions_vide(Positions liste)
 {
-    if (liste->tete == NULL)
-        return 1;
-
-    return 0;
+    return liste->tete == NULL;
 }
 
 void positions_ajouter(Position position, Positions liste)
@@ -89,12 +86,10 @@ int positions_appartient(Position position, Positions liste)
 
     positions_tete(liste);
 
-    while (!(positions_courant(liste)->position.x == position.x && positions_courant(liste)->position.y == position.y) && positions_suivant(liste)) {}
+    while (!(positions_courant(liste)->position.x == position.x && positions_courant(liste)->position.y == position.y) && positions_suivant(liste))
+    {}
 
-    if (positions_courant(liste)->position.x == position.x && positions_courant(liste)->position.y == position.y)
-        return 1;
-
-    return 0;
+    return positions_courant(liste)->position.x == position.x && positions_courant(liste)->position.y == position.y;
 }
 
 void positions_tete(Positions liste)
@@ -120,8 +115,5 @@ int positions_suivant(Positions liste)
 
 element_position* positions_courant(Positions liste)
 {
-    if (!positions_vide(liste))
-        return liste->courant;
-
-    return NULL;
+    return positions_vide(liste) ? NULL : liste->courant;
 }

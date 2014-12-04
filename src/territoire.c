@@ -66,10 +66,7 @@ void territoire_detruire(Territoire liste)
 
 int territoire_vide(Territoire liste)
 {
-    if (liste->tete == NULL)
-        return 1;
-
-    return 0;
+    return liste->tete == NULL;
 }
 
 void territoire_ajouter(Position position, Territoire liste)
@@ -86,7 +83,8 @@ void territoire_ajouter(Position position, Territoire liste)
     }
     else
     {
-        while (territoire_suivant(liste)) {}
+        while (territoire_suivant(liste))
+        {}
 
         territoire_courant(liste)->suivant = element;
     }
@@ -103,10 +101,7 @@ int territoire_appartient(Position position, Territoire liste)
 
     while (!(territoire_courant(liste)->position.x == position.x && territoire_courant(liste)->position.y == position.y) && territoire_suivant(liste)) {}
 
-    if (territoire_courant(liste)->position.x == position.x && territoire_courant(liste)->position.y == position.y)
-        return 1;
-
-    return 0;
+    return territoire_courant(liste)->position.x == position.x && territoire_courant(liste)->position.y == position.y;
 }
 
 int territoire_est_identique(Territoire territoire1, Territoire territoire2)
@@ -126,7 +121,7 @@ int territoire_est_identique(Territoire territoire1, Territoire territoire2)
         do
         {
             if (territoire_appartient(territoire_courant(territoire1)->position, territoire2))
-                k++;
+                ++k;
         } while (territoire_suivant(territoire1));
 
         if (k == territoire1->taille)
@@ -159,10 +154,7 @@ int territoire_suivant(Territoire liste)
 
 element_position* territoire_courant(Territoire liste)
 {
-    if (!territoire_vide(liste))
-        return liste->courant;
-
-    return NULL;
+    return territoire_vide(liste)) ? NULL : liste->courant;
 }
 
 Territoire determine_territoire(Plateau plateau, Position pos)
@@ -189,7 +181,7 @@ Territoire determine_territoire(Plateau plateau, Position pos)
         do
         {
             if (chaines_courant(liste)->chaine->couleur == coul)
-                k++;
+                ++k;
         } while (chaines_suivant(liste));
 
         if (k == liste->taille)
@@ -204,8 +196,8 @@ void territoire_ajouter_pions_adjacents(Plateau plateau, Territoire territoire, 
     int i, j;
     Position position;
 
-    for (j = y-1; j <= y+1; j++)
-        for (i = x-1; i <= x+1; i++)
+    for (j = y-1; j <= y+1; ++j)
+        for (i = x-1; i <= x+1; ++i)
             if (i >= 0 && j >= 0 && i < plateau->taille && j < plateau->taille && (i+j == x+y+1 || i+j == x+y-1))
             {
                 position.x = i;
@@ -214,7 +206,6 @@ void territoire_ajouter_pions_adjacents(Plateau plateau, Territoire territoire, 
                 if (plateau_get(plateau, i, j) == VIDE && !territoire_appartient(position, territoire))
                 {
                     territoire_ajouter(position, territoire);
-
                     territoire_ajouter_pions_adjacents(plateau, territoire, i, j);
                 }
             }
