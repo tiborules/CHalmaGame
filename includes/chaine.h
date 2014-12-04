@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file chaine.c
   *
-  * Fichier d'en-tête du type abstrait Chaine
+  * Fichier d'en-tÃªte du type abstrait Chaine
   *
   * */
 
@@ -30,10 +30,10 @@
 typedef ensemble_colore* Chaine;
 
 /**
-  * Création et intialisation d'une chaine
+  * CrÃ©ation et intialisation d'une chaine
   *
   * @param La couleur de la chaine
-  * @return La chaine correctement allouée
+  * @return La chaine correctement allouÃ©e
   *
   * */
 
@@ -42,7 +42,7 @@ Chaine chaine_creer(Couleur couleur);
 /**
   * Destruction d'une chaine
   *
-  * @param La chaine à détruire
+  * @param La chaine Ã  dÃ©truire
   *
   * */
 
@@ -51,7 +51,7 @@ void chaine_detruire(Chaine liste);
 /**
   * Teste si une chaine est vide
   *
-  * @param La chaine à tester
+  * @param La chaine Ã  tester
   * @return 1 si la chaine est vide, 0 si elle ne l'est pas
   *
   * */
@@ -59,21 +59,21 @@ void chaine_detruire(Chaine liste);
 int chaine_vide(Chaine liste);
 
 /**
-  * Ajoute une position à une chaine
+  * Ajoute une position Ã  une chaine
   *
-  * @param La position à ajouter
-  * @param La chaine à laquelle on veut ajouter une position
+  * @param La position Ã  ajouter
+  * @param La chaine Ã  laquelle on veut ajouter une position
   *
   * */
 
 void chaine_ajouter(Position position, Chaine liste);
 
 /**
-  * Teste si une position appartient à une chaine
+  * Teste si une position appartient Ã  une chaine
   *
-  * @param La position à tester
-  * @param La chaine à tester
-  * @return 1 si la position appartient à la chaine, 0 sinon
+  * @param La position Ã  tester
+  * @param La chaine Ã  tester
+  * @return 1 si la position appartient Ã  la chaine, 0 sinon
   *
   * */
 
@@ -82,8 +82,8 @@ int chaine_appartient(Position position, Chaine liste);
 /**
   * Teste si deux chaines sont identiques
   *
-  * @param La première chaine à tester
-  * @param La seconde chaine à tester
+  * @param La premiÃ¨re chaine Ã  tester
+  * @param La seconde chaine Ã  tester
   * @return 1 si les chaines sont identiques, 0 sinon
   *
   * */
@@ -91,18 +91,18 @@ int chaine_appartient(Position position, Chaine liste);
 int chaine_est_identique(Chaine chaine1, Chaine chaine2);
 
 /**
-  * Se placer en tête d'une chaine
+  * Se placer en tÃªte d'une chaine
   *
-  * @param La chaine à traiter
+  * @param La chaine Ã  traiter
   *
   * */
 
 void chaine_tete(Chaine liste);
 
 /**
-  * Passer à l'élément suivant d'une chaine
+  * Passer Ã  l'Ã©lÃ©ment suivant d'une chaine
   *
-  * @param La chaine à traiter
+  * @param La chaine Ã  traiter
   * @return 1 s'il y'a bien un suivant, 0 sinon
   *
   * */
@@ -110,10 +110,10 @@ void chaine_tete(Chaine liste);
 int chaine_suivant(Chaine liste);
 
 /**
-  * L'élément courant d'une chaine
+  * L'Ã©lÃ©ment courant d'une chaine
   *
-  * @param La chaine à traiter
-  * @return Un pointeur sur l'élément courant de la chaine
+  * @param La chaine Ã  traiter
+  * @return Un pointeur sur l'Ã©lÃ©ment courant de la chaine
   *
   * */
 

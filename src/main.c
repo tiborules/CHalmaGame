@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -14,8 +14,8 @@
   * @date 24/11/2014
   *
   * @todo Pouvoir tirer au sort le joueur noir et le joueur blanc
-  * @todo Lorsqu'un humain joue contre une IA, le retour en arrière devrait annuler également le coup de l'IA
-  * @bug Quelques failles de sécurité lors de la saisie d'informations
+  * @todo Lorsqu'un humain joue contre une IA, le retour en arriÃ¨re devrait annuler Ã©galement le coup de l'IA
+  * @bug Quelques failles de sÃ©curitÃ© lors de la saisie d'informations
   *
   * */
 
@@ -23,7 +23,7 @@
   * @file main.c
   * @brief Programme principal de la version console du jeu de go
   *
-  * Contient la boucle principale du jeu en version console, gère tout l'affichage ainsi que le traitement des informations rentrées par l'utilisateur
+  * Contient la boucle principale du jeu en version console, gÃ¨re tout l'affichage ainsi que le traitement des informations rentrÃ©es par l'utilisateur
   *
   * */
 
@@ -44,9 +44,9 @@
 #endif
 
 /**
-  * @brief Affiche à l'écran un plateau donné
+  * @brief Affiche Ã  l'Ã©cran un plateau donnÃ©
   *
-  * @param Le plateau à afficher
+  * @param Le plateau Ã  afficher
   *
   * */
 
@@ -55,19 +55,19 @@ void plateau_afficher(Plateau plateau);
 /**
   * @brief Affiche les indices des lignes et colonnes autour du plateau
   *
-  * @param L'indice à afficher
+  * @param L'indice Ã  afficher
   * @param 1 si c'est l'indice d'une ligne, 0 si c'est celui d'une colonne
-  * @param 1 si c'est c'est un indice affiché à gauche du plateau
+  * @param 1 si c'est c'est un indice affichÃ© Ã  gauche du plateau
   *
   * */
 
 void indice(int k, int ligne, int gauche);
 
 /**
-  * @brief Gère la saisie (ou génération dans le cas de l'IA) d'actions à effectuer, comme la pose d'un pion par exemple
+  * @brief GÃ¨re la saisie (ou gÃ©nÃ©ration dans le cas de l'IA) d'actions Ã  effectuer, comme la pose d'un pion par exemple
   *
   * @param Un pointeur sur la partie en cours
-  * @param Un pointeur sur un flag permettant de mettre fin à la partie
+  * @param Un pointeur sur un flag permettant de mettre fin Ã  la partie
   *
   * */
 
@@ -77,8 +77,8 @@ void action(Partie* p, int* continuer);
   * @brief Convertit la sasie d'une position (exemple : B4) en une vraie position
   *
   * @param La partie en cours
-  * @param La chaine de caractères à convertir
-  * @return La position correspondant à la saisie
+  * @param La chaine de caractÃ¨res Ã  convertir
+  * @return La position correspondant Ã  la saisie
   *
   * */
 
@@ -105,7 +105,7 @@ int main()
         printf("Que voulez-vous faire ?\n");
         printf(" 1. Commencer une nouvelle partie\n");
         printf(" 2. Charger une partie existante\n");
-        printf(" 3. Découvrir les règles du jeu\n");
+        printf(" 3. DÃ©couvrir les rÃ¨gles du jeu\n");
         printf(" 4. Quitter le jeu\n");
 
         do
@@ -140,11 +140,11 @@ int main()
                 {
                     system(CLEAR);
 
-                    printf("Coup numéro %d...\n\n", partie.nbCoups+1);
+                    printf("Coup numÃ©ro %d...\n\n", partie.nbCoups+1);
 
                     printf("Pour l'aide du jeu, tapez a\n\n");
 
-                    printf("%s (X) a capturé %.0f pion(s)\n%s (O) a capturé %.0f pion(s)\n\n", partie.joueur[0].nom, partie.joueur[0].score[partie.nbCoups], partie.joueur[1].nom, partie.joueur[1].score[partie.nbCoups]);
+                    printf("%s (X) a capturÃ© %.0f pion(s)\n%s (O) a capturÃ© %.0f pion(s)\n\n", partie.joueur[0].nom, partie.joueur[0].score[partie.nbCoups], partie.joueur[1].nom, partie.joueur[1].score[partie.nbCoups]);
 
                     if (partie.nbCoups > 0)
                     {
@@ -175,9 +175,9 @@ int main()
                     partie_score_joueurs(&partie);
 
                     if (partie.joueur[0].score[partie.nbCoups] > partie.joueur[1].score[partie.nbCoups])
-                        printf("%s (X) gagne %.1f à %.1f contre %s (O) !!\n\n", partie.joueur[0].nom, partie.joueur[0].score[partie.nbCoups], partie.joueur[1].score[partie.nbCoups], partie.joueur[1].nom);
+                        printf("%s (X) gagne %.1f Ã  %.1f contre %s (O) !!\n\n", partie.joueur[0].nom, partie.joueur[0].score[partie.nbCoups], partie.joueur[1].score[partie.nbCoups], partie.joueur[1].nom);
                     else
-                        printf("%s (O) gagne %.1f à %.1f contre %s (X) !!\n\n", partie.joueur[1].nom, partie.joueur[1].score[partie.nbCoups], partie.joueur[0].score[partie.nbCoups], partie.joueur[0].nom);
+                        printf("%s (O) gagne %.1f Ã  %.1f contre %s (X) !!\n\n", partie.joueur[1].nom, partie.joueur[1].score[partie.nbCoups], partie.joueur[0].score[partie.nbCoups], partie.joueur[0].nom);
 
                     system("pause");
                 }
@@ -190,12 +190,12 @@ int main()
             case 3:
 
         /*            printf("\n********************\n");
-                    printf("Les règles du jeux \n");
+                    printf("Les rÃ¨gles du jeux \n");
                     printf("********************\n");
-                    printf("\n Au début de la partie, le goban est vide.\n\n");
+                    printf("\n Au dÃ©but de la partie, le goban est vide.\n\n");
 
-                    printf("Les joueurs déposent alternativement une pierre de leur couleur sur une intersection libre du goban y compris les intersections qui se trouvent sur le bord extérieur de la grille.\n\n") ;
-                    printf("Une fois placée sur le goban, la pierre ne change plus de place.\n Un joueur peut aussi passer son tour ou abandonner la partie lorsque c’est son tour.\n\n\n");
+                    printf("Les joueurs dÃ©posent alternativement une pierre de leur couleur sur une intersection libre du goban y compris les intersections qui se trouvent sur le bord extÃ©rieur de la grille.\n\n") ;
+                    printf("Une fois placÃ©e sur le goban, la pierre ne change plus de place.\n Un joueur peut aussi passer son tour ou abandonner la partie lorsque cÂ’est son tour.\n\n\n");
 
                     system("pause");
 
@@ -214,8 +214,8 @@ int main()
 
                     plateau_afficher(plateau);
 
-                    printf("\n\n Si le joueur NOIR place son pion dans la case , il aura entouré le pion BLANC, et donc le capturera\n\n");
-                    printf("Le groupe complet est ôté du goban et ajouté au tas de prisonniers du camp adverse.\n\n\n\n");
+                    printf("\n\n Si le joueur NOIR place son pion dans la case , il aura entourÃ© le pion BLANC, et donc le capturera\n\n");
+                    printf("Le groupe complet est Ã´tÃ© du goban et ajoutÃ© au tas de prisonniers du camp adverse.\n\n\n\n");
 
                     system("pause");
 
@@ -231,16 +231,16 @@ int main()
                     printf("\n***************************\n");
                     printf("Pierres vivantes et mortes");
                     printf("\n***************************\n");
-                    printf("\n\nLorsque des pierres sont dans une situation telle que leur capture est jugée inévitable, on dit qu'elles sont mortes. Au contraire, des pierres qui sont impossibles à capturer seront dites vivantes.\n\n");
-                    printf("Un joueur n'a pas besoin de capturer réellement des pierres mortes, c'est-à-dire qu'il n'a pas besoin de rajouter tous les coups nécessaires pour retirer les pierres du plateau. \n\n");
-                    printf(" \nCes pierres mortes ne seront alors retirées du plateau qu'en fin de partie et ajoutées aux prisonniers.\n");
+                    printf("\n\nLorsque des pierres sont dans une situation telle que leur capture est jugÃ©e inÃ©vitable, on dit qu'elles sont mortes. Au contraire, des pierres qui sont impossibles Ã  capturer seront dites vivantes.\n\n");
+                    printf("Un joueur n'a pas besoin de capturer rÃ©ellement des pierres mortes, c'est-Ã -dire qu'il n'a pas besoin de rajouter tous les coups nÃ©cessaires pour retirer les pierres du plateau. \n\n");
+                    printf(" \nCes pierres mortes ne seront alors retirÃ©es du plateau qu'en fin de partie et ajoutÃ©es aux prisonniers.\n");
                     system("pause");
 
                     printf("********************\n");
                     printf("Seki\n");
                     printf("********************\n");
-                    printf("\nUn seki est une position où aucun des deux joueurs ne peut tenter de prendre l'autre sans se faire prendre avant. Le premier qui ferait atari serait immédiatement capturé.\n\n");
-                    printf("\nAucun des deux joueurs ne pouvant capturer l'autre, les pierres en situation de seki sont considérées comme vivantes. \n\nIl n'est pas interdit de jouer à l'intérieur d'une position en seki, mais en général, aucun des joueurs n'a d'intérêt à le faire.\n\n\n\n");
+                    printf("\nUn seki est une position oÃ¹ aucun des deux joueurs ne peut tenter de prendre l'autre sans se faire prendre avant. Le premier qui ferait atari serait immÃ©diatement capturÃ©.\n\n");
+                    printf("\nAucun des deux joueurs ne pouvant capturer l'autre, les pierres en situation de seki sont considÃ©rÃ©es comme vivantes. \n\nIl n'est pas interdit de jouer Ã  l'intÃ©rieur d'une position en seki, mais en gÃ©nÃ©ral, aucun des joueurs n'a d'intÃ©rÃªt Ã  le faire.\n\n\n\n");
 
                     plateau = plateau_creer(taille);
 
@@ -268,16 +268,16 @@ int main()
 
                     plateau_afficher(plateau);
 
-                    printf("\n\nSi l'un des joueurs joue en H5 (ou en J5), l'autre peut le capturer en répondant immédiatement en J5 (respectivement en H5) ; personne n'a donc normalement intérêt à jouer.\n\n");
+                    printf("\n\nSi l'un des joueurs joue en H5 (ou en J5), l'autre peut le capturer en rÃ©pondant immÃ©diatement en J5 (respectivement en H5) ; personne n'a donc normalement intÃ©rÃªt Ã  jouer.\n\n");
 
 
                     printf("**************");
                     printf("\nLe suicide\n");
                     printf("**************\n\n");
 
-                    printf("Lorsqu'on joue une pierre, on examine d'abord les libertés des groupes adverses à son voisinage. Si certains d'entre eux n'ont plus de libertés, on les enlève et on les compte comme prisonniers.\n\n");
-                    printf("Si aucun groupe adverse n'a ainsi été capturé, on étudie les libertés du groupe auquel appartient désormais la pierre qui vient d'être posée\n\n");
-                    printf("Si ce groupe n'a pas de libertés, le coup est un suicide : il est interdit.\n\n");
+                    printf("Lorsqu'on joue une pierre, on examine d'abord les libertÃ©s des groupes adverses Ã  son voisinage. Si certains d'entre eux n'ont plus de libertÃ©s, on les enlÃ¨ve et on les compte comme prisonniers.\n\n");
+                    printf("Si aucun groupe adverse n'a ainsi Ã©tÃ© capturÃ©, on Ã©tudie les libertÃ©s du groupe auquel appartient dÃ©sormais la pierre qui vient d'Ãªtre posÃ©e\n\n");
+                    printf("Si ce groupe n'a pas de libertÃ©s, le coup est un suicide : il est interdit.\n\n");
 
 
                     plateau_detruire(plateau);
@@ -293,7 +293,7 @@ int main()
 
                     plateau_afficher(plateau);
 
-                    printf("Le joueur BLANC ne peux pas jouer dans la position J5 tant qu'il n'a pas supprimé toutes les libertés de la chaine NOIR qui l'entoure (suicide)\n\n\n");
+                    printf("Le joueur BLANC ne peux pas jouer dans la position J5 tant qu'il n'a pas supprimÃ© toutes les libertÃ©s de la chaine NOIR qui l'entoure (suicide)\n\n\n");
 
 
 
@@ -455,7 +455,7 @@ void action(Partie* p, int* continuer)
         switch (act[0])
         {
             case 'a':
-                printf("\nPour jouer sur une intersection vide du goban, tapez l'indice de la colonne suivi du numéro de la ligne, par exemple B12\nPour passer votre tour, tapez p\nPour annuler le dernier coup, tapez r\nPour sauvegarder la partie, tapez s\nPour quitter la partie, tapez q\n\n");
+                printf("\nPour jouer sur une intersection vide du goban, tapez l'indice de la colonne suivi du numÃ©ro de la ligne, par exemple B12\nPour passer votre tour, tapez p\nPour annuler le dernier coup, tapez r\nPour sauvegarder la partie, tapez s\nPour quitter la partie, tapez q\n\n");
                 system("pause");
                 break;
 
@@ -469,7 +469,7 @@ void action(Partie* p, int* continuer)
                 }
                 else
                 {
-                    printf("\nImpossible de revenir en arrière !\n\n");
+                    printf("\nImpossible de revenir en arriÃ¨re !\n\n");
                     system("pause");
                 }
                 break;
@@ -505,7 +505,7 @@ void action(Partie* p, int* continuer)
                 break;
 
             case 's':
-                printf("\nOù voulez-vous sauvegarder la partie ? ");
+                printf("\nOÃ¹ voulez-vous sauvegarder la partie ? ");
                 scanf("%s", fichier);
 
                 file = fopen("p1.txt", "a");
@@ -584,7 +584,7 @@ void action(Partie* p, int* continuer)
                 }
                 else
                 {
-                    printf("Impossible de revenir à une configuration précédente du goban !\n\n");
+                    printf("Impossible de revenir Ã  une configuration prÃ©cÃ©dente du goban !\n\n");
                     system("pause");
                 }
             }
@@ -596,7 +596,7 @@ void action(Partie* p, int* continuer)
         }
         else
         {
-            printf("Il y'a déjà un pion ici !\n\n");
+            printf("Il y'a dÃ©jÃ  un pion ici !\n\n");
             system("pause");
         }
     }

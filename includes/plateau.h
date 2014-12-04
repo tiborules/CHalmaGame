@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file plateau.c
   *
-  * Fichier d'en-tête du type abstrait Plateau
+  * Fichier d'en-tÃªte du type abstrait Plateau
   *
   * */
 
@@ -23,7 +23,7 @@
 /**
   * @struct structure_plateau
   *
-  * La structure implémentant un plateau de jeu
+  * La structure implÃ©mentant un plateau de jeu
   *
   * @var La taille du plateau
   * @var Un tableau d'une dimension stockant la couleur de chaque case du plateau
@@ -51,10 +51,10 @@ typedef structure_plateau* Plateau;
 #include "territoires.h"
 
 /**
-  * Création et intialisation d'un plateau de jeu
+  * CrÃ©ation et intialisation d'un plateau de jeu
   *
   * @param La taille du plateau
-  * @return Le plateau correctement initialisé
+  * @return Le plateau correctement initialisÃ©
   *
   * */
 
@@ -63,19 +63,19 @@ Plateau plateau_creer(int taille);
 /**
   * Destruction d'un plateau de jeu
   *
-  * @param Le plateau à détruire
+  * @param Le plateau Ã  dÃ©truire
   *
   * */
 
 void plateau_detruire(Plateau plateau);
 
 /**
-  * Récupère la couleur d'une case sur le plateau
+  * RÃ©cupÃ¨re la couleur d'une case sur le plateau
   *
   * @param Le plateau
   * @param L'abscisse de la position
-  * @param L'ordonnée de la position
-  * @return La couleur à la position voulue
+  * @param L'ordonnÃ©e de la position
+  * @return La couleur Ã  la position voulue
   *
   * */
 
@@ -86,29 +86,29 @@ Couleur plateau_get(Plateau plateau, int i, int j);
   *
   * @param Le plateau
   * @param L'abscisse de la position
-  * @param L'ordonnée de la position
-  * @param La couleur à mettre sur la case
+  * @param L'ordonnÃ©e de la position
+  * @param La couleur Ã  mettre sur la case
   *
   * */
 
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur);
 
 /**
-  * Déterminer la chaine à laquelle appartient un pion
+  * DÃ©terminer la chaine Ã  laquelle appartient un pion
   *
   * @param Le plateau courant
   * @param La position du pion
-  * @return La chaine complète
+  * @return La chaine complÃ¨te
   *
   * */
 
 Chaine plateau_determiner_chaine(Plateau plateau, Position pos);
 
 /**
-  * Réaliser la capture d'une chaine sur le plateau
+  * RÃ©aliser la capture d'une chaine sur le plateau
   *
-  * @param Le plateau à modifier
-  * @param La chaine à capturer
+  * @param Le plateau Ã  modifier
+  * @param La chaine Ã  capturer
   *
   * */
 
@@ -117,8 +117,8 @@ void plateau_realiser_capture(Plateau plateau, Chaine chaine);
 /**
   * Teste si deux plateaux sont indentiques
   *
-  * @param Le premier plateau à tester
-  * @param Le second plateau à tester
+  * @param Le premier plateau Ã  tester
+  * @param Le second plateau Ã  tester
   * @return 1 si les plateaux sont identiques, 0 sinon
   *
   * */
@@ -126,18 +126,18 @@ void plateau_realiser_capture(Plateau plateau, Chaine chaine);
 int plateau_est_identique(Plateau plateau1, Plateau plateau2);
 
 /**
-  * Copier un plateau vers un autres, les deux étant correctement alloués
+  * Copier un plateau vers un autres, les deux Ã©tant correctement allouÃ©s
   *
   * @param Le plateau source
   * @param Le plateau destination
-  * @return 1 si la copie est réussie, 0 sinon
+  * @return 1 si la copie est rÃ©ussie, 0 sinon
   *
   * */
 
 int plateau_copie(Plateau from, Plateau to);
 
 /**
-  * Déterminer les chaines qui entourent un territoire sur le plateau
+  * DÃ©terminer les chaines qui entourent un territoire sur le plateau
   *
   * @param Le territoire
   * @param Le plateau courant
@@ -150,9 +150,9 @@ Chaines plateau_entoure_un_territoire(Territoire territoire, Plateau plateau);
 /**
   * Sauvegarder un pleteau
   *
-  * @param Le plateau à sauvegarder
-  * @param Le fichier où sauvegarder
-  * @return 1 si la sauvegarde est réussie, 0 sinon
+  * @param Le plateau Ã  sauvegarder
+  * @param Le fichier oÃ¹ sauvegarder
+  * @return 1 si la sauvegarde est rÃ©ussie, 0 sinon
   *
   * */
 
@@ -161,20 +161,20 @@ int plateau_sauvegarde(Plateau plateau, FILE* fichier);
 /**
   * Charger un pleteau
   *
-  * @param Le fichier à partir duquel charger
-  * @return Le plateau chargé
+  * @param Le fichier Ã  partir duquel charger
+  * @return Le plateau chargÃ©
   *
   * */
 
 Plateau plateau_chargement(FILE* fichier);
 
 /**
-  * Détermine les chaines capturées par la pose d'un pion, et si le coup est valide ou non
+  * DÃ©termine les chaines capturÃ©es par la pose d'un pion, et si le coup est valide ou non
   *
   * @param Le plateau courant
-  * @param Le pion à poser
-  * @param Un pointeur sur le booléen à mettre à 1 si le coup est valide, 0 sinon
-  * @return La liste des chaines capturées
+  * @param Le pion Ã  poser
+  * @param Un pointeur sur le boolÃ©en Ã  mettre Ã  1 si le coup est valide, 0 sinon
+  * @return La liste des chaines capturÃ©es
   *
   * */
 

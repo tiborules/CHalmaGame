@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file pion.c
   *
-  * Fichier d'en-tête du type abstrait Pion
+  * Fichier d'en-tÃªte du type abstrait Pion
   *
   * */
 
@@ -23,7 +23,7 @@
 /**
   * @struct Pion
   *
-  * La structure implémentant un pion
+  * La structure implÃ©mentant un pion
   *
   * @var La couleur du pion
   * @var La position du pion

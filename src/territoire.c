@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file plateau.c
   *
-  * Fonctions utiles à la gestion des territoires
+  * Fonctions utiles Ã  la gestion des territoires
   *
   * */
 
@@ -21,10 +21,10 @@
 #include "../includes/territoire.h"
 
 /**
-  * Fonction récursive intermédiaire utile à la détermination de territoires
+  * Fonction rÃ©cursive intermÃ©diaire utile Ã  la dÃ©termination de territoires
   *
   * @param Le plateau courant
-  * @param Le territoire à déterminer entièrement
+  * @param Le territoire Ã  dÃ©terminer entiÃ¨rement
   * @param La position de laquelle partir
   *
   * */

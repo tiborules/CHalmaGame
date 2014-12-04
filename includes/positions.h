@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file positions.c
   *
-  * Fichier d'en-tête du type abstrait Positions
+  * Fichier d'en-tÃªte du type abstrait Positions
   *
   * */
 
@@ -30,9 +30,9 @@
 typedef ensemble_positions* Positions;
 
 /**
-  * Création et intialisation d'une liste de positions
+  * CrÃ©ation et intialisation d'une liste de positions
   *
-  * @return La liste correctement allouée
+  * @return La liste correctement allouÃ©e
   *
   * */
 
@@ -41,7 +41,7 @@ Positions positions_creer();
 /**
   * Destruction d'une liste de positions
   *
-  * @param La liste à détruire
+  * @param La liste Ã  dÃ©truire
   *
   * */
 
@@ -50,7 +50,7 @@ void positions_detruire(Positions liste);
 /**
   * Teste si une liste de positions est vide
   *
-  * @param La liste à tester
+  * @param La liste Ã  tester
   * @return 1 si la liste est vide, 0 si elle ne l'est pas
   *
   * */
@@ -58,39 +58,39 @@ void positions_detruire(Positions liste);
 int positions_vide(Positions liste);
 
 /**
-  * Ajoute une chaine à une liste de positions
+  * Ajoute une chaine Ã  une liste de positions
   *
-  * @param La position à ajouter
-  * @param La liste à laquelle on veut ajouter une chaine
+  * @param La position Ã  ajouter
+  * @param La liste Ã  laquelle on veut ajouter une chaine
   *
   * */
 
 void positions_ajouter(Position position, Positions liste);
 
 /**
-  * Teste si une position appartient à une liste de positions
+  * Teste si une position appartient Ã  une liste de positions
   *
-  * @param La position à tester
-  * @param La liste à tester
-  * @return 1 si la position appartient à la liste, 0 sinon
+  * @param La position Ã  tester
+  * @param La liste Ã  tester
+  * @return 1 si la position appartient Ã  la liste, 0 sinon
   *
   * */
 
 int positions_appartient(Position position, Positions liste);
 
 /**
-  * Se placer en tête d'une liste de positions
+  * Se placer en tÃªte d'une liste de positions
   *
-  * @param La liste à traiter
+  * @param La liste Ã  traiter
   *
   * */
 
 void positions_tete(Positions liste);
 
 /**
-  * Passer à l'élément suivant d'une liste de positions
+  * Passer Ã  l'Ã©lÃ©ment suivant d'une liste de positions
   *
-  * @param La liste à traiter
+  * @param La liste Ã  traiter
   * @return 1 s'il y'a bien un suivant, 0 sinon
   *
   * */
@@ -98,10 +98,10 @@ void positions_tete(Positions liste);
 int positions_suivant(Positions liste);
 
 /**
-  * L'élément courant d'une liste de positions
+  * L'Ã©lÃ©ment courant d'une liste de positions
   *
-  * @param La liste à traiter
-  * @return Un pointeur sur l'élément courant de la liste
+  * @param La liste Ã  traiter
+  * @return Un pointeur sur l'Ã©lÃ©ment courant de la liste
   *
   * */
 

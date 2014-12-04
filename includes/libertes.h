@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file libertes.c
   *
-  * Fichier d'en-tête du type abstrait Libertés
+  * Fichier d'en-tÃªte du type abstrait LibertÃ©s
   *
   * */
 
@@ -21,9 +21,9 @@
 #include "position.h"
 
 /**
-  * @typedef Libertés
+  * @typedef LibertÃ©s
   *
-  * Libertés est un pointeur sur ensemble_positions
+  * LibertÃ©s est un pointeur sur ensemble_positions
   *
   * */
 
@@ -33,27 +33,27 @@ typedef ensemble_positions* Libertes;
 #include "plateau.h"
 
 /**
-  * Création et intialisation d'un ensemble de libertés
+  * CrÃ©ation et intialisation d'un ensemble de libertÃ©s
   *
-  * @return L'ensemble de libertés correctement alloué
+  * @return L'ensemble de libertÃ©s correctement allouÃ©
   *
   * */
 
 Libertes libertes_creer();
 
  /**
-  * Destruction d'un ensemble de libertés
+  * Destruction d'un ensemble de libertÃ©s
   *
-  * @param L'ensemble de libertés à détruire
+  * @param L'ensemble de libertÃ©s Ã  dÃ©truire
   *
   * */
 
 void libertes_detruire(Libertes liste);
 
 /**
-  * Teste si un ensemble de libertés est vide
+  * Teste si un ensemble de libertÃ©s est vide
   *
-  * @param L'ensemble à tester
+  * @param L'ensemble Ã  tester
   * @return 1 si l'ensemble est vide, 0 si elle ne l'est pas
   *
   * */
@@ -61,9 +61,9 @@ void libertes_detruire(Libertes liste);
 int libertes_vide(Libertes liste);
 
 /**
-  * Ajoute une liberté à l'ensemble
+  * Ajoute une libertÃ© Ã  l'ensemble
   *
-  * @param La position à ajouter
+  * @param La position Ã  ajouter
   * @param L'ensemble auquel on veut ajouter une position
   *
   * */
@@ -71,29 +71,29 @@ int libertes_vide(Libertes liste);
 void libertes_ajouter(Position position, Libertes liste);
 
 /**
-  * Teste si une position appartient à l'ensemble de libertés
+  * Teste si une position appartient Ã  l'ensemble de libertÃ©s
   *
-  * @param La position à tester
-  * @param L'ensemble à tester
-  * @return 1 si la position appartient à l'ensemble, 0 sinon
+  * @param La position Ã  tester
+  * @param L'ensemble Ã  tester
+  * @return 1 si la position appartient Ã  l'ensemble, 0 sinon
   *
   * */
 
 int libertes_appartient(Position position, Libertes liste);
 
 /**
-  * Se placer en tête d'un ensemble de libertés
+  * Se placer en tÃªte d'un ensemble de libertÃ©s
   *
-  * @param L'ensemble à traiter
+  * @param L'ensemble Ã  traiter
   *
   * */
 
 void libertes_tete(Libertes liste);
 
 /**
-  * Passer à l'élément suivant d'un ensemble de libertés
+  * Passer Ã  l'Ã©lÃ©ment suivant d'un ensemble de libertÃ©s
   *
-  * @param L'ensemble à traiter
+  * @param L'ensemble Ã  traiter
   * @return 1 s'il y'a bien un suivant, 0 sinon
   *
   * */
@@ -101,21 +101,21 @@ void libertes_tete(Libertes liste);
 int libertes_suivant(Libertes liste);
 
 /**
-  * L'élément courant d'un ensemble de libertés
+  * L'Ã©lÃ©ment courant d'un ensemble de libertÃ©s
   *
-  * @param L'ensemble à traiter
-  * @return Un pointeur sur l'élément courant de l'ensemble
+  * @param L'ensemble Ã  traiter
+  * @return Un pointeur sur l'Ã©lÃ©ment courant de l'ensemble
   *
   * */
 
 element_position* libertes_courant(Libertes liste);
 
 /**
-  * Détermine les libertés d'une chaine sur le plateau
+  * DÃ©termine les libertÃ©s d'une chaine sur le plateau
   *
   * @param Le plateau courant
-  * @param La chaine à traiter
-  * @return L'ensemble des libertés de la chaine
+  * @param La chaine Ã  traiter
+  * @return L'ensemble des libertÃ©s de la chaine
   *
   * */
 

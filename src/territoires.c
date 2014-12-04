@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file plateau.c
   *
-  * Fonctions utiles à la gestion des ensembles de territoires
+  * Fonctions utiles Ã  la gestion des ensembles de territoires
   *
   * */
 

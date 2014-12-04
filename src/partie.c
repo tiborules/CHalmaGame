@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file partie.c
   *
-  * Fonctions utiles à la gestion de parties
+  * Fonctions utiles Ã  la gestion de parties
   *
   * */
 
@@ -56,14 +56,14 @@ void fonctionQuestions(int numeroQuestion, Partie* p)
     switch(numeroQuestion)
     {
         case 0:
-            printf("Nom du joueur ROUGE (<8 caractères) :");
+            printf("Nom du joueur ROUGE (<8 caractÃ¨res) :");
 
             scanf("%s", p->joueur[0].nom);
 
             break;
 
         case 1:
-            printf("Nom du joueur blanc (< 8 caractères) ? ");
+            printf("Nom du joueur blanc (< 8 caractÃ¨res) ? ");
 
             scanf("%s", p->joueur[1].nom);
 

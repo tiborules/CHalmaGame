@@ -1,6 +1,6 @@
 /**
   * ENSICAEN
-  * 6, boulevard du Maréchal Juin
+  * 6, boulevard du MarÃ©chal Juin
   * 14050 Caen Cedex
   *
   * This file is owned by ENSICAEN students
@@ -11,7 +11,7 @@
   /**
   * @file plateau.c
   *
-  * Fonctions utiles à la gestion du plateau de jeu
+  * Fonctions utiles Ã  la gestion du plateau de jeu
   *
   * */
 
@@ -21,12 +21,12 @@
 #include "../includes/plateau.h"
 
 /**
-  * Fonction récursive intermédiaire utile à la détermination de chaines
+  * Fonction rÃ©cursive intermÃ©diaire utile Ã  la dÃ©termination de chaines
   *
   * @param Le plateau courant
-  * @param La chaine à déterminer entièrement
+  * @param La chaine Ã  dÃ©terminer entiÃ¨rement
   * @param L'abscisse de la position de laquelle partir
-  * @param L'ordonée de la position de laquelle partir
+  * @param L'ordonÃ©e de la position de laquelle partir
   *
   * */
 
