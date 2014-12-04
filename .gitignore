@@ -1,0 +1,23 @@
+# Generated folders
+bin/
+obj/
+doc/
+
+# Generated files
+*.o
+*.so
+*.ko
+*.a
+*.dll
+*.exe
+*.msi
+*.out
+
+# Temp files
+*~
+*.bak
+\#*#
+
+# OS specific useless files
+thumbs.db
+Thumbs.db
