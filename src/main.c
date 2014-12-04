@@ -333,25 +333,25 @@ void plateau_afficher(Plateau plateau)
             if (plateau_get(plateau, i, j) == VIDE && ((plateau->taille == 19 && (i == plateau->taille/5 || i == plateau->taille/2 || i == 4*plateau->taille/5) && (j == plateau->taille/5 || j == plateau->taille/2 || j == 4*plateau->taille/5))
                                                         || (plateau->taille == 13 && (i == plateau->taille/4 || i == plateau->taille/2 || i == 3*plateau->taille/4) && (j == plateau->taille/4 || j == plateau->taille/2 || j == 3*plateau->taille/4))
                                                         || (plateau->taille == 9 && (i == plateau->taille/4 || i == 3*plateau->taille/4) && (j == plateau->taille/4 || j == 3*plateau->taille/4))))
-                printf(" +");
+                fputs(" +", stdout);
             else if (plateau_get(plateau, i, j) == VIDE)
-                printf(" .");
+                fputs(" .", stdout);
             else if (plateau_get(plateau, i, j) == ROUGE)
-                printf(" R");
+                fputs(" R", stdout);
             else if (plateau_get(plateau, i, j) == BLEU)
-                printf(" B");
+                fputs(" B", stdout);
             else if (plateau_get(plateau, i, j) == VERT)
-                printf(" V");
+                fputs(" V", stdout);
             else if (plateau_get(plateau, i, j) == JAUNE)
-                printf(" J");
+                fputs(" J", stdout);
         }
 
         indice(plateau->taille-j, 1, 0);
-        printf("\n");
+        puts("");
 
         if (j == plateau->taille-1)
         {
-            printf("    ");
+            fputs("    ", stdout);
 
             for (i = 0; i < plateau->taille; ++i)
                 indice(i, 0, 0);
@@ -402,16 +402,16 @@ void action(Partie* p, int* continuer)
         do
         {
             if (p->nbCoups%2)
-                printf("Blanc (O) : ");
+                fputs("Blanc (O) : ", stdout);
             else
-                printf("Noir (X) : ");
+                fputs("Noir (X) : ", stdout);
 
             scanf("%s", act);
         } while (!((strlen(act) == 1 && (act[0] == 'a' || act[0] == 'r' || act[0] == 'p' || act[0] == 's' || act[0] == 'q' ))
                     || (strlen(act) == 2 && (((int)act[0] >= (int)'A' && (int)act[0] <= (int)'H') || ((int)act[0] >= (int)'J' && (int)act[0] <= ((int)'J'+p->plateau[0]->taille-9))) && (act[1] >= '1' && act[1] <= '9'))
                     || (strlen(act) == 3 && p->plateau[0]->taille > 9 && (((int)act[0] >= (int)'A' && (int)act[0] <= (int)'H') || ((int)act[0] >= (int)'J' && (int)act[0] <= ((int)'J'+p->plateau[0]->taille-9) ) ) && (act[1] == '1') && ((int)act[2] >= (int)'0' && (int)act[2] <= (int)'0'+p->plateau[0]->taille-10))));
 
-        printf("\n");
+        puts("");
     }
     else
     {
