@@ -15,6 +15,7 @@
   *
   * @todo Pouvoir tirer au sort le joueur noir et le joueur blanc
   * @todo Lorsqu'un humain joue contre une IA, le retour en arrière devrait annuler également le coup de l'IA
+  * @todo Ne pas faire des copie de structures, il serait mieux d'utiliser des pointeurs et const dans les protorypes de fonctions si nécessaire
   * @bug Quelques failles de sécurité lors de la saisie d'informations
   *
   */
@@ -97,7 +98,7 @@ Position convertir(Partie partie, char act[]);
 
 int main()
 {
-    int continuer, c, taille = 9;
+    int continuer, c, taille = 9; /* TODO What is "c" and "taille" is size of what? Please rename variables in a clearer way. */
     unsigned int choix;
     char fichier_nom[255];
     FILE* file;
@@ -565,7 +566,6 @@ void action(Partie* p, int* continuer)
                     for (i = 0; i < 2; ++i)
                     {
                         p->joueur[i].score = realloc(p->joueur[i].score, (p->nbCoups+1)*sizeof(float));
-
                         p->joueur[i].score[p->nbCoups] = p->joueur[i].score[p->nbCoups-1];
                     }
 
