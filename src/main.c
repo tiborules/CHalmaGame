@@ -43,6 +43,12 @@
 #define CLEAR_COMMAND "clear"
 #endif
 
+#ifdef _WIN32
+#define PAUSE_COMMAND "pause"
+#else
+#define PAUSE_COMMAND "read"
+#endif
+
 #define GAME_START 1
 #define GAME_LOAD  2
 #define GAME_RULES 3
@@ -181,7 +187,7 @@ int main()
                     else
                         printf("%s (O) gagne %.1f à %.1f contre %s (X) !!\n\n", partie.joueur[1].nom, partie.joueur[1].score[partie.nbCoups], partie.joueur[0].score[partie.nbCoups], partie.joueur[0].nom);
 
-                    system("pause");
+                    system(PAUSE_COMMAND);
                 }
 
                 system(CLEAR_COMMAND);
@@ -199,7 +205,7 @@ int main()
                     printf("Les joueurs déposent alternativement une pierre de leur couleur sur une intersection libre du goban y compris les intersections qui se trouvent sur le bord extérieur de la grille.\n\n") ;
                     printf("Une fois placée sur le goban, la pierre ne change plus de place.\n Un joueur peut aussi passer son tour ou abandonner la partie lorsque cest son tour.\n\n\n");
 
-                    system("pause");
+                    system(PAUSE_COMMAND);
 
 
                     system(CLEAR_COMMAND);
@@ -219,7 +225,7 @@ int main()
                     printf("\n\n Si le joueur NOIR place son pion dans la case , il aura entouré le pion BLANC, et donc le capturera\n\n");
                     printf("Le groupe complet est ôté du goban et ajouté au tas de prisonniers du camp adverse.\n\n\n\n");
 
-                    system("pause");
+                    system(PAUSE_COMMAND);
 
                     plateau_set(plateau, 3, 2, NOIR);
                     plateau_set(plateau, 2, 2,VIDE);
@@ -228,7 +234,7 @@ int main()
                     plateau_detruire(plateau);
 
 
-                    system("pause");
+                    system(PAUSE_COMMAND);
 
                     printf("\n***************************\n");
                     printf("Pierres vivantes et mortes");
@@ -236,7 +242,7 @@ int main()
                     printf("\n\nLorsque des pierres sont dans une situation telle que leur capture est jugée inévitable, on dit qu'elles sont mortes. Au contraire, des pierres qui sont impossibles à capturer seront dites vivantes.\n\n");
                     printf("Un joueur n'a pas besoin de capturer réellement des pierres mortes, c'est-à-dire qu'il n'a pas besoin de rajouter tous les coups nécessaires pour retirer les pierres du plateau. \n\n");
                     printf(" \nCes pierres mortes ne seront alors retirées du plateau qu'en fin de partie et ajoutées aux prisonniers.\n");
-                    system("pause");
+                    system(PAUSE_COMMAND);
 
                     printf("********************\n");
                     printf("Seki\n");
@@ -458,7 +464,7 @@ void action(Partie* p, int* continuer)
         {
             case 'a':
                 printf("\nPour jouer sur une intersection vide du goban, tapez l'indice de la colonne suivi du numéro de la ligne, par exemple B12\nPour passer votre tour, tapez p\nPour annuler le dernier coup, tapez r\nPour sauvegarder la partie, tapez s\nPour quitter la partie, tapez q\n\n");
-                system("pause");
+                system(PAUSE_COMMAND);
                 break;
 
             case 'r':
@@ -472,7 +478,7 @@ void action(Partie* p, int* continuer)
                 else
                 {
                     printf("\nImpossible de revenir en arrière !\n\n");
-                    system("pause");
+                    system(PAUSE_COMMAND);
                 }
                 break;
 
@@ -587,19 +593,19 @@ void action(Partie* p, int* continuer)
                 else
                 {
                     printf("Impossible de revenir à une configuration précédente du goban !\n\n");
-                    system("pause");
+                    system(PAUSE_COMMAND);
                 }
             }
             else
             {
                 printf("Impossible de jouer ici, le suicide est interdit !\n\n");
-                system("pause");
+                system(PAUSE_COMMAND);
             }
         }
         else
         {
             printf("Il y'a déjà un pion ici !\n\n");
-            system("pause");
+            system(PAUSE_COMMAND);
         }
     }
 }
