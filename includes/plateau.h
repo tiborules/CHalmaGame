@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef PLATEAU_H_INCLUDED
-#define PLATEAU_H_INCLUDED
+#ifndef PLATEAU_H
+#define PLATEAU_H
 
 #include "couleur.h"
 

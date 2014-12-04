@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef COULEUR_H_INCLUDED
-#define COULEUR_H_INCLUDED
+#ifndef COULEUR_H
+#define COULEUR_H
 
 #include "position.h"
 

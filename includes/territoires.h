@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef TERRITOIRES_H_INCLUDED
-#define TERRITOIRES_H_INCLUDED
+#ifndef TERRITOIRES_H
+#define TERRITOIRES_H
 
 #include "territoire.h"
 

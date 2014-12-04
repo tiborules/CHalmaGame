@@ -1,5 +1,5 @@
-#ifndef PIONS_H_INCLUDED
-#define PIONS_H_INCLUDED
+#ifndef PIONS_H
+#define PIONS_H
 
 #include "pion.h"
 

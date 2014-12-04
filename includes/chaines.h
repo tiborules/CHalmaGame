@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef CHAINES_H_INCLUDED
-#define CHAINES_H_INCLUDED
+#ifndef CHAINES_H
+#define CHAINES_H
 
 #include "chaine.h"
 

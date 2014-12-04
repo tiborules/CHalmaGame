@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef POSITION_H_INCLUDED
-#define POSITION_H_INCLUDED
+#ifndef POSITION_H
+#define POSITION_H
 
 /**
   * @struct position

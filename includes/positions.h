@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef POSITIONS_H_INCLUDED
-#define POSITIONS_H_INCLUDED
+#ifndef POSITIONS_H
+#define POSITIONS_H
 
 #include "position.h"
 

@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef TERRITOIRE_H_INCLUDED
-#define TERRITOIRE_H_INCLUDED
+#ifndef TERRITOIRE_H
+#define TERRITOIRE_H
 
 #include "couleur.h"
 

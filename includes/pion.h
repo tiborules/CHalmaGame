@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef PION_H_INCLUDED
-#define PION_H_INCLUDED
+#ifndef PION_H
+#define PION_H
 
 #include "couleur.h"
 

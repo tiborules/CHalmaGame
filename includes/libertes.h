@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef LIBERTES_H_INCLUDED
-#define LIBERTES_H_INCLUDED
+#ifndef LIBERTES_H
+#define LIBERTES_H
 
 #include "position.h"
 

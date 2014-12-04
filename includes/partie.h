@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef PARTIE_H_INCLUDED
-#define PARTIE_H_INCLUDED
+#ifndef PARTIE_H
+#define PARTIE_H
 
 #include "plateau.h"
 

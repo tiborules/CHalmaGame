@@ -15,8 +15,8 @@
   *
   * */
 
-#ifndef CHAINE_H_INCLUDED
-#define CHAINE_H_INCLUDED
+#ifndef CHAINE_H
+#define CHAINE_H
 
 #include "couleur.h"
 
