@@ -8,10 +8,14 @@
 
 ##### File "settings"
 
-All text files have to be in UTF-8 (without BOM) encoding (generally UTF-8 on GNU/Linux and ISO 8859-15 on MS Windows) and LF character newline (sometime called UNIX newline/endline) (Windows generally used CRLF).
+All text files have to be in [UTF-8](https://en.wikipedia.org/wiki/UTF-8) (without BOM) encoding (generally UTF-8 on GNU/Linux and ISO 8859-15 on MS Windows) and LF character newline (sometime called UNIX newline/endline) (Windows generally used CRLF).
 Unfortunately, by default some text editors save with the same encoding and character newline of your OS.
-In order to force to use UTF-8 and LF for this project in Eclipse, do right click on the project in "Package Explorer", then "Properties", in the right panel select "Resource", now you are on the right and enough intelligent to find what to change.
 
+###### Configuring file "settings"
+
+* In order to force to use UTF-8 and LF for this project in Eclipse, do right click on the project in "Package Explorer", then "Properties", in the right panel select "Resource", now you are on the right and enough intelligent to find what to change.
+* For creating new files with UTF-8 and LF in Geany, go to "Edit" > "Preferences" > "Files" (tab), then choose "Unix (LF)" for line breaks and "UTF-8" as the default encoding.
+* For doing the same thing in Qt Creator, go to "Tools" > "Options" > "Text Editor" > "Behavior".
 
 ##### Coding style
 
@@ -62,4 +66,9 @@ However, you can install a graphical user interface for it (like [git-cola](http
 
 ## License and authors
 
-See [LICENSE.md](LICENSE.md) and logs of git for the full list of contributors to the project.
+See [LICENSE.md](LICENSE.md) and logs of git for the full list of contributors of the project.
+
+## Tasks to do
+
+* Translate everything in english.
+* Clarify licensing policy.
