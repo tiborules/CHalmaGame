@@ -165,7 +165,41 @@ int main(int argc, char* argv[])
 	{
 	  if(tab_2d_char_is_init(&universe))
 	    {
-	      halma_remove_marks(&universe);
+	      unsigned int line_pawn, column_pawn, line_mark, column_mark;
+	      bool moved = false;
+	      while(!moved)
+		{
+		  puts("Choose a pawn to move:");
+		  fputs("* Line: ", stdout);
+		  scanf("%u", &line_pawn);
+		  fputs("* Column: ", stdout);
+		  scanf("%u", &column_pawn);
+		  
+		  if(halma_is_pawn(&universe, line_pawn, column_pawn))
+		    {
+		      halma_mark_possible_moves_of_a_cell(&universe, line_pawn, column_pawn);
+		      printf("Possible moves are marked with '%c'\n", HALMA_GAME_CELL_MARK);
+		      tab_2d_char_print_stdout_without_grid(&universe);
+		      puts("Choose a destination cell:");
+		      fputs("* Line: ", stdout);
+		      scanf("%u", &line_mark);
+		      fputs("* Column: ", stdout);
+		      scanf("%u", &column_mark);
+		      
+		      if(halma_pawn_move(&universe, line_pawn, column_pawn, line_mark, column_mark))
+			{
+			  moved = true;
+			}
+		      else
+			{
+			  fprintf(stderr, "The move did not succeed.\n");
+			}
+		    }
+		  else
+		    {
+		      fprintf(stderr, "The [%u, %u] is not a pawn.\n", line_pawn, column_pawn);
+		    }
+		}
 	      ++nb_turns;
 	      
 	      if(debug)

@@ -20,14 +20,20 @@
  */
 
 
-#ifndef CONWAY_GAME_OF_LIFE_CELL_H
-#define CONWAY_GAME_OF_LIFE_CELL_H
+#ifndef CONWAY_GAME_OF_LIFE_H
+#define CONWAY_GAME_OF_LIFE_H
 
 #include "bool.h"
 #include "tab_2d_char_file.h"
 
 #define HALMA_GAME_CELL_EMPTY '.'
 #define HALMA_GAME_CELL_MARK  '*'
+
+
+/**
+ * A board Halma game
+ */
+typedef tab_2d_char halma_board_game;
 
 
 /**
@@ -58,13 +64,59 @@ bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int co
 bool halma_is_pawn(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
 /**
+ * Put a mark in a board Halma game unsafely (possible null pointer, segfaut, etc).
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ */
+void halma_board_game_cell_put_mark_unsafe(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+
+/**
+ * Put a mark in a board Halma game.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ */
+void halma_board_game_cell_put_mark(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+
+/**
+ * Apply a function around for each cell around a cell if a verification is true.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ * @param function_verify_cell A function that returns a boolean depending of a given cell
+ * @param function_apply_cell A function that can be applied to a given cell
+ * @return count_apply_functions Number of times the applying function has been called.
+ */
+unsigned int halma_apply_a_function_around_a_cell(tab_2d_char* tab_2d, unsigned int line, unsigned int column, bool (*function_verify_cell)(const tab_2d_char* tab_2d, unsigned int line, unsigned int column), void (*function_apply_cell)(tab_2d_char* tab_2d, unsigned int line, unsigned int column));
+
+/**
+ * Marks possible moves around a given cell that has to be a pawn.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ * @return nb_marks Number of new marks added
+ */
+unsigned int halma_mark_possible_moves_around_a_pawn(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+
+
+/**
+ * Marks possible jumps around a given cell that has to be marked.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ * @return nb_marks Number of new marks added
+ */
+unsigned int halma_mark_possible_jumps_around_a_marked_cell(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+
+/**
  * Marks possible moves of a cell of a Halma game in a 2D table of char.
  * @param tab_2d A pointer of a 2D table of char
  * @param line A line of the 2D table of char
  * @param column A column of the 2D table of char
- * @todo Mark also jump moves
+ * @return nb_marks Number of new marks added
  */
-void halma_mark_possible_moves_of_a_cell(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+unsigned int halma_mark_possible_moves_of_a_cell(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
 /**
  * Removes all marks of a 2D table of char used for a Halma game.
