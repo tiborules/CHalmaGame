@@ -115,6 +115,18 @@ void tab_2d_char_set_element_value(tab_2d_char* tab_2d, unsigned int line, unsig
     *pointer = value;
 }
 
+bool tab_2d_char_swap(tab_2d_char* tab_2d, unsigned int line1, unsigned int column1, unsigned int line2, unsigned int column2)
+{
+  if(!tab_2d_char_is_init(tab_2d) || !tab_2d_char_element_exists(tab_2d, line1, column1) || !tab_2d_char_element_exists(tab_2d, line2, column2))
+    return false;
+  
+  char tmp = tab_2d_char_get_element_value(tab_2d, line1, column1);
+  tab_2d_char_set_element_value(tab_2d, line1, column1,
+				tab_2d_char_get_element_value(tab_2d, line2, column2));
+  tab_2d_char_set_element_value(tab_2d, line2, column2, tmp);
+  return true;
+}
+
 void tab_2d_char_fill_with_const(tab_2d_char* tab_2d, char value_for_filling)
 {
   if(tab_2d_char_is_init(tab_2d))
@@ -127,6 +139,23 @@ void tab_2d_char_fill_with_const(tab_2d_char* tab_2d, char value_for_filling)
 	    {
 	      tab_2d_char_set_element_value_unsafe(tab_2d, line, column, value_for_filling);
 	    }
+	}
+    }
+}
+
+void tab_2d_char_replace(tab_2d_char* tab_2d, char value_to_replace, char new_value)
+{
+  if(tab_2d_char_is_init(tab_2d))
+    {
+      for(unsigned int line=0, column; line < tab_2d->nb_lines; ++line)
+	{
+	  for(column=0; column < tab_2d->nb_columns; ++column)
+	    {
+	      if(tab_2d_char_get_element_value_unsafe(tab_2d, line, column) == value_to_replace)
+		{
+		  tab_2d_char_set_element_value_unsafe(tab_2d, line, column, new_value);
+		}
+	    } 
 	}
     }
 }

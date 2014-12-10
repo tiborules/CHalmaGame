@@ -179,11 +179,30 @@ void tab_2d_char_set_element_value_unsafe(tab_2d_char* tab_2d, unsigned int line
 void tab_2d_char_set_element_value(tab_2d_char* tab_2d, unsigned int line, unsigned int column, char value);
 
 /**
+ * Swap value of [line1, column1] with [line2, column2] of a 2D table of char.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line1 A first line of the 2D table of char
+ * @param column1 A first column of the 2D table of char
+ * @param line2 A second line of the 2D table of char
+ * @param column2 A second column of the 2D table of char
+ * @return succeed True if the swap goes well, otherwise false.
+ */
+bool tab_2d_char_swap(tab_2d_char* tab_2d, unsigned int line1, unsigned int column1, unsigned int line2, unsigned int column2);
+
+/**
  * Fill a 2D table of char with a constant.
  * @param tab_2d A pointer of a 2D table of char
  * @param value_for_filling A value for filling
  */
 void tab_2d_char_fill_with_const(tab_2d_char* tab_2d, char value_for_filling);
+
+/**
+ * Replace a character by an other one in a 2D table of char.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param value_to_replace A char value to replace
+ * @param new_value A new value to replace the old one
+ */
+void tab_2d_char_replace(tab_2d_char* tab_2d, char value_to_replace, char new_value);
 
 /* TODO
 char * tab_2d_char_get_line_copy(tab_2d* tab, unsigned int line);
