@@ -165,9 +165,9 @@ int main(int argc, char* argv[])
 	{
 	  if(tab_2d_char_is_init(&universe))
 	    {
-	      universe = conway_game_of_life_get_next_turn(&universe);
+	      halma_remove_marks(&universe);
 	      ++nb_turns;
-      
+	      
 	      if(debug)
 		{
 		  char file_path[6 + 1 + nb_turns / 1];
@@ -175,14 +175,14 @@ int main(int argc, char* argv[])
 		  tab_2d_char_save_to_file_path(&universe, file_path);
 		}
 
-	      if(conway_game_of_life_is_universe_over(&universe))
+	      /*if(conway_game_of_life_is_universe_over(&universe))
 		{
 		  user_answer[0] = 'o';
 		  user_answer[1] = 'v';
 		  user_answer[2] = 'e';
 		  user_answer[3] = 'r';
 		  user_answer[4] = '\0';
-		}
+		  }*/
 	    }
 	  else
 	    fprintf(stderr, "There is no universe. :(\n");

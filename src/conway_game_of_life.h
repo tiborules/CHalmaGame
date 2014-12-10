@@ -26,59 +26,61 @@
 #include "bool.h"
 #include "tab_2d_char_file.h"
 
-#define CONWAY_GAME_OF_LIFE_CELL_EMPTY  '.'
-#define CONWAY_GAME_OF_LIFE_CELL_LIVING '*'
+#define HALMA_GAME_CELL_EMPTY '.'
+#define HALMA_GAME_CELL_MARK  '*'
 
 
 /**
- * Returns true if a 2D table of char is a universe for Conway's Game of Life, otherwise false.
- * @param tab_2d A 2D table of char
- * @return is_universe True if a 2D table of char is a universe for Conway's Game of Life, otherwise false
+ * Returns true if a cell of a Halma game is empty, otherwise returns false.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ * @return succeed True if a cell of a Halma game is empty, otherwise false
  */
-bool conway_game_of_life_is_universe(const tab_2d_char* tab_2d);
+bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
 /**
- * Returns true if a universe for Conway's Game of Life won't evolve anymore, otherwise false.
- * @param tab_2d A 2D table of char
- * @return is_universe_over True if a universe for Conway's Game of Life won't evolve anymore, otherwise false
+ * Returns true if a cell of a Halma game is a mark, otherwise returns false.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ * @return succeed True if a cell of a Halma game is a mark, otherwise false
  */
-bool conway_game_of_life_is_universe_over(const tab_2d_char* tab_2d);
+bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
 /**
- * Returns the number of near living cells in top, bottom, left and right.
- * .1.
- * 2*3
- * .4.
- * @param tab_2d A 2D table of char
- * @return nb The number of near living cells in top, bottom, left and right
+ * Returns true if a cell of a Halma game is a pawn, otherwise returns false.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ * @return succeed True if a cell of a Halma game is a pawn, otherwise false
  */
-unsigned char conway_game_of_life_nb_of_near_living_cells_cross_like_add(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+bool halma_is_pawn(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
 /**
- * Returns the number of near living cells in corners.
- * 1.2
- * .*.
- * 3.4
- * @param tab_2d A 2D table of char
- * @return nb The number of near living cells in corners
+ * Marks possible moves of a cell of a Halma game in a 2D table of char.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line A line of the 2D table of char
+ * @param column A column of the 2D table of char
+ * @todo Mark also jump moves
  */
-unsigned char conway_game_of_life_nb_of_near_living_cells_corners(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+void halma_mark_possible_moves_of_a_cell(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
 /**
- * Returns the number of near living cells.
- * 123
- * 4*5
- * 678
- * @param tab_2d A 2D table of char
- * @return nb The number of near living cells
+ * Removes all marks of a 2D table of char used for a Halma game.
+ * @param tab_2d A pointer of a 2D table of char
  */
-unsigned char conway_game_of_life_nb_of_near_living_cells_square(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+void halma_remove_marks(tab_2d_char* tab_2d);
 
 /**
- * Returns the next turn of a a universe for Conway's Game of Life.
- * @param tab_2d A 2D table of char
- * @return The next turn of a a universe for Conway's Game of Life
+ * If parameters are good, move a pawn to a mark and remove marks.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param line_pawn Line of the pawn
+ * @param column_pawn Column of the pawn
+ * @param line_mark Line of the mark
+ * @param column_mark Column of the mark
+ * @return succeed True if the move is done, otherwise false
  */
-tab_2d_char conway_game_of_life_get_next_turn(const tab_2d_char* tab_2d);
+bool halma_pawn_move(tab_2d_char* tab_2d, unsigned int line_pawn, unsigned int column_pawn, unsigned int line_mark, unsigned int column_mark);
 
 #endif
