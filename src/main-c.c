@@ -45,7 +45,7 @@ void print_help()
   puts("nb_columns Print the number of columns.");
   puts("debug_status Print the status of debugging.");
   puts("debug_on Put debug on.");
-  puts("debug_on Put debug off.");
+  puts("debug_off Put debug off.");
 }
 
 /**
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
     {
       if(string_equals(argv[1], "-h") || string_equals(argv[1], "--help") || string_equals(argv[1], "--aide"))
 	{
-	  puts("A free/libre Conway's Game of Life");
+	  puts("A free/libre Halma game");
 	  print_help();
 	  return EXIT_SUCCESS;
 	}
@@ -178,21 +178,28 @@ int main(int argc, char* argv[])
 		  if(halma_is_pawn(&universe, line_pawn, column_pawn))
 		    {
 		      halma_mark_possible_moves_of_a_cell(&universe, line_pawn, column_pawn);
-		      printf("Possible moves are marked with '%c'\n", HALMA_GAME_CELL_MARK);
-		      tab_2d_char_print_stdout_without_grid(&universe);
-		      puts("Choose a destination cell:");
-		      fputs("* Line: ", stdout);
-		      scanf("%u", &line_mark);
-		      fputs("* Column: ", stdout);
-		      scanf("%u", &column_mark);
-		      
-		      if(halma_pawn_move(&universe, line_pawn, column_pawn, line_mark, column_mark))
+		      if(halma_is_there_at_least_one_mark(&universe))
 			{
-			  moved = true;
+			  printf("Possible moves are marked with '%c'\n", HALMA_GAME_CELL_MARK);
+			  tab_2d_char_print_stdout_without_grid(&universe);
+			  puts("Choose a destination cell:");
+			  fputs("* Line: ", stdout);
+			  scanf("%u", &line_mark);
+			  fputs("* Column: ", stdout);
+			  scanf("%u", &column_mark);
+			  
+			  if(halma_pawn_move(&universe, line_pawn, column_pawn, line_mark, column_mark))
+			    {
+			      moved = true;
+			    }
+			  else
+			    {
+			      fprintf(stderr, "The move did not succeed.\n");
+			    }
 			}
 		      else
 			{
-			  fprintf(stderr, "The move did not succeed.\n");
+			  fprintf(stderr, "The pawn [%u, %u] can not move.\n", line_pawn, column_pawn);
 			}
 		    }
 		  else

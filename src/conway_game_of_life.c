@@ -116,7 +116,6 @@ unsigned int halma_mark_possible_jumps_around_a_marked_cell(tab_2d_char* tab_2d,
   
   if(halma_is_mark(tab_2d, line, column))
     {
-  
       if(halma_is_pawn(tab_2d, line-1, column-1) && halma_is_cell_empty(tab_2d, line-2, column-2))
 	{
 	  halma_board_game_cell_put_mark_unsafe(tab_2d, line-2, column-2);
@@ -197,4 +196,31 @@ bool halma_pawn_move(tab_2d_char* tab_2d, unsigned int line_pawn, unsigned int c
   tab_2d_char_swap(tab_2d, line_pawn, column_pawn, line_mark, column_mark);
   halma_remove_marks(tab_2d);
   return true;
+}
+
+bool halma_is_there_at_least_one_mark(const tab_2d_char* tab_2d)
+{
+  for(unsigned int line=0, column; line < tab_2d->nb_lines; ++line)
+    {
+      for(column=0; column < tab_2d->nb_columns; ++column)
+	{
+	  if(tab_2d_char_get_element_value(tab_2d, line, column) == HALMA_GAME_CELL_MARK)
+	    return true;
+	}
+    }
+  return false;
+}
+
+unsigned int halma_get_number_of_marks(const tab_2d_char* tab_2d)
+{
+  unsigned int nb = 0;
+  for(unsigned int line=0, column; line < tab_2d->nb_lines; ++line)
+    {
+      for(column=0; column < tab_2d->nb_columns; ++column)
+	{
+	  if(tab_2d_char_get_element_value(tab_2d, line, column) == HALMA_GAME_CELL_MARK)
+	    ++nb;
+	}
+    }
+  return nb;
 }

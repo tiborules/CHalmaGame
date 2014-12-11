@@ -135,4 +135,18 @@ void halma_remove_marks(tab_2d_char* tab_2d);
  */
 bool halma_pawn_move(tab_2d_char* tab_2d, unsigned int line_pawn, unsigned int column_pawn, unsigned int line_mark, unsigned int column_mark);
 
+/**
+ * Returns true if there is at least one mark in a 2D table of char, otherwise false.
+ * @param tab_2d A pointer of a 2D table of char
+ * @return at_least_one True if there is at least one mark in a 2D table of char, otherwise false.
+ */
+bool halma_is_there_at_least_one_mark(const tab_2d_char* tab_2d);
+
+/**
+ * Returns number of marks of a 2D table of char.
+ * @param tab_2d A pointer of a 2D table of char
+ * @return Number of marks of a 2D table of char
+ */
+unsigned int halma_get_number_of_marks(const tab_2d_char* tab_2d);
+
 #endif
