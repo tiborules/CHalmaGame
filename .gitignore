@@ -17,6 +17,7 @@ doc/
 *~
 *.bak
 \#*#
+.\#*
 
 # OS specific useless files
 thumbs.db
