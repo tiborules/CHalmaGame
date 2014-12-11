@@ -28,7 +28,7 @@
 #include "string_functions.h"
 #include "tab_2d_char_io.h"
 #include "tab_2d_char_file.h"
-#include "conway_game_of_life.h"
+#include "halma_game_essential.h"
 
 #define USER_ANSWER_LENGTH_MAX 255
 

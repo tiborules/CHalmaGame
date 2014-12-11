@@ -20,7 +20,7 @@
  */
 
 
-#include "conway_game_of_life.h"
+#include "halma_game_essential.h"
 
 
 bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)

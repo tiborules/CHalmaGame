@@ -20,8 +20,8 @@
  */
 
 
-#ifndef CONWAY_GAME_OF_LIFE_H
-#define CONWAY_GAME_OF_LIFE_H
+#ifndef HALMA_GAME_ESSENTIAL_H
+#define HALMA_GAME_ESSENTIAL_H
 
 #include "bool.h"
 #include "tab_2d_char_file.h"

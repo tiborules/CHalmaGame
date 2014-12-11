@@ -24,7 +24,7 @@ DEBUG_FLAGS=-g
 CFLAGS=-std=c99 -Wall $(INCLUDES) $(DEBUG_FLAGS) -fPIC
 RM=rm -f
 
-PACKAGE=conway-game-of-life
+PACKAGE=halma-game
 FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* mainpage.dox tests/
 
 
@@ -33,14 +33,14 @@ FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* mainpag
 all: $(BIN_DIR)/main-c $(BIN_DIR)/libtab2dchar.a $(BIN_DIR)/libtab2dchar.so doc tar-bz2
 
 
-$(BIN_DIR)/main-c: $(SRC_DIR)/bool.h $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/conway_game_of_life.o  $(BIN_DIR)/main-c.o
-	$(CC) $(CFLAGS) $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/conway_game_of_life.o $(BIN_DIR)/main-c.o -o $(BIN_DIR)/main-c
+$(BIN_DIR)/main-c: $(SRC_DIR)/bool.h $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/halma_game_essential.o  $(BIN_DIR)/main-c.o
+	$(CC) $(CFLAGS) $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/halma_game_essential.o $(BIN_DIR)/main-c.o -o $(BIN_DIR)/main-c
 
-$(BIN_DIR)/main-c.o: $(SRC_DIR)/string_functions.h $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/conway_game_of_life.h $(SRC_DIR)/main-c.c
+$(BIN_DIR)/main-c.o: $(SRC_DIR)/string_functions.h $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/halma_game_essential.h $(SRC_DIR)/main-c.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/main-c.c -o $(BIN_DIR)/main-c.o
 
-$(BIN_DIR)/conway_game_of_life.o: $(SRC_DIR)/tab_2d_char_print.h $(SRC_DIR)/conway_game_of_life.h $(SRC_DIR)/conway_game_of_life.c
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/conway_game_of_life.c -o $(BIN_DIR)/conway_game_of_life.o
+$(BIN_DIR)/halma_game_essential.o: $(SRC_DIR)/tab_2d_char_print.h $(SRC_DIR)/halma_game_essential.h $(SRC_DIR)/halma_game_essential.c
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/halma_game_essential.c -o $(BIN_DIR)/halma_game_essential.o
 
 $(BIN_DIR)/libtab2dchar.so: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o
 	gcc -o $(BIN_DIR)/libtab2dchar.so -shared $(BIN_DIR)/tab_2d_char_*.o
