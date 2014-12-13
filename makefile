@@ -61,6 +61,14 @@ $(BIN_DIR)/tab_2d_char_essential.o: $(SRC_DIR)/bool.h $(SRC_DIR)/tab_2d_char_ess
 	mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/tab_2d_char_essential.c -o $(BIN_DIR)/tab_2d_char_essential.o
 
+$(BIN_DIR)/position_2d_uint_pair.o: $(SRC_DIR)/position_2d_uint.h $(SRC_DIR)/position_2d_uint_pair.h $(SRC_DIR)/position_2d_uint_pair.c
+	mkdir -p $(BIN_DIR)/
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/position_2d_uint_pair.c -o $(BIN_DIR)/position_2d_uint_pair.o
+
+$(BIN_DIR)/position_2d_uint.o: $(SRC_DIR)/position_2d_uint.h $(SRC_DIR)/position_2d_uint.c
+	mkdir -p $(BIN_DIR)/
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/position_2d_uint.c -o $(BIN_DIR)/position_2d_uint.o
+
 $(BIN_DIR)/string_functions.o: $(SRC_DIR)/string_functions.h $(SRC_DIR)/string_functions.c
 	mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/string_functions.c -o $(BIN_DIR)/string_functions.o
