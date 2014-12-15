@@ -4,18 +4,21 @@
 
 ### Files
 
-#### Source code
-
-##### File "settings"
+#### Text file "settings"
 
 All text files have to be in [UTF-8](https://en.wikipedia.org/wiki/UTF-8) (without BOM) encoding (generally UTF-8 on GNU/Linux and ISO 8859-15 on MS Windows) and LF character newline (sometime called UNIX newline/endline) (Windows generally used CRLF).
 Unfortunately, by default some text editors save with the same encoding and character newline of your OS.
 
-###### Configuring file "settings"
+An empty line must be at the end of text files.
+The aim is readability with `cat file`.
+
+##### Configuring text file "settings"
 
 * In order to force to use UTF-8 and LF for this project in Eclipse, do right click on the project in "Package Explorer", then "Properties", in the right panel select "Resource", now you are on the right and enough intelligent to find what to change.
 * For creating new files with UTF-8 and LF in Geany, go to "Edit" > "Preferences" > "Files" (tab), then choose "Unix (LF)" for line breaks and "UTF-8" as the default encoding.
 * For doing the same thing in Qt Creator, go to "Tools" > "Options" > "Text Editor" > "Behavior".
+
+#### Source code
 
 ##### Coding style
 
@@ -26,12 +29,16 @@ You also do not have to forget to create documentation.
 
 Following the [PEP (Python Enhancement Proposal) 20](https://www.python.org/dev/peps/pep-0020/) is a good thing, even if the project does not use the Python language.
 
-#### Text files
+##### C/C++ compilation
+
+The project should compile with at least 2 different C/C++ compilers (differente does not mean version number) (like GCC and Clang).
+
+#### Formatted text files
 
 If you need to make a structured document, you should consider [Markdown](https://en.wikipedia.org/wiki/Markdown).
 For example, this document uses the Markdown syntax.
 
-For longer texts or presentations, [LaTeX](http://latex-project.org/) could be a good option.
+For longer texts or presentations, [LaTeX](http://latex-project.org/) and HTML/CSS(/JS) could be good options.
 
 ### Git
 
@@ -70,5 +77,17 @@ See [LICENSE.md](LICENSE.md) and logs of git for the full list of contributors o
 
 ## Tasks to do
 
-* Translate everything in english.
 * Clarify licensing policy.
+* Finish the project
+  * Manage 2 to 4 players
+  * Manage winning and game over
+  * Print the grid with colors
+
+### Ideas
+
+* Create an icon
+* A graphical user interface
+* Compute a score for ranking loosers
+* Create a C++ interface
+* Packages (deb, rpm, etc)
+* Play through the network
