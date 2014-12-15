@@ -19,6 +19,11 @@ doc/
 \#*#
 .\#*
 
+# Archives
+*.tar*
+*.zip
+*.7z
+
 # OS specific useless files
 thumbs.db
 Thumbs.db

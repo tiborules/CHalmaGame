@@ -25,8 +25,7 @@ void tab_2d_char_print_stream_without_grid(const tab_2d_char* tab_2d, FILE * str
 {
   if(tab_2d != NULL && tab_2d->tab != NULL)
     {
-      size_t line, column;
-      for(line=0; line < tab_2d->nb_lines; ++line)
+      for(size_t line=0, column; line < tab_2d->nb_lines; ++line)
 	{
 	  for(column=0; column < tab_2d->nb_columns; ++column)
 	    {
