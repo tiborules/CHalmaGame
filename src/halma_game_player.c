@@ -61,3 +61,16 @@ bool halma_game_player_init(halma_game_player* player, const char* name, char pa
     halma_game_player_set_name(player, name) &&
     halma_game_player_set_char_pawn(player, pawn_char);
 }
+
+void halma_game_player_destruct(halma_game_player* player)
+{
+  if(player != NULL)
+    {
+      if(player->name != NULL)
+	{
+	  free(player->name);
+	  player->name = NULL;
+	}
+      player->char_pawn = HALMA_GAME_CELL_MARK;
+    }
+}

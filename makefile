@@ -39,6 +39,9 @@ $(BIN_DIR)/main-c: $(SRC_DIR)/bool.h $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/str
 $(BIN_DIR)/main-c.o: $(SRC_DIR)/string_functions.h $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/halma_game_essential.h $(SRC_DIR)/main-c.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/main-c.c -o $(BIN_DIR)/main-c.o
 
+$(BIN_DIR)/halma_game_players.o: $(SRC_DIR)/halma_game_player.h $(SRC_DIR)/halma_game_players.h $(SRC_DIR)/halma_game_players.c
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/halma_game_players.c -o $(BIN_DIR)/halma_game_players.o
+
 $(BIN_DIR)/halma_game_player.o: $(SRC_DIR)/bool.h $(SRC_DIR)/string_functions.h $(SRC_DIR)/halma_game_player.h $(SRC_DIR)/halma_game_player.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/halma_game_player.c -o $(BIN_DIR)/halma_game_player.o
 

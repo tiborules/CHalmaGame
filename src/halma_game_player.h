@@ -38,6 +38,7 @@ struct halma_game_player
   char char_pawn;
 };
 
+
 /**
  * Returns true if a player has a name, otherwise false.
  * @param player A Halma game player
@@ -83,5 +84,11 @@ bool halma_game_player_is_init(const halma_game_player* player);
  * @return True if the player is initialized, otherwise false
  */
 bool halma_game_player_init(halma_game_player* player, const char* name, char pawn_char);
+
+/**
+ * Destruct a Halma game player (dynamic allocation, etc).
+ * @param player A Halma game player
+ */
+void halma_game_player_destruct(halma_game_player* player);
 
 #endif
