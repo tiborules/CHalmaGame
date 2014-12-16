@@ -23,6 +23,7 @@
 #ifndef TAB_2D_CHAR_ESSENTIAL_H
 #define TAB_2D_CHAR_ESSENTIAL_H
 
+
 #include <stdlib.h>
 #include "bool.h"
 

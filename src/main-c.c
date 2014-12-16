@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
 	  print_help();
 	  return EXIT_SUCCESS;
 	}
-      if(string_equals(argv[1], "--license") || string_equals(argv[1], "--licence"))
+      if(string_equals(argv[1], "--license") || string_equals(argv[1], "--licence") || string_equals(argv[1], "--copyright"))
 	{
 	  puts("This program is under GNU Lesser General Public License 3 as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.");
 	  return EXIT_SUCCESS;

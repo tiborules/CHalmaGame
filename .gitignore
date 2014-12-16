@@ -9,9 +9,13 @@ doc/
 *.ko
 *.a
 *.dll
+*.deb
+*.rpm
+*.apk
 *.exe
 *.msi
 *.out
+*.dmg
 
 # Temp files
 *~

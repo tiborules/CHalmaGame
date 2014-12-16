@@ -23,7 +23,7 @@
 #ifndef TAB_2D_CHAR_SCAN_H
 #define TAB_2D_CHAR_SCAN_H
 
-#include <stdio.h>
+
 #include "tab_2d_char_essential.h"
 #include "stdio_functions.h"
 

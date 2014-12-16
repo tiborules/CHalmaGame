@@ -100,4 +100,8 @@ tar-bz2: $(FILES_TO_ARCHIVE)
 	tar -jcvf $(PACKAGE).tar.bz2 $(FILES_TO_ARCHIVE)
 
 clean:
-	$(RM) -rf -- $(BIN_DIR)/ $(DOC_DIR)/ *.zip *.tar.*  *~ $(SRC_DIR)/*~ \#*# *.bak
+	$(RM) -rf -- \
+		$(BIN_DIR)/ $(DOC_DIR)/ \
+		*.o a.out *.exe *.msi *.dmg \
+		*.zip *.tar.* *.7z \
+		*~ .\#*# \#*# *.bak $(SRC_DIR)/*~

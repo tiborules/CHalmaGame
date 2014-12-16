@@ -14,10 +14,12 @@
 #ifndef STDIO_FUNCTIONS_H
 #define STDIO_FUNCTIONS_H
 
+
 #include <stdio.h>
 
+
 /**
- * Read and discard characters up to the next newline.
+ * Read and discard characters up to the next newline of stdin.
  */
 void flush_stdin();
 
