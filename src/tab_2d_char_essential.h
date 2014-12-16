@@ -54,6 +54,25 @@ struct tab_2d_char
 
 
 /**
+ * Returns true if the 2D table of char is init.
+ * @param tab_2d A pointer of a 2D table of char
+ * @return True if the 2D table of char is init, otherwise false.
+ */
+bool tab_2d_char_is_init(const tab_2d_char* tab_2d);
+
+/**
+ * Allocate unsafely (NULL pointer and size) a 2D table of char.
+ * @param tab_2d A pointer of a 2D table of char
+ */
+void tab_2d_char_alloc_unsafe(tab_2d_char* tab_2d);
+
+/**
+ * Allocate with checks a 2D table of char.
+ * @param tab_2d A pointer of a 2D table of char
+ */
+void tab_2d_char_alloc(tab_2d_char* tab_2d);
+
+/**
  * Initialize the 2D table of char unsafely.
  * There is no check on pointers.
  * @param tab_2d A pointer of a 2D table of char
@@ -89,13 +108,6 @@ tab_2d_char tab_2d_char_create(unsigned int nb_lines, unsigned int nb_columns);
  * @param tab_2d A pointer of a 2D table of char
  */
 void tab_2d_char_destruct(tab_2d_char* tab_2d);
-
-/**
- * Returns true if the 2D table of char is init.
- * @param tab_2d A pointer of a 2D table of char
- * @return True if the 2D table of char is init, otherwise false.
- */
-bool tab_2d_char_is_init(const tab_2d_char* tab_2d);
 
 /**
  * Returns true if a line of the 2D table of char is init.

@@ -25,7 +25,7 @@ CFLAGS=-std=c99 -Wall $(INCLUDES) $(DEBUG_FLAGS) -fPIC
 RM=rm -f
 
 PACKAGE=halma-game
-FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* mainpage.dox tests/
+FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* README*
 
 
 .PHONY: $(DOC_DIR)
@@ -48,7 +48,7 @@ $(BIN_DIR)/libtab2dchar.so: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/tab_2d_char_
 $(BIN_DIR)/libtab2dchar.a: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o
 	ar -rv $(BIN_DIR)/libtab2dchar.a $(BIN_DIR)/tab_2d_char_*.o
 
-$(BIN_DIR)/tab_2d_char_file.o: $(SRC_DIR)/bool.h $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/tab_2d_char_file.c
+$(BIN_DIR)/tab_2d_char_file.o: $(SRC_DIR)/bool.h $(SRC_DIR)/tab_2d_char_print.h $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/tab_2d_char_file.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/tab_2d_char_file.c -o $(BIN_DIR)/tab_2d_char_file.o
 
 $(BIN_DIR)/tab_2d_char_scan.o: $(SRC_DIR)/stdio_functions.h $(SRC_DIR)/tab_2d_char_essential.h $(SRC_DIR)/tab_2d_char_scan.h $(SRC_DIR)/tab_2d_char_scan.c

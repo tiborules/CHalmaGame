@@ -53,28 +53,26 @@ void print_help()
  * @param universe A future universe
  * @return succeeded True if a universe is loaded, otherwise false
  */
-bool ask_load_universe(tab_2d_char* universe)
+bool ask_load_board_game(tab_2d_char* board_game)
 {
-  if(universe == NULL)
+  if(board_game == NULL)
     {
-      fprintf(stderr, "ask_load_universe => universe == NULL\n");
+      fprintf(stderr, "ask_load_board_game => board_game == NULL\n");
       return false;
     }
   
-  tab_2d_char_destruct(universe);
+  tab_2d_char_destruct(board_game);
   
-  {
-    printf("File path of the universe to load: ");
-    char file_path[2000];
-    fgets(file_path, 2000, stdin);
-    if(isspace(file_path[strlen(file_path)-1]) || iscntrl(file_path[strlen(file_path)-1]))
-      file_path[strlen(file_path)-1] = '\0';
+  printf("File path of the board game to load: ");
+  char file_path[2000];
+  fgets(file_path, 2000, stdin);
+  if(isspace(file_path[strlen(file_path)-1]) || iscntrl(file_path[strlen(file_path)-1]))
+    file_path[strlen(file_path)-1] = '\0';
     
-    if(strlen(file_path) == 0)
-      tab_2d_char_scan_stdin(universe);
-    else
-      tab_2d_char_get_from_file_path(universe, file_path);
-  }
+  if(strlen(file_path) == 0)
+    tab_2d_char_scan_stdin(board_game);
+  else
+    tab_2d_char_get_from_file_path(board_game, file_path);
   
   return true;
 }
@@ -112,15 +110,15 @@ int main(int argc, char* argv[])
   printf("Number of columns : ");
   scanf("%u", &number_of_columns);
   
-  tab_2d_char universe = tab_2d_char_create(number_of_lines, number_of_columns);
+  tab_2d_char board_game = tab_2d_char_create(number_of_lines, number_of_columns);
   tab_2d_char_print_stdout_without_grid(&square);
   TODO Generate randomly*/
   
-  puts("A free/libre Conway's Game of Life");
+  puts("A free/libre Halma game");
   puts("Use 'help' command if you need it.");
   puts("");
   
-  tab_2d_char universe = tab_2d_char_create(0, 0);
+  tab_2d_char board_game = tab_2d_char_create(0, 0);
   char user_answer[USER_ANSWER_LENGTH_MAX] = "";
   unsigned int nb_turns = 0;
   
@@ -151,19 +149,19 @@ int main(int argc, char* argv[])
 	      string_equals(user_answer, "good bye")
 	 )
 	{
-	  tab_2d_char_destruct(&universe);
+	  tab_2d_char_destruct(&board_game);
 	  return EXIT_SUCCESS;
 	}
       else if(string_equals(user_answer, "l") || string_equals(user_answer, "load"))
 	{
-	  if(ask_load_universe(&universe))
+	  if(ask_load_board_game(&board_game))
 	    nb_turns = 0;
 	  else
-	    universe.tab = NULL;
+	    board_game.tab = NULL;
 	}
       else if(string_equals(user_answer, "c") || string_equals(user_answer, "continue") || string_equals(user_answer, "n") || string_equals(user_answer, "next"))
 	{
-	  if(tab_2d_char_is_init(&universe))
+	  if(tab_2d_char_is_init(&board_game))
 	    {
 	      unsigned int line_pawn, column_pawn, line_mark, column_mark;
 	      bool moved = false;
@@ -175,20 +173,20 @@ int main(int argc, char* argv[])
 		  fputs("* Column: ", stdout);
 		  scanf("%u", &column_pawn);
 		  
-		  if(halma_is_pawn(&universe, line_pawn, column_pawn))
+		  if(halma_is_pawn(&board_game, line_pawn, column_pawn))
 		    {
-		      halma_mark_possible_moves_of_a_cell(&universe, line_pawn, column_pawn);
-		      if(halma_is_there_at_least_one_mark(&universe))
+		      halma_mark_possible_moves_of_a_cell(&board_game, line_pawn, column_pawn);
+		      if(halma_is_there_at_least_one_mark(&board_game))
 			{
 			  printf("Possible moves are marked with '%c'\n", HALMA_GAME_CELL_MARK);
-			  tab_2d_char_print_stdout_without_grid(&universe);
+			  tab_2d_char_print_stdout_without_grid(&board_game);
 			  puts("Choose a destination cell:");
 			  fputs("* Line: ", stdout);
 			  scanf("%u", &line_mark);
 			  fputs("* Column: ", stdout);
 			  scanf("%u", &column_mark);
 			  
-			  if(halma_pawn_move(&universe, line_pawn, column_pawn, line_mark, column_mark))
+			  if(halma_pawn_move(&board_game, line_pawn, column_pawn, line_mark, column_mark))
 			    {
 			      moved = true;
 			    }
@@ -213,10 +211,10 @@ int main(int argc, char* argv[])
 		{
 		  char file_path[6 + 1 + nb_turns / 1];
 		  sprintf(file_path, "debug-%u", nb_turns);
-		  tab_2d_char_save_to_file_path(&universe, file_path);
+		  tab_2d_char_save_to_file_path(&board_game, file_path);
 		}
 
-	      /*if(conway_game_of_life_is_universe_over(&universe))
+	      /*if(halma_game_is_board_game_over(&board_game))
 		{
 		  user_answer[0] = 'o';
 		  user_answer[1] = 'v';
@@ -226,11 +224,11 @@ int main(int argc, char* argv[])
 		  }*/
 	    }
 	  else
-	    fprintf(stderr, "There is no universe. :(\n");
+	    fprintf(stderr, "There is no board game. :(\n");
 	}
       else if(string_equals(user_answer, "p") || string_equals(user_answer, "print") || string_equals(user_answer, "display"))
 	{
-	    tab_2d_char_print_stdout_without_grid(&universe);
+	    tab_2d_char_print_stdout_without_grid(&board_game);
 	}
       else if(string_equals(user_answer, "nb_turns"))
 	{
@@ -238,24 +236,24 @@ int main(int argc, char* argv[])
 	}
       else if(string_equals(user_answer, "grid_size"))
 	{
-	  printf("%u", universe.nb_lines);
+	  printf("%u", board_game.nb_lines);
 	  fputs(" line", stdout);
-	  if(universe.nb_lines > 1)
+	  if(board_game.nb_lines > 1)
 	    fputc('s', stdout);
 	  fputs(" and ", stdout);
-	  printf("%u", universe.nb_columns);
+	  printf("%u", board_game.nb_columns);
 	  fputs(" column", stdout);
-	  if(universe.nb_columns > 1)
+	  if(board_game.nb_columns > 1)
 	    fputc('s', stdout);
 	  puts("");
 	}
       else if(string_equals(user_answer, "nb_lines"))
 	{
-	  printf("Number of lines: %u\n", universe.nb_lines);
+	  printf("Number of lines: %u\n", board_game.nb_lines);
 	}
       else if(string_equals(user_answer, "nb_columns"))
 	{
-	  printf("Number of columns %u\n", universe.nb_columns);
+	  printf("Number of columns %u\n", board_game.nb_columns);
 	}
       else if(string_equals(user_answer, "debug_status"))
 	{

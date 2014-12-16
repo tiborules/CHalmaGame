@@ -41,7 +41,7 @@ typedef tab_2d_char halma_board_game;
  * @param tab_2d A pointer of a 2D table of char
  * @param line A line of the 2D table of char
  * @param column A column of the 2D table of char
- * @return succeed True if a cell of a Halma game is empty, otherwise false
+ * @return True if a cell of a Halma game is empty, otherwise false
  */
 bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
@@ -50,7 +50,7 @@ bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned 
  * @param tab_2d A pointer of a 2D table of char
  * @param line A line of the 2D table of char
  * @param column A column of the 2D table of char
- * @return succeed True if a cell of a Halma game is a mark, otherwise false
+ * @return True if a cell of a Halma game is a mark, otherwise false
  */
 bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
@@ -59,7 +59,7 @@ bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int co
  * @param tab_2d A pointer of a 2D table of char
  * @param line A line of the 2D table of char
  * @param column A column of the 2D table of char
- * @return succeed True if a cell of a Halma game is a pawn, otherwise false
+ * @return True if a cell of a Halma game is a pawn, otherwise false
  */
 bool halma_is_pawn(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
@@ -86,7 +86,7 @@ void halma_board_game_cell_put_mark(tab_2d_char* tab_2d, unsigned int line, unsi
  * @param column A column of the 2D table of char
  * @param function_verify_cell A function that returns a boolean depending of a given cell
  * @param function_apply_cell A function that can be applied to a given cell
- * @return count_apply_functions Number of times the applying function has been called.
+ * @return Number of times the applying function has been called.
  */
 unsigned int halma_apply_a_function_around_a_cell(tab_2d_char* tab_2d, unsigned int line, unsigned int column, bool (*function_verify_cell)(const tab_2d_char* tab_2d, unsigned int line, unsigned int column), void (*function_apply_cell)(tab_2d_char* tab_2d, unsigned int line, unsigned int column));
 
@@ -95,7 +95,7 @@ unsigned int halma_apply_a_function_around_a_cell(tab_2d_char* tab_2d, unsigned 
  * @param tab_2d A pointer of a 2D table of char
  * @param line A line of the 2D table of char
  * @param column A column of the 2D table of char
- * @return nb_marks Number of new marks added
+ * @return Number of new marks added
  */
 unsigned int halma_mark_possible_moves_around_a_pawn(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
@@ -105,7 +105,7 @@ unsigned int halma_mark_possible_moves_around_a_pawn(tab_2d_char* tab_2d, unsign
  * @param tab_2d A pointer of a 2D table of char
  * @param line A line of the 2D table of char
  * @param column A column of the 2D table of char
- * @return nb_marks Number of new marks added
+ * @return Number of new marks added
  */
 unsigned int halma_mark_possible_jumps_around_a_marked_cell(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
@@ -114,7 +114,7 @@ unsigned int halma_mark_possible_jumps_around_a_marked_cell(tab_2d_char* tab_2d,
  * @param tab_2d A pointer of a 2D table of char
  * @param line A line of the 2D table of char
  * @param column A column of the 2D table of char
- * @return nb_marks Number of new marks added
+ * @return Number of new marks added
  */
 unsigned int halma_mark_possible_moves_of_a_cell(tab_2d_char* tab_2d, unsigned int line, unsigned int column);
 
@@ -131,14 +131,14 @@ void halma_remove_marks(tab_2d_char* tab_2d);
  * @param column_pawn Column of the pawn
  * @param line_mark Line of the mark
  * @param column_mark Column of the mark
- * @return succeed True if the move is done, otherwise false
+ * @return True if the move is done, otherwise false
  */
 bool halma_pawn_move(tab_2d_char* tab_2d, unsigned int line_pawn, unsigned int column_pawn, unsigned int line_mark, unsigned int column_mark);
 
 /**
  * Returns true if there is at least one mark in a 2D table of char, otherwise false.
  * @param tab_2d A pointer of a 2D table of char
- * @return at_least_one True if there is at least one mark in a 2D table of char, otherwise false.
+ * @return True if there is at least one mark in a 2D table of char, otherwise false.
  */
 bool halma_is_there_at_least_one_mark(const tab_2d_char* tab_2d);
 

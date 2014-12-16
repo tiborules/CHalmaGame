@@ -31,7 +31,7 @@ void tab_2d_char_scan_stdin_table(tab_2d_char* tab_2d)
 	    {
 	      printf("tab_2d[line=%u][column=%u] = ", line, column);
 	      flush_stdin();
-	      scanf("%c", tab_2d_char_get_element_pointer(tab_2d, line, column));
+	      scanf("%c", tab_2d_char_get_element_pointer_unsafe(tab_2d, line, column));
 	    }
 	}
     }
