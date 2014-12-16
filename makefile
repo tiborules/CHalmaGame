@@ -39,11 +39,14 @@ $(BIN_DIR)/main-c: $(SRC_DIR)/bool.h $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/str
 $(BIN_DIR)/main-c.o: $(SRC_DIR)/string_functions.h $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/halma_game_essential.h $(SRC_DIR)/main-c.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/main-c.c -o $(BIN_DIR)/main-c.o
 
+$(BIN_DIR)/halma_game_player.o: $(SRC_DIR)/bool.h $(SRC_DIR)/string_functions.h $(SRC_DIR)/halma_game_player.h $(SRC_DIR)/halma_game_player.c
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/halma_game_player.c -o $(BIN_DIR)/halma_game_player.o
+
 $(BIN_DIR)/halma_game_essential.o: $(SRC_DIR)/tab_2d_char_print.h $(SRC_DIR)/halma_game_essential.h $(SRC_DIR)/halma_game_essential.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/halma_game_essential.c -o $(BIN_DIR)/halma_game_essential.o
 
 $(BIN_DIR)/libtab2dchar.so: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o
-	gcc -o $(BIN_DIR)/libtab2dchar.so -shared $(BIN_DIR)/tab_2d_char_*.o
+	$(CC) -o $(BIN_DIR)/libtab2dchar.so -shared $(BIN_DIR)/tab_2d_char_*.o
 
 $(BIN_DIR)/libtab2dchar.a: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o
 	ar -rv $(BIN_DIR)/libtab2dchar.a $(BIN_DIR)/tab_2d_char_*.o

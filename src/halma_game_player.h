@@ -8,9 +8,6 @@
  * Even if I do not force you with copyleft to respect freedom of others, please do it.
  * For more informations : http://www.gnu.org/philosophy/free-sw.html
  * This program is provided with no warranty.
- *
- * @todo Separate in .h and in .c
- * @todo Add a rule in makefile
  */
 
 
@@ -41,6 +38,12 @@ struct halma_game_player
   char char_pawn;
 };
 
+/**
+ * Returns true if a player has a name, otherwise false.
+ * @param player A Halma game player
+ * @return True if a player has a name, otherwise false
+ */
+bool halma_game_player_has_a_name(const halma_game_player* player);
 
 /**
  * Set a name of a Halma game player.
@@ -48,26 +51,14 @@ struct halma_game_player
  * @param new_name New name of the player
  * @return True if the player has the new name, otherwise false
  */
-bool halma_game_player_set_name(halma_game_player* player, const char* new_name)
-{
-  if(player->name != NULL)
-    free(player->name);
-
-  player->name = (char*) malloc(sizeof(char) * (strlen(new_name) +1));
-  strcpy(player->name, new_name);
-  string_trim(player->name, ' ');
-  return strlen(player->name);
-}
+bool halma_game_player_set_name(halma_game_player* player, const char* new_name);
 
 /**
  * Returns true if a pawn character is possible for a Halma game player, otherwise false.
  * @param new_paw A potential pawn character of a player
  * @return True if a pawn character is possible for a Halma game player, otherwise false
  */
-bool halma_game_player_is_possible_char_pawn(char pawn_char)
-{
-  return pawn_char != HALMA_GAME_CELL_EMPTY || pawn_char != HALMA_GAME_CELL_MARK;
-}
+bool halma_game_player_is_possible_char_pawn(char pawn_char);
 
 /**
  * Set a character pawn of a Halma game player.
@@ -75,15 +66,14 @@ bool halma_game_player_is_possible_char_pawn(char pawn_char)
  * @param new_paw New pawn character of the player
  * @return True if the player has the new pawn character, otherwise false
  */
-bool halma_game_player_set_char_pawn(halma_game_player* player, char new_pawn)
-{
-  if(halma_game_player_is_possible_char_pawn(new_pawn))
-    {
-      player->char_pawn = new_pawn;
-      return true;
-    }
-  return false;
-}
+bool halma_game_player_set_char_pawn(halma_game_player* player, char new_pawn);
+
+/**
+ * Returns true if a player is initialized, otherwise false.
+ * @param player A Halma game player
+ * @return True if a player is initialized, otherwise false
+ */
+bool halma_game_player_is_init(const halma_game_player* player);
 
 /**
  * Initialize a Halma game player.
@@ -92,11 +82,6 @@ bool halma_game_player_set_char_pawn(halma_game_player* player, char new_pawn)
  * @param new_paw New pawn character of the player
  * @return True if the player is initialized, otherwise false
  */
-bool halma_game_player_init(halma_game_player* player, const char* name, char pawn_char)
-{
-  return
-    halma_hame_player_set_name(player, name) &&
-    halma_game_player_set_char_pawn(player, pawn_char);
-}
+bool halma_game_player_init(halma_game_player* player, const char* name, char pawn_char);
 
 #endif
