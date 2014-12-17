@@ -23,8 +23,6 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#include "bool.h"
-#include "stdio_functions.h"
 #include "string_functions.h"
 #include "tab_2d_char_io.h"
 #include "tab_2d_char_file.h"
@@ -35,17 +33,17 @@
 
 void print_help()
 {
-  puts("help Print memo of commands.");
-  puts("quit Quit the program.");
-  puts("load Load a universe.");
-  puts("next Compute next turn of the universe.");
-  puts("nb_turns Print the current turn number.");
-  puts("grid_size Print the size of the grid.");
-  puts("nb_lines Print the number of lines.");
-  puts("nb_columns Print the number of columns.");
-  puts("debug_status Print the status of debugging.");
-  puts("debug_on Put debug on.");
-  puts("debug_off Put debug off.");
+  printf("h|help -- Print memo of commands.\n");
+  printf("q|quit|exit -- Quit the program.\n");
+  printf("l|load -- Load a board game.\n");
+  printf("n|next -- Compute next turn of the Halma game on the current board.\n");
+  printf("nb_turns -- Print the current turn number.\n");
+  printf("grid_size -- Print the size of the grid.\n");
+  printf("nb_lines -- Print the number of lines.\n");
+  printf("nb_columns -- Print the number of columns.\n");
+  printf("debug_status -- Print the status of debugging.\n");
+  printf("debug_on -- Put debug on.\n");
+  printf("debug_off -- Put debug off.\n");
 }
 
 /**
