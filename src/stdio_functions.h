@@ -56,9 +56,10 @@ unsigned int fgets_uint(char* str, int num, FILE* stream, bool* succeeded);
 /**
  * Ask a unsigned int as long as it something else, and returns it.
  * @param prompt A prompt written to stdout before the user can enter an unsigned int
+ * @param error_message An error message of the input is not correct
  * @return An unsigned integer
  */
-unsigned int ask_uint_tirelessly(const char* prompt);
+unsigned int ask_uint_tirelessly(const char* prompt, const char* error_message);
 
 
 #endif

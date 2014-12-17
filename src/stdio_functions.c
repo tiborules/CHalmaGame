@@ -53,15 +53,19 @@ unsigned int fgets_uint(char* str, int num, FILE* stream, bool* succeeded)
   return atoi(str);
 }
 
-unsigned int ask_uint_tirelessly(const char* prompt)
+unsigned int ask_uint_tirelessly(const char* prompt, const char* error_message)
 {
   unsigned int result;
-  bool is_input_correct = false;
+  bool is_input_correct;
   char user_answer[20]; /* 2^64-1 has 20 digits */
-  while(!is_input_correct)
+  do
     {
       fputs(prompt, stdout);
       result = fgets_uint(user_answer, 20, stdin, &is_input_correct);
+
+      if(!is_input_correct)
+	fputs(error_message, stderr);
     }
+  while(!is_input_correct);
   return result;
 }
