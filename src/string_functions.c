@@ -116,3 +116,27 @@ void string_toupper(char* string)
       string[i] = toupper(string[i]);
     }
 }
+
+bool string_contains_only_digits(const char* string)
+{
+  for(size_t i=0; i < strlen(string); ++i)
+    {
+      if(!isdigit(string[i]))
+	 return false;
+    }
+  return true;
+}
+
+bool string_is_int(const char* string)
+{
+  return
+    (*string == '+' || *string == '-' || isdigit(*string)) &&
+    string_contains_only_digits(++string);
+}
+
+bool string_is_uint(const char* string)
+{
+  return
+    (*string == '+' || isdigit(*string)) &&
+    string_contains_only_digits(++string);
+}

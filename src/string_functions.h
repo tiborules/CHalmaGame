@@ -27,6 +27,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "bool.h"
 
 
 /**
@@ -104,5 +105,27 @@ void string_tolower(char* string);
  * @param string String to uppercase
  */
 void string_toupper(char* string);
+
+/**
+ * Returns true if a string contains only digits, otherwise false.
+ * @param string A string
+ * @return True if a string contains only digits, otherwise false
+ */
+bool string_contains_only_digits(const char* string);
+
+/**
+ * Returns true if a string is an integer, otherwise false.
+ * @param string A string
+ * @return True if a string is an integer, otherwise false
+ */
+bool string_is_int(const char* string);
+
+/**
+ * Returns true if a string is an unsigned integer, otherwise false.
+ * @param string A string
+ * @return True if a string is an unsigned integer, otherwise false
+ */
+bool string_is_uint(const char* string);
+
 
 #endif
