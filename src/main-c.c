@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#include "string_functions.h"
+#include "stdio_functions.h"
 #include "tab_2d_char_io.h"
 #include "tab_2d_char_file.h"
 #include "halma_game_essential.h"
@@ -78,6 +78,7 @@ bool ask_load_board_game(tab_2d_char* board_game)
 int main(int argc, char* argv[])
 {
   bool debug = false;
+  bool error_for_empty_command = false;
   
   if(argc > 1)
     {
@@ -122,13 +123,8 @@ int main(int argc, char* argv[])
   
   while(true)
     {
-      //flush_stdin();
       fputs("Command: ", stdout);
-      fgets(user_answer, USER_ANSWER_LENGTH_MAX, stdin);
-      if(isspace(user_answer[strlen(user_answer)-1]) || iscntrl(user_answer[strlen(user_answer)-1]))
-	user_answer[strlen(user_answer)-1] = '\0';
-      string_trim(user_answer, ' ');
-      string_tolower(user_answer);
+      fgets_trimmed(user_answer, USER_ANSWER_LENGTH_MAX, stdin);
 
       
       if(string_equals(user_answer, "h") || string_equals(user_answer, "help") || string_equals(user_answer, "commands") || string_equals(user_answer, "aide"))
@@ -166,10 +162,8 @@ int main(int argc, char* argv[])
 	      while(!moved)
 		{
 		  puts("Choose a pawn to move:");
-		  fputs("* Line: ", stdout);
-		  scanf("%u", &line_pawn);
-		  fputs("* Column: ", stdout);
-		  scanf("%u", &column_pawn);
+		  line_pawn = ask_uint_tirelessly("* Line: ");
+		  column_pawn = ask_uint_tirelessly("* Column: ");
 		  
 		  if(halma_is_pawn(&board_game, line_pawn, column_pawn))
 		    {
@@ -179,10 +173,8 @@ int main(int argc, char* argv[])
 			  printf("Possible moves are marked with '%c'\n", HALMA_GAME_CELL_MARK);
 			  tab_2d_char_print_stdout_without_grid(&board_game);
 			  puts("Choose a destination cell:");
-			  fputs("* Line: ", stdout);
-			  scanf("%u", &line_mark);
-			  fputs("* Column: ", stdout);
-			  scanf("%u", &column_mark);
+			  line_mark = ask_uint_tirelessly("* Line: ");
+			  column_mark = ask_uint_tirelessly("* Column: ");
 			  
 			  if(halma_pawn_move(&board_game, line_pawn, column_pawn, line_mark, column_mark))
 			    {
@@ -271,8 +263,11 @@ int main(int argc, char* argv[])
 	}
       else if(*user_answer == '\0')
 	{
-	  fputs("Empty command.", stderr);
-	  puts("");
+	  if(error_for_empty_command)
+	    {
+	      fputs("Empty command.", stderr);
+	      puts("");
+	    }
 	}
       else
 	{
