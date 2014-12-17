@@ -54,16 +54,19 @@ char* get_reverse_string(const char* string)
 
 void string_ltrim(char* string, char character_to_strip)
 {
-  while(string[0] == character_to_strip)
+  while(*string == character_to_strip)
     strcpy(string, string + 1);
 }
 
 
 void string_rtrim(char* string, char character_to_strip)
 {
-  size_t i = strlen(string) -1;
-  while(string[i] == character_to_strip)
-    string[i--] = '\0';
+  string += strlen(string) -1;
+  while(*string == character_to_strip)
+    {
+      *string = '\0';
+      --string;
+    }
 }
 
 
@@ -76,10 +79,12 @@ void string_trim(char* string, char character_to_strip)
 
 void delete_consecutive_characters(char* string, char character_to_strip)
 {
-  for(size_t i=1; i < strlen(string); ++i)
+  ++string;
+  while(*string)
     {
-      if(string[i-1] == character_to_strip && string[i] == character_to_strip)
-	strcpy(string + i-1, string + i);
+      if(*(string -1) == character_to_strip && *string == character_to_strip)
+	strcpy(string -1, string);
+      ++string;
     }
 }
 
@@ -87,10 +92,11 @@ void delete_consecutive_characters(char* string, char character_to_strip)
 unsigned int get_nb_of_character_of_string(const char* string, char character)
 {
   unsigned int nb=0;
-  for(size_t i=0; i < strlen(string); ++i)
+  while(*string)
     {
-      if(string[i] == character)
+      if(*string == character)
 	++nb;
+      ++string;
     }
   return nb;
 }
@@ -103,26 +109,29 @@ int string_equals(const char* str1, const char* str2)
 
 void string_tolower(char* string)
 {
-  for(size_t i=0; i < strlen(string); ++i)
+  while(*string)
     {
-      string[i] = tolower(string[i]);
+      *string = tolower(*string);
+      ++string;
     }
 }
 
 void string_toupper(char* string)
 {
-  for(size_t i=0; i < strlen(string); ++i)
+  while(*string)
     {
-      string[i] = toupper(string[i]);
+      *string = toupper(*string);
+      ++string;
     }
 }
 
 bool string_contains_only_digits(const char* string)
 {
-  for(size_t i=0; i < strlen(string); ++i)
+  while(*string)
     {
-      if(!isdigit(string[i]))
+      if(!isdigit(*string))
 	 return false;
+      ++string;
     }
   return true;
 }
