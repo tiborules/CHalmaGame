@@ -1,6 +1,4 @@
 /**
- * @file
- * 
  * @section license License
  * 
  * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
@@ -31,6 +29,13 @@ void position_2d_uint_swap(position_2d_uint* position)
       position->line = position->column;
       position->column = tmp;
     }
+}
+
+bool position_2d_uint_equals(const position_2d_uint* position1, const position_2d_uint* position2)
+{
+  return
+    position1 != NULL && position2 != NULL &&
+    position1->first == position2->first && position1->second == position2->second;
 }
 
 void position_2d_uint_print(const position_2d_uint* position, FILE* stream, const char* delimiter_start, const char* separator, const char* delimiter_end)

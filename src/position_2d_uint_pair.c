@@ -1,6 +1,4 @@
 /**
- * @file
- * 
  * @section license License
  * 
  * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>

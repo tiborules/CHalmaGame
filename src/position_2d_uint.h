@@ -45,6 +45,14 @@ struct position_2d_uint
 void position_2d_uint_swap(position_2d_uint* position);
 
 /**
+ * Return true if 2 2D positions of unsigned int are equal, otherwise false.
+ * @param position1 A first position
+ * @param position2 A second position
+ * @return True if 2 2D positions of unsigned int are equal, otherwise false
+ */
+bool position_2d_uint_equals(const position_2d_uint* position1, const position_2d_uint* position2);
+
+/**
  * Print a 2D position of unsigned int with line first and column second.
  * @param position A 2D position of unsigned int
  * @param stream A stream to print
