@@ -35,7 +35,9 @@ bool halma_game_player_set_name(halma_game_player* player, const char* new_name)
 
 bool halma_game_player_is_possible_char_pawn(char pawn_char)
 {
-  return pawn_char != HALMA_GAME_CELL_EMPTY || pawn_char != HALMA_GAME_CELL_MARK;
+  return
+    pawn_char != '\0' && pawn_char != '\n' &&
+    pawn_char != HALMA_GAME_CELL_EMPTY && pawn_char != HALMA_GAME_CELL_MARK;
 }
 
 bool halma_game_player_set_char_pawn(halma_game_player* player, char new_pawn)

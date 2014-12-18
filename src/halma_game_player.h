@@ -59,7 +59,11 @@ bool halma_game_player_set_name(halma_game_player* player, const char* new_name)
  * @param new_paw A potential pawn character of a player
  * @return True if a pawn character is possible for a Halma game player, otherwise false
  */
-bool halma_game_player_is_possible_char_pawn(char pawn_char);
+bool halma_game_player_is_possible_char_pawn(char pawn_char)
+#ifndef __GNUC__
+#define  __attribute__((const))
+#endif
+;
 
 /**
  * Set a character pawn of a Halma game player.

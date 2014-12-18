@@ -37,7 +37,7 @@ struct halma_game_players
   /**
    * Number of players.
    */
-  signed char nb;
+  unsigned char nb;
 };
 
 
@@ -50,23 +50,86 @@ bool halma_game_players_is_correct_nb(signed char number);
 
 /**
  * Returns true if a table of players is initialized, otherwise false.
- * @param player A table of Halma game players
+ * @param players A table of Halma game players
  * @return True if a table of players is initialized, otherwise false
  */
 bool halma_game_players_is_init(const halma_game_players* players);
 
 /**
  * Initialize a table of Halma game players.
- * @param player A table of Halma game players
+ * @param players A table of Halma game players
  * @param nb Number of players
  * @return True if the table of players is initialized, otherwise false
  */
 bool halma_game_players_init(halma_game_players* players, signed char nb);
 
 /**
+ * Create a table of Halma game players.
+ * @param nb Number of players
+ * @return A table of Halma game players
+ */
+halma_game_players halma_game_players_create(signed char nb);
+
+/**
  * Destruct a table of Halma game players (dynamic allocation, etc).
- * @param player A table of Halma game players
+ * @param players A table of Halma game players
  */
 void halma_game_players_destruct(halma_game_players* players);
+
+/**
+ * Returns true if table of Halma game players is initialized included each player, otherwise false.
+ * @param players A table of Halma game players
+ * @return True if table of Halma game players is initialized included each player, otherwise false
+ */
+bool halma_game_players_are_ready(const halma_game_players* players);
+
+/**
+ * Return true if a pawn character is used by at least one of the players except one, otherwise false.
+ * @param players A table of Halma game players
+ * @param char_pawn A pawn character
+ * @param exception_index An index not to check
+ * @return True if a pawn character is used by at least one of the players except one, otherwise false
+ */
+bool halma_game_players_is_char_pawn_used_with_exception(const halma_game_players* players, char char_pawn, signed char exception_index);
+
+/**
+ * Return true if a pawn character is used by at least one of the players, otherwise false.
+ * @param players A table of Halma game players
+ * @param char_pawn A pawn character
+ * @return True if a pawn character is used by at least one of the players, otherwise false
+ */
+bool halma_game_players_is_char_pawn_used(const halma_game_players* players, char char_pawn);
+
+/**
+ * Set a pawn character to a Halma game player of a table of players.
+ * @param players A table of Halma game players
+ * @param player_index An index of the table of players
+ * @param char_pawn A pawn character
+ * @return True if it the pawn character was set, otherwise false
+ */
+bool halma_game_players_set_player_char_pawn(const halma_game_players* players, size_t player_index, signed char char_pawn);
+
+/**
+ * Returns true if table of Halma game players is correct for playing, otherwise false.
+ * @param players A table of Halma game players
+ * @return True if table of Halma game players is ready for playing, otherwise false
+ */
+bool halma_game_players_is_correct(const halma_game_players* players);
+
+/**
+ * Set a number as pawn character for each player in the order of the table of Halma game players, by starting with a given character and then the nex ones in table of characters.
+ * @param players A table of Halma game players
+ * @param first_char_pawn A pawn character to start with
+ * @return Returns true if it succeeded, otherwise false
+ */
+bool halma_game_players_set_char_pawns_with_consecutive_chars(halma_game_players* players, char first_char_pawn);
+
+/**
+ * Set a number as pawn character for each player in the order of the table of Halma game players.
+ * @param players A table of Halma game players
+ * @return Returns true if it succeeded, otherwise false
+ */
+bool halma_game_players_set_char_pawns_with_numbers(halma_game_players* players);
+
 
 #endif
