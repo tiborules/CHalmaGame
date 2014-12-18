@@ -1,13 +1,20 @@
 /**
- * @file
- * 
  * @section license License
  * 
- * License Creative Commons 0 (like the public domain)
- * Use, study, hack and share!
- * Even if I do not force you with copyleft to respect freedom of others, please do it.
- * For more informations : http://www.gnu.org/philosophy/free-sw.html
- * This program is provided with no warranty.
+ * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 
@@ -43,7 +50,7 @@ bool halma_game_board_fill_for_new_party(halma_game_board* board, const halma_ga
 	  tab_2d_char_fill_part_of_line_with_char(board, 15, 11, 5, players->tab[1].char_pawn);
 	}
     }
-  else if(players->nb > 3)
+  else if(players->nb > 2)
     {
       /* Top left corner */
       tab_2d_char_fill_part_of_line_with_char(board, 0, 0, 4, players->tab[0].char_pawn);
