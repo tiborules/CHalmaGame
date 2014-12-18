@@ -33,15 +33,19 @@ FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* README*
 all: $(BIN_DIR)/$(PACKAGE)-text $(BIN_DIR)/libtab2dchar.a $(BIN_DIR)/libtab2dchar.so doc tar-bz2
 
 
-$(BIN_DIR)/$(PACKAGE)-text: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/halma_game_essential.o $(BIN_DIR)/tab_2d_char_fill_zone.o $(BIN_DIR)/halma_game_player.o $(BIN_DIR)/halma_game_players.o $(BIN_DIR)/main-c.o
+$(BIN_DIR)/$(PACKAGE)-text: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/halma_game_essential.o $(BIN_DIR)/tab_2d_char_fill_zone.o $(BIN_DIR)/halma_game_player.o $(BIN_DIR)/halma_game_players.o $(BIN_DIR)/halma_game_board.o $(BIN_DIR)/main-c.o
 	$(CC) $(CFLAGS) \
 		$(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o \
 		$(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_fill_zone.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o \
-		$(BIN_DIR)/halma_game_essential.o $(BIN_DIR)/halma_game_player.o $(BIN_DIR)/halma_game_players.o $(BIN_DIR)/main-c.o \
+		$(BIN_DIR)/halma_game_essential.o $(BIN_DIR)/halma_game_player.o $(BIN_DIR)/halma_game_players.o $(BIN_DIR)/halma_game_board.o \
+		$(BIN_DIR)/main-c.o \
 		-o $(BIN_DIR)/$(PACKAGE)-text
 
 $(BIN_DIR)/main-c.o: $(SRC_DIR)/stdio_functions.h $(SRC_DIR)/tab_2d_char_io.h  $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/halma_game_essential.h $(SRC_DIR)/main-c.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/main-c.c -o $(BIN_DIR)/main-c.o
+
+$(BIN_DIR)/halma_game_board.o: $(SRC_DIR)/tab_2d_char_fill_zone.h $(SRC_DIR)/halma_game_players.h $(SRC_DIR)/halma_game_board.h $(SRC_DIR)/halma_game_board.c
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/halma_game_board.c -o $(BIN_DIR)/halma_game_board.o
 
 $(BIN_DIR)/halma_game_players.o: $(SRC_DIR)/halma_game_player.h $(SRC_DIR)/halma_game_players.h $(SRC_DIR)/halma_game_players.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/halma_game_players.c -o $(BIN_DIR)/halma_game_players.o
