@@ -34,9 +34,10 @@
 void print_help()
 {
   printf("h|help -- Print memo of commands.\n");
-  printf("q|quit|exit -- Quit the program.\n");
+  printf("q|quit|k|kill|exit -- Quit the program.\n");
   printf("l|load -- Load a board game.\n");
   printf("n|next -- Compute next turn of the Halma game on the current board.\n");
+  printf("p|print|display -- Print the board game.\n");
   printf("nb_turns -- Print the current turn number.\n");
   printf("grid_size -- Print the size of the grid.\n");
   printf("nb_lines -- Print the number of lines.\n");

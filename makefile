@@ -20,8 +20,8 @@ DOC_DIR=doc
 
 CC=gcc
 INCLUDES=-I./$(SRC_DIR)
-DEBUG_FLAGS=-g
-CFLAGS=-std=c99 -Wall $(INCLUDES) $(DEBUG_FLAGS) -fPIC
+DEBUG_FLAGS=-O0 -g
+CFLAGS=-std=c99 -Wall -Wextra -O2 $(INCLUDES) $(DEBUG_FLAGS) -fPIC
 RM=rm -f
 
 PACKAGE=halma-game
@@ -33,10 +33,10 @@ FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* README*
 all: $(BIN_DIR)/main-c $(BIN_DIR)/libtab2dchar.a $(BIN_DIR)/libtab2dchar.so doc tar-bz2
 
 
-$(BIN_DIR)/main-c: $(SRC_DIR)/bool.h $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/halma_game_essential.o  $(BIN_DIR)/main-c.o
+$(BIN_DIR)/main-c: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/halma_game_essential.o  $(BIN_DIR)/main-c.o
 	$(CC) $(CFLAGS) $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/halma_game_essential.o $(BIN_DIR)/main-c.o -o $(BIN_DIR)/main-c
 
-$(BIN_DIR)/main-c.o: $(SRC_DIR)/string_functions.h $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/halma_game_essential.h $(SRC_DIR)/main-c.c
+$(BIN_DIR)/main-c.o: $(SRC_DIR)/stdio_functions.h $(SRC_DIR)/tab_2d_char_io.h  $(SRC_DIR)/tab_2d_char_file.h $(SRC_DIR)/halma_game_essential.h $(SRC_DIR)/main-c.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/main-c.c -o $(BIN_DIR)/main-c.o
 
 $(BIN_DIR)/halma_game_players.o: $(SRC_DIR)/halma_game_player.h $(SRC_DIR)/halma_game_players.h $(SRC_DIR)/halma_game_players.c

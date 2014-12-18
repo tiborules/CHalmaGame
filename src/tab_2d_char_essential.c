@@ -29,11 +29,16 @@ void tab_2d_char_alloc_unsafe(tab_2d_char* tab_2d)
   tab_2d->tab = (char *) malloc(sizeof(char) * tab_2d->nb_lines * tab_2d->nb_columns);
 }
 
-void tab_2d_char_alloc(tab_2d_char* tab_2d)
+bool tab_2d_char_alloc(tab_2d_char* tab_2d)
 {
   if(tab_2d_char_is_init(tab_2d))
     free(tab_2d->tab);
+  
+  if(tab_2d->nb_lines == 0 || tab_2d->nb_columns == 0)
+    return false;
+  
   tab_2d_char_alloc_unsafe(tab_2d);
+  return true;
 }
 
 void tab_2d_char_init_unsafe(tab_2d_char* tab_2d, unsigned int nb_lines, unsigned int nb_columns)

@@ -70,8 +70,9 @@ void tab_2d_char_alloc_unsafe(tab_2d_char* tab_2d);
 /**
  * Allocate with checks a 2D table of char.
  * @param tab_2d A pointer of a 2D table of char
+ * @return True if a non null allocation was possible, otherwise false.
  */
-void tab_2d_char_alloc(tab_2d_char* tab_2d);
+bool tab_2d_char_alloc(tab_2d_char* tab_2d);
 
 /**
  * Initialize the 2D table of char unsafely.
