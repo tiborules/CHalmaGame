@@ -23,17 +23,13 @@
 #ifndef HALMA_GAME_ESSENTIAL_H
 #define HALMA_GAME_ESSENTIAL_H
 
+
 #include "bool.h"
 #include "tab_2d_char_file.h"
 
+
 #define HALMA_GAME_CELL_EMPTY '.'
 #define HALMA_GAME_CELL_MARK  '*'
-
-
-/**
- * A board Halma game
- */
-typedef tab_2d_char halma_board_game;
 
 
 /**

@@ -41,4 +41,5 @@ void tab_2d_char_print_stream_without_grid(const tab_2d_char* tab_2d, FILE * str
  */
 void tab_2d_char_print_stdout_without_grid(const tab_2d_char* tab_2d);
 
+
 #endif

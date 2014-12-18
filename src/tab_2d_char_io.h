@@ -23,7 +23,7 @@
 #ifndef TAB_2D_CHAR_IO_H
 #define TAB_2D_CHAR_IO_H
 
-#include "tab_2d_char_print.h"
+#include "tab_2d_char_file.h"
 #include "tab_2d_char_scan.h"
 
 #endif

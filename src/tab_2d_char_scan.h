@@ -40,4 +40,5 @@ void tab_2d_char_scan_stdin_table(tab_2d_char* tab_2d);
  */
 void tab_2d_char_scan_stdin(tab_2d_char* tab_2d);
 
+
 #endif
