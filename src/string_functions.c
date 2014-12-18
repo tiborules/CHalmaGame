@@ -38,6 +38,9 @@ void reverse_string(char* string)
 
 char* get_strcpy(const char* string)
 {
+  if(string == NULL)
+    return NULL;
+  
   char* new_string = (char*) malloc(sizeof(char) * (strlen(string) +1));
   strcpy(new_string, string);
   return new_string;
@@ -54,18 +57,24 @@ char* get_reverse_string(const char* string)
 
 void string_ltrim(char* string, char character_to_strip)
 {
-  while(*string == character_to_strip)
-    strcpy(string, string + 1);
+  if(string != NULL)
+    {
+      while(*string == character_to_strip)
+	strcpy(string, string + 1);
+    }
 }
 
 
 void string_rtrim(char* string, char character_to_strip)
 {
-  string += strlen(string) -1;
-  while(*string == character_to_strip)
+  if(string != NULL)
     {
-      *string = '\0';
-      --string;
+      string += strlen(string) -1;
+      while(*string == character_to_strip)
+	{
+	  *string = '\0';
+	  --string;
+	}
     }
 }
 
@@ -79,18 +88,24 @@ void string_trim(char* string, char character_to_strip)
 
 void delete_consecutive_characters(char* string, char character_to_strip)
 {
-  ++string;
-  while(*string)
+  if(string != NULL)
     {
-      if(*(string -1) == character_to_strip && *string == character_to_strip)
-	strcpy(string -1, string);
       ++string;
+      while(*string)
+	{
+	  if(*(string -1) == character_to_strip && *string == character_to_strip)
+	    strcpy(string -1, string);
+	  ++string;
+	}
     }
 }
 
 
 unsigned int get_nb_of_character_of_string(const char* string, char character)
 {
+  if(string == NULL)
+    return 0;
+  
   unsigned int nb=0;
   while(*string)
     {
@@ -109,24 +124,33 @@ int string_equals(const char* str1, const char* str2)
 
 void string_tolower(char* string)
 {
-  while(*string)
+  if(string != NULL)
     {
-      *string = tolower(*string);
-      ++string;
+      while(*string)
+	{
+	  *string = tolower(*string);
+	  ++string;
+	}
     }
 }
 
 void string_toupper(char* string)
 {
-  while(*string)
+  if(string != NULL)
     {
-      *string = toupper(*string);
-      ++string;
+      while(*string)
+	{
+	  *string = toupper(*string);
+	  ++string;
+	}
     }
 }
 
 bool string_contains_only_digits(const char* string)
 {
+  if(string == NULL)
+    return false;
+  
   while(*string)
     {
       if(!isdigit(*string))
@@ -139,6 +163,7 @@ bool string_contains_only_digits(const char* string)
 bool string_is_int(const char* string)
 {
   return
+    string != NULL &&
     (*string == '+' || *string == '-' || isdigit(*string)) &&
     string_contains_only_digits(++string);
 }
@@ -146,6 +171,7 @@ bool string_is_int(const char* string)
 bool string_is_uint(const char* string)
 {
   return
+    string != NULL &&
     (*string == '+' || isdigit(*string)) &&
     string_contains_only_digits(++string);
 }

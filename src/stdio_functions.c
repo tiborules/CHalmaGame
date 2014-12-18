@@ -63,7 +63,7 @@ unsigned int ask_uint_tirelessly(const char* prompt, const char* error_message)
       fputs(prompt, stdout);
       result = fgets_uint(user_answer, 20, stdin, &is_input_correct);
 
-      if(!is_input_correct)
+      if(!is_input_correct && error_message != NULL)
 	fputs(error_message, stderr);
     }
   while(!is_input_correct);
