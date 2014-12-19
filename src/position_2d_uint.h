@@ -25,6 +25,7 @@
 
 
 #include <stdio.h>
+#include "bool.h"
 
 
 typedef struct position_2d_uint position_2d_uint;
