@@ -25,6 +25,7 @@
 
 
 #include <stdlib.h>
+#include <string.h>
 #include "bool.h"
 
 
@@ -217,6 +218,20 @@ void tab_2d_char_fill_with_const(tab_2d_char* tab_2d, char value_for_filling);
  * @param new_value A new value to replace the old one
  */
 void tab_2d_char_replace(tab_2d_char* tab_2d, char value_to_replace, char new_value);
+
+/**
+ * Copy a table of 2D char in an other one.
+ * @param destination A destination table 2D of char
+ * @param source A source table 2D of char
+ */
+void tab_2d_char_copy(tab_2d_char* destination, const tab_2d_char* source);
+
+/**
+ * Returns a copy of a table 2D of char.
+ * @param source A source table 2D of char
+ * @return A copy of the source table 2D of char
+ */
+tab_2d_char tab_2d_char_get_copy(const tab_2d_char* source);
 
 /* TODO
 char * tab_2d_char_get_line_copy(tab_2d* tab, unsigned int line);

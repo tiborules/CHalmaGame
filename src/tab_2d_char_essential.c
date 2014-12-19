@@ -176,3 +176,18 @@ void tab_2d_char_replace(tab_2d_char* tab_2d, char value_to_replace, char new_va
 	}
     }
 }
+
+void tab_2d_char_copy(tab_2d_char* destination, const tab_2d_char* source)
+{
+  destination->nb_lines = source->nb_lines;
+  destination->nb_columns = source->nb_columns;
+  if(tab_2d_char_alloc(destination))
+    memcpy(destination, source, source->nb_lines * source->nb_columns);
+}
+
+tab_2d_char tab_2d_char_get_copy(const tab_2d_char* source)
+{
+  tab_2d_char tab_2d_copy = tab_2d_char_create(source->nb_lines, source->nb_columns);
+  tab_2d_char_copy(&tab_2d_copy, source);
+  return tab_2d_copy;
+}
