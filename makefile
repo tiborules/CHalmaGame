@@ -25,7 +25,7 @@ CFLAGS=-std=c99 -Wall -Wextra -O2 $(INCLUDES) $(DEBUG_FLAGS) -fPIC
 RM=rm -f
 
 PACKAGE=halma-game
-FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* README*
+FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* README* TODO* .gitignore
 
 
 .PHONY: $(DOC_DIR)
@@ -72,35 +72,38 @@ $(BIN_DIR)/tab_2d_char_print.o: $(SRC_DIR)/tab_2d_char_essential.h $(SRC_DIR)/ta
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/tab_2d_char_print.c -o $(BIN_DIR)/tab_2d_char_print.o
 
 $(BIN_DIR)/tab_2d_char_fill_zone.o: $(SRC_DIR)/tab_2d_char_essential.h $(SRC_DIR)/tab_2d_char_fill_zone.h $(SRC_DIR)/tab_2d_char_fill_zone.c
-	mkdir -p $(BIN_DIR)/
+	@mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/tab_2d_char_fill_zone.c -o $(BIN_DIR)/tab_2d_char_fill_zone.o
 
 $(BIN_DIR)/tab_2d_char_essential.o: $(SRC_DIR)/bool.h $(SRC_DIR)/tab_2d_char_essential.h $(SRC_DIR)/tab_2d_char_essential.c
-	mkdir -p $(BIN_DIR)/
+	@mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/tab_2d_char_essential.c -o $(BIN_DIR)/tab_2d_char_essential.o
 
 $(BIN_DIR)/position_2d_uint_pair.o: $(SRC_DIR)/position_2d_uint.h $(SRC_DIR)/position_2d_uint_pair.h $(SRC_DIR)/position_2d_uint_pair.c
-	mkdir -p $(BIN_DIR)/
+	@mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/position_2d_uint_pair.c -o $(BIN_DIR)/position_2d_uint_pair.o
 
 $(BIN_DIR)/position_2d_uint.o: $(SRC_DIR)/position_2d_uint.h $(SRC_DIR)/position_2d_uint.c
-	mkdir -p $(BIN_DIR)/
+	@mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/position_2d_uint.c -o $(BIN_DIR)/position_2d_uint.o
 
 $(BIN_DIR)/string_functions.o: $(SRC_DIR)/string_functions.h $(SRC_DIR)/string_functions.c
-	mkdir -p $(BIN_DIR)/
+	@mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/string_functions.c -o $(BIN_DIR)/string_functions.o
 
 $(BIN_DIR)/stdio_functions.o: $(SRC_DIR)/stdio_functions.h $(SRC_DIR)/stdio_functions.c
-	mkdir -p $(BIN_DIR)/
+	@mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/stdio_functions.c -o $(BIN_DIR)/stdio_functions.o
 
 
 $(DOC_DIR): $(SRC_DIR)/*.h doxygen_configuration.ini
 	doxygen doxygen_configuration.ini
-	mkdir -p $(DOC_DIR)/
+	@mkdir -p $(BIN_DIR)/
 	# PDF with LaTeX
 	cd $(DOC_DIR)/latex/ && make
+
+
+archives: zip tar-gz tar-bz2
 
 zip: $(FILES_TO_ARCHIVE)
 	zip $(PACKAGE).zip -r -- $(FILES_TO_ARCHIVE)
@@ -111,9 +114,10 @@ tar-gz: $(FILES_TO_ARCHIVE)
 tar-bz2: $(FILES_TO_ARCHIVE)
 	tar -jcvf $(PACKAGE).tar.bz2 $(FILES_TO_ARCHIVE)
 
+
 clean:
 	$(RM) -rf -- \
 		$(BIN_DIR)/ $(DOC_DIR)/ \
-		*.o a.out *.exe *.msi *.dmg \
+		*.o a.out *.deb *.rpm *.exe *.msi *.dmg \
 		*.zip *.tar.* *.7z \
 		*~ .\#*# \#*# *.bak $(SRC_DIR)/*~
