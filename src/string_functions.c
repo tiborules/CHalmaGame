@@ -117,7 +117,7 @@ unsigned int get_nb_of_character_of_string(const char* string, char character)
 }
 
 
-int string_equals(const char* str1, const char* str2)
+bool string_equals(const char* str1, const char* str2)
 {
   return strcmp(str1, str2) == 0;
 }
