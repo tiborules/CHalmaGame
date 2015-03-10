@@ -82,7 +82,7 @@ void delete_consecutive_characters(char* string, char character_to_strip);
  * Returns the number of occurrences of a character in a string
  * @param string A string
  * @param character_to_strip A character to count
- * @return nb The number of occurrences of a character in a string
+ * @return The number of occurrences of a character in a string
  */
 unsigned int get_nb_of_character_of_string(const char* string, char character);
 
@@ -90,9 +90,9 @@ unsigned int get_nb_of_character_of_string(const char* string, char character);
  * Returns true if the 2 strings are equals, otherwise false.
  * @param str1 A first string
  * @param str1 A second string
- * @return result True if the 2 strings are equals, otherwise false
+ * @return True if the 2 strings are equals, otherwise false
  */
-int string_equals(const char* str1, const char* str2);
+bool string_equals(const char* str1, const char* str2);
 
 /**
  * All characters of a string become lower cases.
