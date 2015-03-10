@@ -1,7 +1,10 @@
 # Generated folders
 bin/
+binaries/
 obj/
+objects/
 doc/
+documentation/
 
 # Generated files
 *.o
@@ -20,7 +23,8 @@ doc/
 # Temp files
 *~
 *.bak
-\#*#
+*.backup
+\#*
 .\#*
 
 # Archives
@@ -35,3 +39,5 @@ doc/
 # OS specific useless files
 thumbs.db
 Thumbs.db
+__MACOSX/
+__OSX/

@@ -115,6 +115,8 @@ tar-bz2: $(FILES_TO_ARCHIVE)
 	tar -jcvf $(PACKAGE).tar.bz2 $(FILES_TO_ARCHIVE)
 
 
+rm: clean
+
 clean:
 	$(RM) -rf -- \
 		$(BIN_DIR)/ $(DOC_DIR)/ \

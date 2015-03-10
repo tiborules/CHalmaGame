@@ -7,7 +7,7 @@
  * License Creative Commons 0 (like the public domain)
  * Use, study, hack and share!
  * Even if I do not force you with copyleft to respect freedom of others, please do it.
- * For more informations : http://www.gnu.org/philosophy/free-sw.html
+ * For more informations : https://www.gnu.org/philosophy/free-sw.html
  * This program is provided with no warranty.
  * 
  * @section desc Description
@@ -21,6 +21,7 @@
 #ifndef _BOOL_H_
 #define _BOOL_H_
 
+/** Specifies whether bool, true and false are defined. */
 #define	__bool_true_false_are_defined 1
 
 #ifndef __cplusplus
