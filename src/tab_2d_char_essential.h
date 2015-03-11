@@ -60,13 +60,19 @@ struct tab_2d_char
  * @param tab_2d A pointer of a 2D table of char
  * @return True if the 2D table of char is init, otherwise false.
  */
-bool tab_2d_char_is_init(const tab_2d_char* tab_2d);
+static inline bool tab_2d_char_is_init(const tab_2d_char* tab_2d)
+{
+  return tab_2d != NULL && tab_2d->tab != NULL && tab_2d->nb_lines > 0 && tab_2d->nb_columns > 0;
+}
 
 /**
  * Allocate unsafely (NULL pointer and size) a 2D table of char.
  * @param tab_2d A pointer of a 2D table of char
  */
-void tab_2d_char_alloc_unsafe(tab_2d_char* tab_2d);
+static inline void tab_2d_char_alloc_unsafe(tab_2d_char* tab_2d)
+{
+  tab_2d->tab = (char *) malloc(tab_2d->nb_lines * tab_2d->nb_columns);
+}
 
 /**
  * Allocate with checks a 2D table of char.
@@ -146,7 +152,10 @@ bool tab_2d_char_element_exists(const tab_2d_char* tab_2d, unsigned int line, un
  * @param column A column of the 2D table of char
  * @return The pointer of the element (line, column) of the 2D table of char
  */
-char* tab_2d_char_get_element_pointer_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+static inline char* tab_2d_char_get_element_pointer_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
+{
+  return tab_2d->tab + line * tab_2d->nb_lines + column;
+}
 
 /**
  * Returns the pointer of an element of a 2D table of char with checks.
@@ -164,7 +173,10 @@ char* tab_2d_char_get_element_pointer(const tab_2d_char* tab_2d, unsigned int li
  * @param column A column of the 2D table of char
  * @return The value of the element (line, column) of the 2D table of char
  */
-char tab_2d_char_get_element_value_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+static inline char tab_2d_char_get_element_value_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
+{
+  return *tab_2d_char_get_element_pointer_unsafe(tab_2d, line, column);
+}
 
 /**
  * Returns the value of an element of a 2D table of char with checks.
@@ -182,7 +194,10 @@ char tab_2d_char_get_element_value(const tab_2d_char* tab_2d, unsigned int line,
  * @param column A column of the 2D table of char
  * @param value New value of the element
  */
-void tab_2d_char_set_element_value_unsafe(tab_2d_char* tab_2d, unsigned int line, unsigned int column, char value);
+static inline void tab_2d_char_set_element_value_unsafe(tab_2d_char* tab_2d, unsigned int line, unsigned int column, char value)
+{
+  *tab_2d_char_get_element_pointer_unsafe(tab_2d, line, column) = value;
+}
 
 /**
  * Set the value of the element (line, column) of a 2D table of char with checks.

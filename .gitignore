@@ -1,3 +1,11 @@
+# License Creative Commons 0 (like the public domain)
+# Use, study, hack and share!
+# Even if you are not force to respect freedom of others with copyleft, please do it.
+# For more informations : https://www.gnu.org/philosophy/free-sw.html
+# This file is provided with no warranty.
+# Names of contributors must not be used to endorse or promote products derived from this software without specific prior written permission.
+
+
 # Generated folders
 bin/
 binaries/
@@ -32,8 +40,13 @@ documentation/
 *.tgz
 *.zip
 *.7z
-*.xz
 *.rar
+*.gz
+*.bz2
+*.bzip
+*.xz
+*.lz
+*.lzma
 *.iso
 
 # OS specific useless files
@@ -41,3 +54,28 @@ thumbs.db
 Thumbs.db
 __MACOSX/
 __OSX/
+.DS_Store
+
+# TeX and LaTeX useless files
+*.dvi
+*.aux
+*.nav
+*.toc
+*.fls
+*.snm
+*.vrm
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*-converted-to.*
+
+# Others
+*.log
+*.*rc
+*.cache/
+*.thumbnails/
+*.bash*
+*.zsh*
+*.R*
+*.octave*
+*.xsession*

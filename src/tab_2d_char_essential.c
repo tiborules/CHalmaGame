@@ -19,16 +19,6 @@
 #include "tab_2d_char_essential.h"
 
 
-bool tab_2d_char_is_init(const tab_2d_char* tab_2d)
-{
-  return tab_2d != NULL && tab_2d->tab != NULL && tab_2d->nb_lines > 0 && tab_2d->nb_columns > 0;
-}
-
-void tab_2d_char_alloc_unsafe(tab_2d_char* tab_2d)
-{
-  tab_2d->tab = (char *) malloc(sizeof(char) * tab_2d->nb_lines * tab_2d->nb_columns);
-}
-
 bool tab_2d_char_alloc(tab_2d_char* tab_2d)
 {
   if(tab_2d_char_is_init(tab_2d))
@@ -97,11 +87,6 @@ bool tab_2d_char_element_exists(const tab_2d_char* tab_2d, unsigned int line, un
   return tab_2d_char_is_init(tab_2d) && line < tab_2d->nb_lines && column < tab_2d->nb_columns;
 }
 
-char* tab_2d_char_get_element_pointer_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
-{
-  return tab_2d->tab + sizeof(char) * (line * tab_2d->nb_lines + column);
-}
-
 char* tab_2d_char_get_element_pointer(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
 {
   if(!tab_2d_char_element_exists(tab_2d, line, column))
@@ -109,20 +94,10 @@ char* tab_2d_char_get_element_pointer(const tab_2d_char* tab_2d, unsigned int li
   return tab_2d_char_get_element_pointer_unsafe(tab_2d, line, column);
 }
 
-char tab_2d_char_get_element_value_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
-{
-  return *tab_2d_char_get_element_pointer_unsafe(tab_2d, line, column);
-}
-
 char tab_2d_char_get_element_value(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
 {
   char * pointer = tab_2d_char_get_element_pointer(tab_2d, line, column);
   return pointer == NULL ? '\0' : *pointer;
-}
-
-void tab_2d_char_set_element_value_unsafe(tab_2d_char* tab_2d, unsigned int line, unsigned int column, char value)
-{
-  *tab_2d_char_get_element_pointer_unsafe(tab_2d, line, column) = value;
 }
 
 void tab_2d_char_set_element_value(tab_2d_char* tab_2d, unsigned int line, unsigned int column, char value)

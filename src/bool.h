@@ -6,9 +6,10 @@
  * 
  * License Creative Commons 0 (like the public domain)
  * Use, study, hack and share!
- * Even if I do not force you with copyleft to respect freedom of others, please do it.
+ * Even if you are not force with copyleft to respect freedom of others, please do it.
  * For more informations : https://www.gnu.org/philosophy/free-sw.html
  * This program is provided with no warranty.
+ * Names of contributors must not be used to endorse or promote products derived from this software without specific prior written permission.
  * 
  * @section desc Description
  * 

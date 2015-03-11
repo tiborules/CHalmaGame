@@ -33,20 +33,20 @@
 
 void print_help()
 {
-  printf("h|help -- Print memo of commands.\n");
-  printf("q|quit|k|kill|exit -- Quit the program.\n");
-  printf("new|start|begin -- Start a new Halma game party.\n");
-  printf("l|load -- Load a game board.\n");
-  printf("n|next -- Compute next turn of the Halma game on the current board.\n");
-  printf("p|print|display -- Print the game board.\n");
-  printf("nb_turns -- Print the current turn number.\n");
-  printf("grid_size -- Print the size of the grid.\n");
-  printf("nb_lines -- Print the number of lines.\n");
-  printf("nb_columns -- Print the number of columns.\n");
-  printf("print_players -- Print the players.\n");
-  printf("debug_status -- Print the status of debugging.\n");
-  printf("debug_on -- Put debug on.\n");
-  printf("debug_off -- Put debug off.\n");
+  puts("h|help -- Print memo of commands.");
+  puts("q|quit|k|kill|exit -- Quit the program.");
+  puts("new|start|begin -- Start a new Halma game party.");
+  puts("l|load -- Load a game board.");
+  puts("n|next -- Compute next turn of the Halma game on the current board.");
+  puts("p|print|display|view -- Print the game board.");
+  puts("nb_turns -- Print the current turn number.");
+  puts("grid_size -- Print the size of the grid.");
+  puts("nb_lines -- Print the number of lines.");
+  puts("nb_columns -- Print the number of columns.");
+  puts("print_players -- Print the players.");
+  puts("debug_status -- Print the status of debugging.");
+  puts("debug_on -- Put debug on.");
+  puts("debug_off -- Put debug off.");
 }
 
 /**
@@ -284,7 +284,7 @@ int main(int argc, char* argv[])
 	  else
 	    fprintf(stderr, "There is no game board. :(\n");
 	}
-      else if(string_equals(user_answer, "p") || string_equals(user_answer, "print") || string_equals(user_answer, "display"))
+      else if(string_equals(user_answer, "p") || string_equals(user_answer, "print") || string_equals(user_answer, "display") || string_equals(user_answer, "view"))
 	{
 	    tab_2d_char_print_stdout_without_grid(&game_board);
 	}

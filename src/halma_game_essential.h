@@ -39,7 +39,10 @@
  * @param column A column of the 2D table of char
  * @return True if a cell of a Halma game is empty, otherwise false
  */
-bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+static inline bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
+{
+  return tab_2d_char_get_element_value(tab_2d, line, column) == HALMA_GAME_CELL_EMPTY;
+}
 
 /**
  * Returns true if a cell of a Halma game is a mark, otherwise returns false.
@@ -48,7 +51,10 @@ bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned 
  * @param column A column of the 2D table of char
  * @return True if a cell of a Halma game is a mark, otherwise false
  */
-bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+static inline bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
+{
+  return tab_2d_char_get_element_value(tab_2d, line, column) == HALMA_GAME_CELL_MARK;
+}
 
 /**
  * Returns true if a cell of a Halma game is a pawn, otherwise returns false.

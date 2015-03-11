@@ -39,7 +39,10 @@ void tab_2d_char_print_stream_without_grid(const tab_2d_char* tab_2d, FILE * str
  * Print a 2D table of char not in a grid to stdout.
  * @param tab_2d A pointer of a 2D table of char
  */
-void tab_2d_char_print_stdout_without_grid(const tab_2d_char* tab_2d);
+static inline void tab_2d_char_print_stdout_without_grid(const tab_2d_char* tab_2d)
+{
+  tab_2d_char_print_stream_without_grid(tab_2d, stdout);
+}
 
 
 #endif
