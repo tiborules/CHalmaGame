@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014-2015  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -22,10 +22,15 @@
 bool tab_2d_char_alloc(tab_2d_char* tab_2d)
 {
   if(tab_2d_char_is_init(tab_2d))
-    free(tab_2d->tab);
+    {
+      free(tab_2d->tab);
+    }
   
-  if(tab_2d->nb_lines == 0 || tab_2d->nb_columns == 0)
-    return false;
+  if(tab_2d->nb_lines == 0 ||
+     tab_2d->nb_columns == 0)
+    {
+      return false;
+    }
   
   tab_2d_char_alloc_unsafe(tab_2d);
   return true;
@@ -59,39 +64,30 @@ tab_2d_char tab_2d_char_create(unsigned int nb_lines, unsigned int nb_columns)
 
 void tab_2d_char_destruct(tab_2d_char* tab_2d)
 {
-  if(tab_2d != NULL)
-    {
-      if(tab_2d->tab != NULL)
-	{
-	  free(tab_2d->tab);
-	  tab_2d->tab = NULL;
-	}
-      
-      tab_2d->nb_lines = 0;
-      tab_2d->nb_columns = 0;
-    }
+  TAB_2D_GENERIC_STATIC_POINTER_DESTRUCT(tab_2d);
 }
 
 bool tab_2d_char_line_exists(const tab_2d_char* tab_2d, unsigned int line)
 {
-  return tab_2d_char_is_init(tab_2d) && line < tab_2d->nb_lines;
+  return TAB_2D_GENERIC_STATIC_POINTER_LINE_EXISTS(tab_2d, line);
 }
 
 bool tab_2d_char_column_exists(const tab_2d_char* tab_2d, unsigned int column)
 {
-  return tab_2d_char_is_init(tab_2d) && column < tab_2d->nb_columns;
+  return TAB_2D_GENERIC_STATIC_POINTER_COLUMN_EXISTS(tab_2d, column);
 }
 
 bool tab_2d_char_element_exists(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
 {
-  return tab_2d_char_is_init(tab_2d) && line < tab_2d->nb_lines && column < tab_2d->nb_columns;
+  return TAB_2D_GENERIC_STATIC_POINTER_ELEMENT_EXISTS(tab_2d, line, column);
 }
 
 char* tab_2d_char_get_element_pointer(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
 {
-  if(!tab_2d_char_element_exists(tab_2d, line, column))
-    return NULL;
-  return tab_2d_char_get_element_pointer_unsafe(tab_2d, line, column);
+  return
+    tab_2d_char_element_exists(tab_2d, line, column)
+    ? tab_2d_char_get_element_pointer_unsafe(tab_2d, line, column)
+    : NULL;
 }
 
 char tab_2d_char_get_element_value(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
@@ -109,8 +105,12 @@ void tab_2d_char_set_element_value(tab_2d_char* tab_2d, unsigned int line, unsig
 
 bool tab_2d_char_swap(tab_2d_char* tab_2d, unsigned int line1, unsigned int column1, unsigned int line2, unsigned int column2)
 {
-  if(!tab_2d_char_is_init(tab_2d) || !tab_2d_char_element_exists(tab_2d, line1, column1) || !tab_2d_char_element_exists(tab_2d, line2, column2))
-    return false;
+  if(!tab_2d_char_is_init(tab_2d) ||
+     !tab_2d_char_element_exists(tab_2d, line1, column1) ||
+     !tab_2d_char_element_exists(tab_2d, line2, column2))
+    {
+      return false;
+    }
   
   char tmp = tab_2d_char_get_element_value(tab_2d, line1, column1);
   tab_2d_char_set_element_value(tab_2d, line1, column1,
@@ -159,7 +159,11 @@ void tab_2d_char_copy(tab_2d_char* destination, const tab_2d_char* source)
       destination->nb_lines = source->nb_lines;
       destination->nb_columns = source->nb_columns;
       if(tab_2d_char_alloc(destination) && source->tab != NULL)
-	memcpy(destination->tab, source->tab, source->nb_lines * source->nb_columns);
+	{
+	  memcpy(destination->tab,
+		 source->tab,
+		 source->nb_lines * source->nb_columns);
+	}
     }
 }
 

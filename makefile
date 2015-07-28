@@ -1,4 +1,4 @@
-# Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+# Copyright (C) 2014-2015  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -21,7 +21,7 @@ DOC_DIR=doc
 CC=gcc
 INCLUDES=-I./$(SRC_DIR)
 DEBUG_FLAGS=-O0 -g
-CFLAGS=-std=c99 -Wall -Wextra -O2 $(INCLUDES) $(DEBUG_FLAGS) -fPIC
+CFLAGS=-std=c99 -Wall -Wextra -Wpedantic -O2 $(INCLUDES) $(DEBUG_FLAGS) -fPIC
 RM=rm -f
 
 PACKAGE=halma-game
@@ -75,7 +75,7 @@ $(BIN_DIR)/tab_2d_char_fill_zone.o: $(SRC_DIR)/tab_2d_char_essential.h $(SRC_DIR
 	@mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/tab_2d_char_fill_zone.c -o $(BIN_DIR)/tab_2d_char_fill_zone.o
 
-$(BIN_DIR)/tab_2d_char_essential.o: $(SRC_DIR)/bool.h $(SRC_DIR)/tab_2d_char_essential.h $(SRC_DIR)/tab_2d_char_essential.c
+$(BIN_DIR)/tab_2d_char_essential.o: $(SRC_DIR)/bool.h $(SRC_DIR)/tab_2d_generic_static.h $(SRC_DIR)/tab_2d_char_essential.h $(SRC_DIR)/tab_2d_char_essential.c
 	@mkdir -p $(BIN_DIR)/
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/tab_2d_char_essential.c -o $(BIN_DIR)/tab_2d_char_essential.o
 
@@ -114,12 +114,16 @@ tar-gz: $(FILES_TO_ARCHIVE)
 tar-bz2: $(FILES_TO_ARCHIVE)
 	tar -jcvf $(PACKAGE).tar.bz2 $(FILES_TO_ARCHIVE)
 
+tar-xz: $(FILES_TO_ARCHIVE)
+	tar -cJvf $(PACKAGE).tar.xz $(FILES_TO_ARCHIVE)
 
-rm: clean
+7z: $(FILES_TO_ARCHIVE)
+	7z a -t7z $(PACKAGE).7z $(FILES_TO_ARCHIVE)
+
 
 clean:
 	$(RM) -rf -- \
 		$(BIN_DIR)/ $(DOC_DIR)/ \
 		*.o a.out *.deb *.rpm *.exe *.msi *.dmg \
-		*.zip *.tar.* *.7z \
+		*.zip *.tar *.tar.* *.gz *.bz2 *.xz *.7z *.iso \
 		*~ .\#*# \#*# *.bak $(SRC_DIR)/*~
