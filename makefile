@@ -11,7 +11,7 @@
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
 SRC_DIR=src
@@ -25,12 +25,12 @@ CFLAGS=-std=c99 -Wall -Wextra -Wpedantic -O2 $(INCLUDES) $(DEBUG_FLAGS) -fPIC
 RM=rm -f
 
 PACKAGE=halma-game
-FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* README* TODO* .gitignore
+FILES_TO_ARCHIVE=$(SRC_DIR)/ makefile doxygen_configuration.ini LICENSE* README* .gitignore .editorconfig .dir-locals.el
 
 
-.PHONY: $(DOC_DIR)
+.PHONY: $(DOC_DIR) archives default-archive zip tar-gz tar-bz2 tar-xz 7z clean
 
-all: $(BIN_DIR)/$(PACKAGE)-text $(BIN_DIR)/libtab2dchar.a $(BIN_DIR)/libtab2dchar.so doc tar-bz2
+all: $(BIN_DIR)/$(PACKAGE)-text $(BIN_DIR)/libtab2dchar.a $(BIN_DIR)/libtab2dchar.so doc default-archive
 
 
 $(BIN_DIR)/$(PACKAGE)-text: $(BIN_DIR)/stdio_functions.o $(BIN_DIR)/string_functions.o $(BIN_DIR)/tab_2d_char_essential.o $(BIN_DIR)/tab_2d_char_print.o $(BIN_DIR)/tab_2d_char_scan.o $(BIN_DIR)/tab_2d_char_file.o $(BIN_DIR)/halma_game_essential.o $(BIN_DIR)/tab_2d_char_fill_zone.o $(BIN_DIR)/halma_game_player.o $(BIN_DIR)/halma_game_players.o $(BIN_DIR)/halma_game_board.o $(BIN_DIR)/main-c.o
@@ -96,28 +96,40 @@ $(BIN_DIR)/stdio_functions.o: $(SRC_DIR)/stdio_functions.h $(SRC_DIR)/stdio_func
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/stdio_functions.c -o $(BIN_DIR)/stdio_functions.o
 
 
-$(DOC_DIR): $(SRC_DIR)/*.h doxygen_configuration.ini
-	doxygen doxygen_configuration.ini
+$(DOC_DIR): $(SRC_DIR)/*.h etc/doxygen_configuration.ini
+	doxygen etc/doxygen_configuration.ini
 	@mkdir -p $(BIN_DIR)/
 	# PDF with LaTeX
 	cd $(DOC_DIR)/latex/ && make
 
 
-archives: zip tar-gz tar-bz2
+archives: zip tar-gz tar-bz2 tar-xz 7z
 
-zip: $(FILES_TO_ARCHIVE)
+default-archive: tar-xz
+
+zip: $(PACKAGE).zip
+
+$(PACKAGE).zip: $(FILES_TO_ARCHIVE)
 	zip $(PACKAGE).zip -r -- $(FILES_TO_ARCHIVE)
 
-tar-gz: $(FILES_TO_ARCHIVE)
-	tar -zcvf $(PACKAGE).tar.gz $(FILES_TO_ARCHIVE)
+tar-gz: $(PACKAGE).tar.gz
 
-tar-bz2: $(FILES_TO_ARCHIVE)
-	tar -jcvf $(PACKAGE).tar.bz2 $(FILES_TO_ARCHIVE)
+$(PACKAGE).tar.gz: $(FILES_TO_ARCHIVE)
+	tar -zcvf $(PACKAGE).tar.gz -- $(FILES_TO_ARCHIVE)
 
-tar-xz: $(FILES_TO_ARCHIVE)
-	tar -cJvf $(PACKAGE).tar.xz $(FILES_TO_ARCHIVE)
+tar-bz2: $(PACKAGE).tar.bz2
 
-7z: $(FILES_TO_ARCHIVE)
+$(PACKAGE).tar.bz2: $(FILES_TO_ARCHIVE)
+	tar -jcvf $(PACKAGE).tar.bz2 -- $(FILES_TO_ARCHIVE)
+
+tar-xz: $(PACKAGE).tar.xz
+
+$(PACKAGE).tar.xz: $(FILES_TO_ARCHIVE)
+	tar -cJvf $(PACKAGE).tar.xz -- $(FILES_TO_ARCHIVE)
+
+7z: $(PACKAGE).7z
+
+$(PACKAGE).7z: $(FILES_TO_ARCHIVE)
 	7z a -t7z $(PACKAGE).7z $(FILES_TO_ARCHIVE)
 
 

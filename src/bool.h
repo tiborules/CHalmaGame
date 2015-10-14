@@ -1,13 +1,13 @@
 /**
  * @file
- * @author Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * @author Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * @section license License
  * 
  * License Creative Commons 0 (like the public domain)
  * Use, study, hack and share!
  * Even if you are not force with copyleft to respect freedom of others, please do it.
- * For more informations : https://www.gnu.org/philosophy/free-sw.html
+ * For more informations: https://www.gnu.org/philosophy/free-sw.html
  * This program is provided with no warranty.
  * Names of contributors must not be used to endorse or promote products derived from this software without specific prior written permission.
  * 
@@ -16,7 +16,7 @@
  * stdbool.h of C99 does the same thing.
  * Unfortunately there is nothing for using bool with printf and scanf.
  * The real type can be different with 2 implementations (for example with GCC and Clang).
- * The aim of this header is to be independant of the implementation and to be independant of C99 compiler.
+ * The aim of this header is to be independant of the implementation and to be independant of C99 library.
  */
 
 #ifndef _BOOL_H_

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @author Spanti Nicola (RyDroid)
+ * @author Nicola Spanti (RyDroid)
  */
 
 
