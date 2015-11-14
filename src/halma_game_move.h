@@ -20,10 +20,33 @@
  */
 
 
-#ifndef TAB_2D_CHAR_IO_H
-#define TAB_2D_CHAR_IO_H
+#ifndef HALMA_GAME_MOVE_H
+#define HALMA_GAME_MOVE_H
 
-#include "tab_2d_char_file.h"
-#include "tab_2d_char_scan.h"
+
+#include "position_2d_uint_pair.h"
+#include "halma_game_essential.h"
+
+
+#define HALMA_GAME_MOVE_POSSIBLE          0x11
+#define HALMA_GAME_MOVE_IMPOSSIBLE_FIRST  0x10
+#define HALMA_GAME_MOVE_IMPOSSIBLE_SECOND 0x01
+#define HALMA_GAME_MOVE_IMPOSSIBLE_BOTH   0X00
+
+
+/**
+ * A move in Halma game.
+ */
+typedef position_2d_uint_pair halma_game_move;
+
+
+/**
+ * Return HALMA_GAME_POSSIBLE_MOVE if a move is possible, otherwise a macro HALMA_GAME_MOVE_IMPOSSIBLE_*.
+ * @param tab_2d A pointer of a 2D table of char
+ * @param move A move
+ * @return HALMA_GAME_MOVE_POSSIBLE if a move is possible, otherwise a macro HALMA_GAME_MOVE_IMPOSSIBLE_*
+ */
+signed char halma_game_move_is_possible(const tab_2d_char* tab_2d, const halma_game_move* move);
+
 
 #endif

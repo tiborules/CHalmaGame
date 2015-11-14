@@ -79,12 +79,19 @@ See [LICENSE.md](LICENSE.md) and logs of git for the full list of contributors o
 
 * Clarify licensing policy.
 * Finish the project
-  * Manage 2 to 4 players
+  * Manage 2 to 4 players in main
+  * Create a grid automatically
   * Manage winning and game over
   * Print the grid with colors
+  *  A progress report, in PDF, with screenshots
+* Try to compile and make the program works on more OS (FreeBSD, ReactOS, etc) (only GNU/Linux has been tested currently)
+* Search and do TODO
 
 ### Ideas
 
+* Reduce tab_2d_char_essential by creating tab_2d_char_plus
+* Use macros and inline functions to optimize
+* Create a struct for each halma_game_player_choose_move function with a name and a description
 * Create an icon
 * A graphical user interface
 * Compute a score for ranking loosers

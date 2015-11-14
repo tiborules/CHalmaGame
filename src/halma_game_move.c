@@ -1,6 +1,4 @@
 /**
- * @file
- * 
  * @section license License
  * 
  * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
@@ -20,10 +18,12 @@
  */
 
 
-#ifndef TAB_2D_CHAR_IO_H
-#define TAB_2D_CHAR_IO_H
+#include "halma_game_move.h"
 
-#include "tab_2d_char_file.h"
-#include "tab_2d_char_scan.h"
 
-#endif
+signed char halma_game_move_is_possible(const tab_2d_char* tab_2d, const halma_game_move* move)
+{
+  return
+    halma_is_pawn(tab_2d, move->first.line, move->first.column) &&
+    halma_is_mark(tab_2d, move->second.line, move->second.column) << 1;
+}

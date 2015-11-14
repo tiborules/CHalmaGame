@@ -3,7 +3,7 @@
  * 
  * @section license License
  * 
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -16,14 +16,16 @@
  * GNU Lesser General Public License for more details.
  * 
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 
 #ifndef POSITION_2D_UINT_H
 #define POSITION_2D_UINT_H
 
+
 #include <stdio.h>
+#include "bool.h"
 
 
 typedef struct position_2d_uint position_2d_uint;
@@ -42,6 +44,14 @@ struct position_2d_uint
  * @param position A 2D position of unsigned int
  */
 void position_2d_uint_swap(position_2d_uint* position);
+
+/**
+ * Return true if 2 2D positions of unsigned int are equal, otherwise false.
+ * @param position1 A first position
+ * @param position2 A second position
+ * @return True if 2 2D positions of unsigned int are equal, otherwise false
+ */
+bool position_2d_uint_equals(const position_2d_uint* position1, const position_2d_uint* position2);
 
 /**
  * Print a 2D position of unsigned int with line first and column second.

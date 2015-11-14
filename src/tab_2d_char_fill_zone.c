@@ -1,6 +1,4 @@
 /**
- * @file
- * 
  * @section license License
  * 
  * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
@@ -20,10 +18,27 @@
  */
 
 
-#ifndef TAB_2D_CHAR_IO_H
-#define TAB_2D_CHAR_IO_H
+#include "tab_2d_char_fill_zone.h"
 
-#include "tab_2d_char_file.h"
-#include "tab_2d_char_scan.h"
 
-#endif
+void tab_2d_char_fill_part_of_line_with_char(tab_2d_char* tab_2d, size_t line, size_t begin_at_column, size_t nb_char, char character)
+{
+  if(tab_2d_char_line_exists(tab_2d, line))
+    {
+      while(begin_at_column < tab_2d->nb_columns && nb_char-- > 0)
+	{
+	  tab_2d_char_set_element_value_unsafe(tab_2d, line, begin_at_column++, character);
+	}
+    }
+}
+
+void tab_2d_char_fill_part_of_column_with_char(tab_2d_char* tab_2d, size_t column, size_t begin_at_line, size_t nb_char, char character)
+{
+  if(tab_2d_char_column_exists(tab_2d, column))
+    {
+      while(begin_at_line < tab_2d->nb_lines && nb_char-- > 0)
+	{
+	  tab_2d_char_set_element_value_unsafe(tab_2d, begin_at_line++, column, character);
+	}
+    }
+}

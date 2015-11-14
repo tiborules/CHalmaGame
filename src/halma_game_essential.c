@@ -3,7 +3,7 @@
  * 
  * @section license License
  * 
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -16,22 +16,12 @@
  * GNU Lesser General Public License for more details.
  * 
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 
 #include "halma_game_essential.h"
 
-
-bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
-{
-  return tab_2d_char_get_element_value(tab_2d, line, column) == HALMA_GAME_CELL_EMPTY;
-}
-
-bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
-{
-  return tab_2d_char_get_element_value(tab_2d, line, column) == HALMA_GAME_CELL_MARK;
-}
 
 bool halma_is_pawn(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
 {

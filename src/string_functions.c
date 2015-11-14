@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -12,7 +12,7 @@
  * GNU Lesser General Public License for more details.
  * 
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 
@@ -38,6 +38,9 @@ void reverse_string(char* string)
 
 char* get_strcpy(const char* string)
 {
+  if(string == NULL)
+    return NULL;
+  
   char* new_string = (char*) malloc(sizeof(char) * (strlen(string) +1));
   strcpy(new_string, string);
   return new_string;
@@ -54,16 +57,25 @@ char* get_reverse_string(const char* string)
 
 void string_ltrim(char* string, char character_to_strip)
 {
-  while(string[0] == character_to_strip)
-    strcpy(string, string + 1);
+  if(string != NULL)
+    {
+      while(*string == character_to_strip)
+	strcpy(string, string + 1);
+    }
 }
 
 
 void string_rtrim(char* string, char character_to_strip)
 {
-  size_t i = strlen(string) -1;
-  while(string[i] == character_to_strip)
-    string[i--] = '\0';
+  if(string != NULL)
+    {
+      string += strlen(string) -1;
+      while(*string == character_to_strip)
+	{
+	  *string = '\0';
+	  --string;
+	}
+    }
 }
 
 
@@ -76,43 +88,90 @@ void string_trim(char* string, char character_to_strip)
 
 void delete_consecutive_characters(char* string, char character_to_strip)
 {
-  for(size_t i=1; i < strlen(string); ++i)
+  if(string != NULL)
     {
-      if(string[i-1] == character_to_strip && string[i] == character_to_strip)
-	strcpy(string + i-1, string + i);
+      ++string;
+      while(*string)
+	{
+	  if(*(string -1) == character_to_strip && *string == character_to_strip)
+	    strcpy(string -1, string);
+	  ++string;
+	}
     }
 }
 
 
 unsigned int get_nb_of_character_of_string(const char* string, char character)
 {
+  if(string == NULL)
+    return 0;
+  
   unsigned int nb=0;
-  for(size_t i=0; i < strlen(string); ++i)
+  while(*string)
     {
-      if(string[i] == character)
+      if(*string == character)
 	++nb;
+      ++string;
     }
   return nb;
 }
 
 
-int string_equals(const char* str1, const char* str2)
+bool string_equals(const char* str1, const char* str2)
 {
   return strcmp(str1, str2) == 0;
 }
 
 void string_tolower(char* string)
 {
-  for(size_t i=0; i < strlen(string); ++i)
+  if(string != NULL)
     {
-      string[i] = tolower(string[i]);
+      while(*string)
+	{
+	  *string = tolower(*string);
+	  ++string;
+	}
     }
 }
 
 void string_toupper(char* string)
 {
-  for(size_t i=0; i < strlen(string); ++i)
+  if(string != NULL)
     {
-      string[i] = toupper(string[i]);
+      while(*string)
+	{
+	  *string = toupper(*string);
+	  ++string;
+	}
     }
+}
+
+bool string_contains_only_digits(const char* string)
+{
+  if(string == NULL)
+    return false;
+  
+  while(*string)
+    {
+      if(!isdigit(*string))
+	 return false;
+      ++string;
+    }
+  return true;
+}
+
+bool string_is_int(const char* string)
+{
+  return
+    string != NULL &&
+    (*string == '+' || *string == '-' || isdigit(*string)) &&
+    string_contains_only_digits(++string);
+}
+
+bool string_is_uint(const char* string)
+{
+  return
+    string != NULL &&
+    (*string == '+' || isdigit(*string)) &&
+    string_contains_only_digits(++string);
 }

@@ -3,7 +3,7 @@
  * 
  * @section license License
  *
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -16,16 +16,18 @@
  * GNU Lesser General Public License for more details.
  * 
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 
 #ifndef STRING_FUNCTIONS_H
 #define STRING_FUNCTIONS_H
 
+
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "bool.h"
 
 
 /**
@@ -80,7 +82,7 @@ void delete_consecutive_characters(char* string, char character_to_strip);
  * Returns the number of occurrences of a character in a string
  * @param string A string
  * @param character_to_strip A character to count
- * @return nb The number of occurrences of a character in a string
+ * @return The number of occurrences of a character in a string
  */
 unsigned int get_nb_of_character_of_string(const char* string, char character);
 
@@ -88,9 +90,9 @@ unsigned int get_nb_of_character_of_string(const char* string, char character);
  * Returns true if the 2 strings are equals, otherwise false.
  * @param str1 A first string
  * @param str1 A second string
- * @return result True if the 2 strings are equals, otherwise false
+ * @return True if the 2 strings are equals, otherwise false
  */
-int string_equals(const char* str1, const char* str2);
+bool string_equals(const char* str1, const char* str2);
 
 /**
  * All characters of a string become lower cases.
@@ -103,5 +105,27 @@ void string_tolower(char* string);
  * @param string String to uppercase
  */
 void string_toupper(char* string);
+
+/**
+ * Returns true if a string contains only digits, otherwise false.
+ * @param string A string
+ * @return True if a string contains only digits, otherwise false
+ */
+bool string_contains_only_digits(const char* string);
+
+/**
+ * Returns true if a string is an integer, otherwise false.
+ * @param string A string
+ * @return True if a string is an integer, otherwise false
+ */
+bool string_is_int(const char* string);
+
+/**
+ * Returns true if a string is an unsigned integer, otherwise false.
+ * @param string A string
+ * @return True if a string is an unsigned integer, otherwise false
+ */
+bool string_is_uint(const char* string);
+
 
 #endif

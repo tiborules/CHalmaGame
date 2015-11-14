@@ -3,7 +3,7 @@
  * 
  * @section license License
  * 
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014-2015  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -16,41 +16,19 @@
  * GNU Lesser General Public License for more details.
  * 
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 
 #ifndef TAB_2D_CHAR_ESSENTIAL_H
 #define TAB_2D_CHAR_ESSENTIAL_H
 
-#include <stdlib.h>
-#include "bool.h"
+
+#include "tab_2d_generic_static.h"
+#include <string.h>
 
 
-typedef struct tab_2d_char tab_2d_char;
-
-/**
- * A struct that defines a 2D table of char.
- * It has a tab and the number of lines and columns.
- */
-struct tab_2d_char
-{
-  /**
-   * The content of the 2D table of char.
-   * Only functions should use it.
-   */
-  char* tab;
-  
-  /**
-   * The number of lines.
-   */
-  unsigned int nb_lines;
-  
-  /**
-   * The number of columns.
-   */
-  unsigned int nb_columns;
-};
+DEFINE_TAB_2D_GENERIC_STATIC(char)
 
 
 /**
@@ -58,19 +36,27 @@ struct tab_2d_char
  * @param tab_2d A pointer of a 2D table of char
  * @return True if the 2D table of char is init, otherwise false.
  */
-bool tab_2d_char_is_init(const tab_2d_char* tab_2d);
+static inline bool tab_2d_char_is_init(const tab_2d_char* tab_2d)
+{
+  return TAB_2D_GENERIC_STATIC_POINTER_IS_INIT(tab_2d);
+}
 
 /**
  * Allocate unsafely (NULL pointer and size) a 2D table of char.
  * @param tab_2d A pointer of a 2D table of char
  */
-void tab_2d_char_alloc_unsafe(tab_2d_char* tab_2d);
+static inline
+void tab_2d_char_alloc_unsafe(tab_2d_char* tab_2d)
+{
+  TAB_2D_GENERIC_STATIC_POINTER_ALLOC_UNSAFE(tab_2d, char);
+}
 
 /**
  * Allocate with checks a 2D table of char.
  * @param tab_2d A pointer of a 2D table of char
+ * @return True if a non null allocation was possible, otherwise false.
  */
-void tab_2d_char_alloc(tab_2d_char* tab_2d);
+bool tab_2d_char_alloc(tab_2d_char* tab_2d);
 
 /**
  * Initialize the 2D table of char unsafely.
@@ -143,7 +129,11 @@ bool tab_2d_char_element_exists(const tab_2d_char* tab_2d, unsigned int line, un
  * @param column A column of the 2D table of char
  * @return The pointer of the element (line, column) of the 2D table of char
  */
-char* tab_2d_char_get_element_pointer_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+static inline
+char* tab_2d_char_get_element_pointer_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
+{
+  return TAB_2D_GENERIC_STATIC_POINTER_GET_ELEMENT_POINTER_UNSAFE(tab_2d, line, column, char);
+}
 
 /**
  * Returns the pointer of an element of a 2D table of char with checks.
@@ -161,7 +151,11 @@ char* tab_2d_char_get_element_pointer(const tab_2d_char* tab_2d, unsigned int li
  * @param column A column of the 2D table of char
  * @return The value of the element (line, column) of the 2D table of char
  */
-char tab_2d_char_get_element_value_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+static inline
+char tab_2d_char_get_element_value_unsafe(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
+{
+  return TAB_2D_GENERIC_STATIC_POINTER_GET_ELEMENT_VALUE_UNSAFE(tab_2d, line, column, char);
+}
 
 /**
  * Returns the value of an element of a 2D table of char with checks.
@@ -179,7 +173,11 @@ char tab_2d_char_get_element_value(const tab_2d_char* tab_2d, unsigned int line,
  * @param column A column of the 2D table of char
  * @param value New value of the element
  */
-void tab_2d_char_set_element_value_unsafe(tab_2d_char* tab_2d, unsigned int line, unsigned int column, char value);
+static inline
+void tab_2d_char_set_element_value_unsafe(tab_2d_char* tab_2d, unsigned int line, unsigned int column, char value)
+{
+  TAB_2D_GENERIC_STATIC_POINTER_SET_ELEMENT_VALUE_UNSAFE(tab_2d, line, column, value, char);
+}
 
 /**
  * Set the value of the element (line, column) of a 2D table of char with checks.
@@ -216,9 +214,26 @@ void tab_2d_char_fill_with_const(tab_2d_char* tab_2d, char value_for_filling);
  */
 void tab_2d_char_replace(tab_2d_char* tab_2d, char value_to_replace, char new_value);
 
-/* TODO
-char * tab_2d_char_get_line_copy(tab_2d* tab, unsigned int line);
-char * tab_2d_char_get_column_copy(tab_2d* tab, unsigned int column);
+/**
+ * Copy a table of 2D char in an other one.
+ * @param destination A destination table 2D of char
+ * @param source A source table 2D of char
  */
+void tab_2d_char_copy(tab_2d_char* destination, const tab_2d_char* source);
+
+/**
+ * Returns a copy of a table 2D of char (there is no check of valid input).
+ * @param source A source table 2D of char
+ * @return A copy of the source table 2D of char
+ */
+tab_2d_char tab_2d_char_get_copy_unsafe(const tab_2d_char* source);
+
+/**
+ * Returns a copy of a table 2D of char.
+ * @param source A source table 2D of char
+ * @return A copy of the source table 2D of char
+ */
+tab_2d_char tab_2d_char_get_copy(const tab_2d_char* source);
+
 
 #endif

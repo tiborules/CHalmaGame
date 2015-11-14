@@ -1,9 +1,7 @@
 /**
- * @file
- * 
  * @section license License
  * 
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -16,7 +14,7 @@
  * GNU Lesser General Public License for more details.
  * 
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 
@@ -31,6 +29,13 @@ void position_2d_uint_swap(position_2d_uint* position)
       position->line = position->column;
       position->column = tmp;
     }
+}
+
+bool position_2d_uint_equals(const position_2d_uint* position1, const position_2d_uint* position2)
+{
+  return
+    position1 != NULL && position2 != NULL &&
+    position1->first == position2->first && position1->second == position2->second;
 }
 
 void position_2d_uint_print(const position_2d_uint* position, FILE* stream, const char* delimiter_start, const char* separator, const char* delimiter_end)

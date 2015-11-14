@@ -3,7 +3,7 @@
  * 
  * @section license License
  * 
- * Copyright (C) 2014  Spanti Nicola (RyDroid) <rydroid_dev@yahoo.com>
+ * Copyright (C) 2014  Nicola Spanti (RyDroid) <dev@nicola-spanti.info>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -16,24 +16,20 @@
  * GNU Lesser General Public License for more details.
  * 
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 
 #ifndef HALMA_GAME_ESSENTIAL_H
 #define HALMA_GAME_ESSENTIAL_H
 
+
 #include "bool.h"
 #include "tab_2d_char_file.h"
 
+
 #define HALMA_GAME_CELL_EMPTY '.'
 #define HALMA_GAME_CELL_MARK  '*'
-
-
-/**
- * A board Halma game
- */
-typedef tab_2d_char halma_board_game;
 
 
 /**
@@ -43,7 +39,10 @@ typedef tab_2d_char halma_board_game;
  * @param column A column of the 2D table of char
  * @return True if a cell of a Halma game is empty, otherwise false
  */
-bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+static inline bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
+{
+  return tab_2d_char_get_element_value(tab_2d, line, column) == HALMA_GAME_CELL_EMPTY;
+}
 
 /**
  * Returns true if a cell of a Halma game is a mark, otherwise returns false.
@@ -52,7 +51,10 @@ bool halma_is_cell_empty(const tab_2d_char* tab_2d, unsigned int line, unsigned 
  * @param column A column of the 2D table of char
  * @return True if a cell of a Halma game is a mark, otherwise false
  */
-bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int column);
+static inline bool halma_is_mark(const tab_2d_char* tab_2d, unsigned int line, unsigned int column)
+{
+  return tab_2d_char_get_element_value(tab_2d, line, column) == HALMA_GAME_CELL_MARK;
+}
 
 /**
  * Returns true if a cell of a Halma game is a pawn, otherwise returns false.

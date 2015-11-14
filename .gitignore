@@ -1,7 +1,26 @@
+# License Creative Commons 0 (like the public domain)
+# Use, study, hack and share!
+# Even if you are not force to respect freedom of others with copyleft, please do it.
+# For more informations : https://www.gnu.org/philosophy/free-sw.html
+# This file is provided with no warranty.
+# Names of contributors must not be used to endorse or promote products derived from this software without specific prior written permission.
+
+
 # Generated folders
+build/
+Build/
+release/
+Release/
+dbg/
+debug/
+Debug/
 bin/
+binaries/
 obj/
+objects/
 doc/
+docs/
+documentation/
 
 # Generated files
 *.o
@@ -9,21 +28,83 @@ doc/
 *.ko
 *.a
 *.dll
+*.deb
+*.rpm
+*.apk
 *.exe
 *.msi
 *.out
+*.dmg
 
 # Temp files
 *~
 *.bak
-\#*#
+*.backup
+\#*
 .\#*
+*\#
 
 # Archives
 *.tar*
+*.tgz
 *.zip
 *.7z
+*.rar
+*.gz
+*.bz2
+*.bzip
+*.xz
+*.lz
+*.lzma
+*.iso
 
 # OS specific useless files
 thumbs.db
 Thumbs.db
+__MACOSX/
+__MAC_OS_X/
+__OSX/
+__OS_X/
+__WINDOWS/
+.DS_Store
+.directory
+
+# TeX and LaTeX useless files
+*.dvi
+*.aux
+*.nav
+*.toc
+*.fls
+*.snm
+*.vrm
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*-converted-to.*
+
+# Integrated Development Environment
+## Qt Creator
+*.pro.user
+
+# Log
+*.log
+*.log.*
+error_log*
+log/
+logs/
+
+# Copy
+copy of *
+copie de *
+* - copy.*
+* - copie.*
+
+# Others
+*.*rc
+*.cache/
+*.thumbnails/
+*.bash*
+*.zsh*
+*.R*
+*.octave*
+*.xsession*
